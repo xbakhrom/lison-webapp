@@ -48,9 +48,8 @@ button { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
   font-size: 24px; line-height: 1; cursor: pointer;
 }
 .wordmark {
-  width: 130px; height: 42px; flex: 0 0 auto; padding: 3px 4px; border: 1px solid rgba(20, 24, 32, .06);
-  border-radius: 11px; display: grid; place-items: center; background: #fff;
-  box-shadow: 0 4px 14px rgba(16, 35, 65, .08); cursor: pointer;
+  width: 130px; height: 42px; flex: 0 0 auto; padding: 0; border: 0;
+  display: grid; place-items: center; background: transparent; cursor: pointer;
 }
 .brand-logo { width: 132px; height: 40px; display: inline-grid; place-items: center; overflow: hidden; }
 .brand-logo > span {
@@ -153,7 +152,12 @@ p { color: var(--muted); line-height: 1.6; }
 .prose h3 { margin: 21px 0 8px; color: var(--blue-dark); }
 .prose ul { padding-left: 20px; }
 .prose li { margin: 7px 0; }
-.prose code { padding: 3px 6px; border-radius: 7px; color: var(--ink); background: #f0f3f8; font-family: inherit; }
+.prose code {
+  padding: 3px 6px; border: 1px solid var(--line); border-radius: 7px;
+  color: var(--ink); background: color-mix(in srgb, var(--ink) 7%, transparent);
+  font-family: inherit; white-space: normal; overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
 .panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
 .panel-heading h2, .panel-heading p { margin-bottom: 0; }
 .panel-heading > span { color: var(--muted); font-weight: 700; }
@@ -297,6 +301,7 @@ p { color: var(--muted); line-height: 1.6; }
 
 @media (prefers-color-scheme: dark) {
   :root { --ink: var(--tg-theme-text-color, #f4f7fb); --muted: #9da8b7; --surface: var(--tg-theme-bg-color, #171b22); --line: rgba(225,235,250,.1); --soft-blue: rgba(20,121,248,.16); --shadow: 0 14px 40px rgba(0,0,0,.18); }
+  .brand-logo > span { filter: invert(1) hue-rotate(180deg); mix-blend-mode: screen; }
   .progress-track, .review-progress { background: rgba(255,255,255,.12); }
   .button.light { background: white; color: #0964d8; }
   .form-field input, .form-field textarea, .time-field input { color: var(--ink); background: rgba(255,255,255,.04); }
