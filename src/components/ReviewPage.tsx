@@ -11,7 +11,7 @@ const ratings: { value: Rating; label: string; hint: string }[] = [
   { value: 'easy', label: 'Легко', hint: 'Позже' },
 ]
 
-export function ReviewPage({ onDone }: { onDone: () => void }) {
+export function ReviewPage({ topicID, onDone }: { topicID?: string; onDone: () => void }) {
   const [queue, setQueue] = useState<Card[]>([])
   const [initialCount, setInitialCount] = useState(0)
   const [completed, setCompleted] = useState(0)
@@ -24,7 +24,7 @@ export function ReviewPage({ onDone }: { onDone: () => void }) {
   useEffect(() => {
     let active = true
     setLoading(true)
-    api.dueCards()
+    api.dueCards(topicID)
       .then(({ cards }) => {
         if (!active) return
         setQueue(cards)
@@ -33,7 +33,7 @@ export function ReviewPage({ onDone }: { onDone: () => void }) {
       .catch((reason: Error) => active && setError(reason.message))
       .finally(() => active && setLoading(false))
     return () => { active = false }
-  }, [reload])
+  }, [reload, topicID])
 
   async function rate(rating: Rating) {
     const current = queue[0]
@@ -67,7 +67,7 @@ export function ReviewPage({ onDone }: { onDone: () => void }) {
         <div className="eyebrow">На сегодня всё</div>
         <h1>Повторение завершено</h1>
         <p>{completed > 0 ? `Вы повторили ${completed} ${cardsLabel(completed)}. Следующая встреча со словами — по расписанию.` : 'Новых карточек для повторения пока нет.'}</p>
-        <button className="button primary wide" onClick={onDone}>Вернуться к карточкам</button>
+        <button className="button primary wide" onClick={onDone}>{topicID ? 'Вернуться к теме' : 'Вернуться к карточкам'}</button>
       </div>
     )
   }

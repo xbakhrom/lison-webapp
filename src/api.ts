@@ -40,8 +40,9 @@ export const api = {
   async removeCard(id: number) {
     return request<void>(`/cards/${id}`, { method: 'DELETE' })
   },
-  async dueCards() {
-    return request<{ cards: Card[] }>('/reviews/due')
+  async dueCards(topicID?: string) {
+    const query = topicID ? `?topicId=${encodeURIComponent(topicID)}` : ''
+    return request<{ cards: Card[] }>(`/reviews/due${query}`)
   },
   async review(cardID: number, rating: Rating) {
     return request<{ state: string; intervalDays: number; dueDate: string }>(`/reviews/${cardID}`, {

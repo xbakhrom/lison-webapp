@@ -32,10 +32,11 @@ function initialScreen(): Screen {
 export default function App() {
   const [screen, setScreen] = useState<Screen>(initialScreen)
   const [topicSlug, setTopicSlug] = useState('gorod')
+  const [reviewTopicID, setReviewTopicID] = useState<string | null>(null)
 
   const goBack = useCallback(() => {
-    setScreen((current) => (current === 'review' ? 'cards' : 'topics'))
-  }, [])
+    setScreen((current) => (current === 'review' ? (reviewTopicID ? 'topic' : 'cards') : 'topics'))
+  }, [reviewTopicID])
 
   useEffect(() => {
     const backButton = window.Telegram?.WebApp.BackButton
@@ -73,9 +74,30 @@ export default function App() {
             }}
           />
         )}
-        {screen === 'topic' && <TopicPage slug={topicSlug} onReview={() => setScreen('review')} />}
-        {screen === 'cards' && <CardsPage onReview={() => setScreen('review')} onBrowse={() => setScreen('topics')} />}
-        {screen === 'review' && <ReviewPage onDone={() => setScreen('cards')} />}
+        {screen === 'topic' && (
+          <TopicPage
+            slug={topicSlug}
+            onReview={(topicID) => {
+              setReviewTopicID(topicID)
+              setScreen('review')
+            }}
+          />
+        )}
+        {screen === 'cards' && (
+          <CardsPage
+            onReview={() => {
+              setReviewTopicID(null)
+              setScreen('review')
+            }}
+            onBrowse={() => setScreen('topics')}
+          />
+        )}
+        {screen === 'review' && (
+          <ReviewPage
+            topicID={reviewTopicID ?? undefined}
+            onDone={() => setScreen(reviewTopicID ? 'topic' : 'cards')}
+          />
+        )}
       </main>
 
       {screen !== 'review' && (

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { api } from '../api'
 import { newWordsLabel } from '../format'
@@ -18,14 +18,13 @@ function omitExpressions(markdown: string) {
   return [...lines.slice(0, sectionStart), ...lines.slice(sectionEnd)].join('\n').trim()
 }
 
-export function TopicPage({ slug, onReview }: { slug: string; onReview: () => void }) {
+export function TopicPage({ slug, onReview }: { slug: string; onReview: (topicID: string) => void }) {
   const [topic, setTopic] = useState<TopicDetail | null>(null)
-  const [selected, setSelected] = useState<Set<string>>(new Set())
   const [loading, setLoading] = useState(true)
+  const [startingPractice, setStartingPractice] = useState(false)
   const [error, setError] = useState('')
   const [notice, setNotice] = useState('')
   const [reload, setReload] = useState(0)
-  const reminderOffered = useRef(false)
 
   useEffect(() => {
     let active = true
@@ -40,44 +39,23 @@ export function TopicPage({ slug, onReview }: { slug: string; onReview: () => vo
   const allWords = useMemo(() => topic?.vocabulary.flatMap((category) => category.items) ?? [], [topic])
   const contentMarkdown = useMemo(() => omitExpressions(topic?.contentMarkdown ?? ''), [topic?.contentMarkdown])
   const notAdded = allWords.filter((word) => !word.added)
+  const learningCount = allWords.length - notAdded.length
 
-  async function addWords(ids: string[]) {
-    if (!topic || ids.length === 0) return
+  async function startPractice() {
+    if (!topic || startingPractice) return
+    setStartingPractice(true)
+    setNotice('')
     try {
-      const { added } = await api.addCards(ids)
-      const addedSet = new Set(ids)
-      setTopic({
-        ...topic,
-        vocabulary: topic.vocabulary.map((category) => ({
-          ...category,
-          items: category.items.map((word) => addedSet.has(word.id) ? { ...word, added: true } : word),
-        })),
-      })
-      setSelected(new Set())
-      setNotice(added ? `Добавлено карточек: ${added}` : 'Эти слова уже добавлены')
-      window.Telegram?.WebApp.HapticFeedback?.notificationOccurred('success')
-      window.setTimeout(() => setNotice(''), 2600)
-
-      if (added > 0 && !reminderOffered.current) {
-        reminderOffered.current = true
-        window.setTimeout(async () => {
-          if (window.confirm('Напоминать о повторениях каждый день в 20:00?')) {
-            await api.updateReminder({ enabled: true, time: '20:00', timezone: api.timezone }).catch(() => undefined)
-          }
-        }, 400)
+      const nextWords = notAdded.slice(0, 10)
+      if (nextWords.length > 0) {
+        await api.addCards(nextWords.map((word) => word.id))
       }
+      window.Telegram?.WebApp.HapticFeedback?.impactOccurred('light')
+      onReview(topic.id)
     } catch (reason) {
       setNotice((reason as Error).message)
+      setStartingPractice(false)
     }
-  }
-
-  function toggleWord(id: string) {
-    setSelected((current) => {
-      const next = new Set(current)
-      if (next.has(id)) next.delete(id)
-      else next.add(id)
-      return next
-    })
   }
 
   if (loading) return <Loading />
@@ -92,7 +70,7 @@ export function TopicPage({ slug, onReview }: { slug: string; onReview: () => vo
         <p>{topic.summary}</p>
         <div className="topic-stat-row">
           <span><b>{allWords.length}</b> {newWordsLabel(allWords.length)}</span>
-          <span><b>{allWords.length - notAdded.length}</b> в карточках</span>
+          <span><b>{learningCount}</b> в изучении</span>
         </div>
       </section>
 
@@ -103,36 +81,33 @@ export function TopicPage({ slug, onReview }: { slug: string; onReview: () => vo
       <section className="panel vocabulary-panel">
         <div className="panel-heading vocabulary-heading">
           <div><span className="section-number">01</span><h2>Новые слова</h2></div>
-          <button className="button ghost small" onClick={() => addWords(notAdded.map((word) => word.id))} disabled={notAdded.length === 0}>
-            {notAdded.length ? 'Добавить все' : 'Все добавлены'}
-          </button>
+          <span>{learningCount}/{allWords.length}</span>
         </div>
         {topic.vocabulary.map((category) => (
           <div className="vocabulary-group" key={category.id}>
             <h3>{category.title}</h3>
             <div className="word-list">
               {category.items.map((word) => (
-                <div className={`word-row ${word.added ? 'added' : ''}`} key={word.id}>
-                  <label>
-                    <input type="checkbox" checked={word.added || selected.has(word.id)} disabled={word.added} onChange={() => toggleWord(word.id)} />
-                    <span className="custom-check">{word.added ? '✓' : ''}</span>
-                    <span className="word-pair"><strong>{word.russian}</strong><span>{word.uzbek}</span></span>
-                  </label>
-                  {!word.added && <button className="word-add" onClick={() => addWords([word.id])} aria-label={`Добавить ${word.russian}`}>+</button>}
+                <div className="word-row" key={word.id}>
+                  <span className="word-pair"><strong>{word.russian}</strong><span>{word.uzbek}</span></span>
                 </div>
               ))}
             </div>
           </div>
         ))}
-        {selected.size > 0 && (
-          <div className="selection-bar">
-            <span>Выбрано: {selected.size}</span>
-            <button className="button primary small" onClick={() => addWords([...selected])}>Добавить выбранные</button>
-          </div>
-        )}
       </section>
 
-      {allWords.some((word) => word.added) && <button className="button primary wide" onClick={onReview}>Перейти к повторению</button>}
+      {allWords.length > 0 && (
+        <button className="button primary wide" onClick={startPractice} disabled={startingPractice}>
+          {startingPractice
+            ? 'Готовим повторение…'
+            : notAdded.length === 0
+              ? 'Повторить слова'
+              : learningCount === 0
+                ? 'Начать изучение'
+                : 'Продолжить изучение'}
+        </button>
+      )}
     </div>
   )
 }
