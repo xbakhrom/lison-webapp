@@ -227,6 +227,7 @@ p { color: var(--muted); line-height: 1.6; }
 .card-list-item > div { display: flex; flex-direction: column; gap: 3px; }
 .card-list-item strong { font-size: 14px; }
 .card-list-item span { color: var(--muted); font-size: 12px; }
+.card-list-item .card-topic-tag { width: fit-content; margin-top: 3px; padding: 3px 7px; border-radius: 99px; color: var(--blue); background: var(--soft-blue); font-size: 10px; font-weight: 700; }
 
 .review-page {
   min-height: 100svh; min-height: 100dvh; display: flex; flex-direction: column;

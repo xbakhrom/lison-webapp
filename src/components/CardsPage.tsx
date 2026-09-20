@@ -117,6 +117,7 @@ export function CardsPage({ onReview, onBrowse }: { onReview: () => void; onBrow
                   <div>
                     <strong>{card.russian}</strong>
                     <span>{card.uzbek}</span>
+                    <span className="card-topic-tag">{card.topicTitle}</span>
                   </div>
                   <button className="icon-button danger" onClick={() => remove(card)} aria-label={`Удалить ${card.russian}`}>×</button>
                 </article>
