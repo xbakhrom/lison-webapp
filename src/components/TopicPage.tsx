@@ -3,8 +3,20 @@ import ReactMarkdown from 'react-markdown'
 import { api } from '../api'
 import { newWordsLabel } from '../format'
 import type { TopicDetail } from '../types'
-import { EditableSection } from './EditableSection'
 import { ErrorState, Loading } from './Loading'
+
+function omitExpressions(markdown: string) {
+  const lines = markdown.split('\n')
+  const sectionStart = lines.findIndex((line) => line.trim() === '## Выражения')
+  if (sectionStart === -1) return markdown
+
+  const nextSectionOffset = lines
+    .slice(sectionStart + 1)
+    .findIndex((line) => /^##\s+/.test(line.trim()))
+  const sectionEnd = nextSectionOffset === -1 ? lines.length : sectionStart + nextSectionOffset + 1
+
+  return [...lines.slice(0, sectionStart), ...lines.slice(sectionEnd)].join('\n').trim()
+}
 
 export function TopicPage({ slug, onReview }: { slug: string; onReview: () => void }) {
   const [topic, setTopic] = useState<TopicDetail | null>(null)
@@ -26,6 +38,7 @@ export function TopicPage({ slug, onReview }: { slug: string; onReview: () => vo
   }, [slug, reload])
 
   const allWords = useMemo(() => topic?.vocabulary.flatMap((category) => category.items) ?? [], [topic])
+  const contentMarkdown = useMemo(() => omitExpressions(topic?.contentMarkdown ?? ''), [topic?.contentMarkdown])
   const notAdded = allWords.filter((word) => !word.added)
 
   async function addWords(ids: string[]) {
@@ -67,22 +80,6 @@ export function TopicPage({ slug, onReview }: { slug: string; onReview: () => vo
     })
   }
 
-  async function toggleChecklist(itemID: string, checked: boolean) {
-    if (!topic) return
-    setTopic({
-      ...topic,
-      checklist: topic.checklist.map((group) => ({
-        ...group,
-        items: group.items.map((item) => item.id === itemID ? { ...item, checked } : item),
-      })),
-    })
-    try {
-      await api.saveChecklist(topic.id, itemID, checked)
-    } catch (reason) {
-      setNotice((reason as Error).message)
-    }
-  }
-
   if (loading) return <Loading />
   if (error || !topic) return <ErrorState message={error || 'Тема не найдена.'} onRetry={() => { setError(''); setReload((value) => value + 1) }} />
 
@@ -100,7 +97,7 @@ export function TopicPage({ slug, onReview }: { slug: string; onReview: () => vo
       </section>
 
       <article className="markdown panel prose">
-        <ReactMarkdown>{topic.contentMarkdown}</ReactMarkdown>
+        <ReactMarkdown>{contentMarkdown}</ReactMarkdown>
       </article>
 
       <section className="panel vocabulary-panel">
@@ -133,30 +130,6 @@ export function TopicPage({ slug, onReview }: { slug: string; onReview: () => vo
             <button className="button primary small" onClick={() => addWords([...selected])}>Добавить выбранные</button>
           </div>
         )}
-      </section>
-
-      <section className="personal-area">
-        <div className="section-intro">
-          <span className="section-number">02</span>
-          <div><h2>Мои ответы</h2><p>Заполняйте постепенно — всё сохранится автоматически.</p></div>
-        </div>
-        {topic.forms.map((section, index) => <EditableSection key={section.id} topicID={topic.id} section={section} open={index === 0} />)}
-      </section>
-
-      <section className="panel checklist-panel">
-        <div className="section-intro compact"><span className="section-number">03</span><div><h2>Возможные вопросы</h2><p>Отмечайте вопросы, которые уже проговорили.</p></div></div>
-        {topic.checklist.map((group) => (
-          <div className="question-group" key={group.title}>
-            <h3>{group.title}</h3>
-            {group.items.map((item) => (
-              <label className={`question-row ${item.checked ? 'checked' : ''}`} key={item.id}>
-                <input type="checkbox" checked={item.checked} onChange={(event) => toggleChecklist(item.id, event.target.checked)} />
-                <span className="custom-check">{item.checked ? '✓' : ''}</span>
-                <span><strong>{item.prompt}</strong>{item.hint && <small>{item.hint}</small>}</span>
-              </label>
-            ))}
-          </div>
-        ))}
       </section>
 
       {allWords.some((word) => word.added) && <button className="button primary wide" onClick={onReview}>Перейти к повторению</button>}
