@@ -80,4 +80,4 @@ export type Reminder = {
   timezone: string
 }
 
-export type Rating = 'again' | 'hard' | 'good' | 'easy'
+export type Rating = 'hard' | 'good' | 'easy'

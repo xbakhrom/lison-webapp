@@ -5,10 +5,9 @@ import type { Card, Rating } from '../types'
 import { ErrorState, Loading } from './Loading'
 
 const ratings: { value: Rating; label: string; hint: string }[] = [
-  { value: 'again', label: 'Не помню', hint: 'Ещё раз' },
-  { value: 'hard', label: 'Трудно', hint: '1 день' },
-  { value: 'good', label: 'Хорошо', hint: 'По плану' },
-  { value: 'easy', label: 'Легко', hint: 'Позже' },
+  { value: 'hard', label: 'Трудно', hint: 'С усилием' },
+  { value: 'good', label: 'Хорошо', hint: 'Вспомнил' },
+  { value: 'easy', label: 'Легко', hint: 'Сразу' },
 ]
 
 export function ReviewPage({ topicID, onDone }: { topicID?: string; onDone: () => void }) {
@@ -43,11 +42,8 @@ export function ReviewPage({ topicID, onDone }: { topicID?: string; onDone: () =
     try {
       await api.review(current.id, rating)
       const rest = queue.slice(1)
-      if (rating === 'again') setQueue([...rest, current])
-      else {
-        setQueue(rest)
-        setCompleted((count) => count + 1)
-      }
+      setQueue(rest)
+      setCompleted((count) => count + 1)
       setRevealed(false)
       window.Telegram?.WebApp.HapticFeedback?.impactOccurred('light')
     } catch (reason) {

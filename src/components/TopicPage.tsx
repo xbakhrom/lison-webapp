@@ -74,6 +74,16 @@ export function TopicPage({ slug, onReview }: { slug: string; onReview: (topicID
         </div>
       </section>
 
+      {allWords.length > 0 && (
+        <button className="button primary wide" onClick={startPractice} disabled={startingPractice}>
+          {startingPractice
+            ? 'Готовим повторение…'
+            : notAdded.length === 0
+              ? 'Повторить слова'
+              : 'Учить слова'}
+        </button>
+      )}
+
       <article className="markdown panel prose">
         <ReactMarkdown>{contentMarkdown}</ReactMarkdown>
       </article>
@@ -97,17 +107,6 @@ export function TopicPage({ slug, onReview }: { slug: string; onReview: (topicID
         ))}
       </section>
 
-      {allWords.length > 0 && (
-        <button className="button primary wide" onClick={startPractice} disabled={startingPractice}>
-          {startingPractice
-            ? 'Готовим повторение…'
-            : notAdded.length === 0
-              ? 'Повторить слова'
-              : learningCount === 0
-                ? 'Начать изучение'
-                : 'Продолжить изучение'}
-        </button>
-      )}
     </div>
   )
 }
