@@ -81,3 +81,60 @@ export type Reminder = {
 }
 
 export type Rating = 'hard' | 'good' | 'easy'
+
+export type GrammarLessonBlock = {
+  title: string
+  text: string
+  examples: string[]
+  note: string
+}
+
+export type GrammarQuestion = {
+  id: string
+  prompt: string
+  phrase: string
+  options: string[]
+  answer: string
+  explanation: string
+}
+
+export type GrammarTopicListItem = {
+  id: string
+  slug: string
+  title: string
+  summary: string
+  level: string
+  icon: string
+  status: 'new' | 'learning' | 'review'
+  bestScore: number
+  dueDate: string
+  due: boolean
+  lessonBlocks: number
+}
+
+export type GrammarTopicDetail = {
+  id: string
+  slug: string
+  title: string
+  summary: string
+  level: string
+  icon: string
+  lesson: GrammarLessonBlock[]
+  practice: GrammarQuestion[]
+  game: GrammarQuestion[]
+  progress: {
+    status: 'new' | 'learning' | 'review'
+    bestScore: number
+    dueDate: string
+    repetitions: number
+  }
+}
+
+export type GrammarGameResult = {
+  score: number
+  correct: number
+  total: number
+  status: 'learning' | 'review'
+  intervalDays: number
+  dueDate: string
+}

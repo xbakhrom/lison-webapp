@@ -1,4 +1,13 @@
-import type { Card, Rating, Reminder, TopicDetail, TopicListItem } from './types'
+import type {
+  Card,
+  GrammarGameResult,
+  GrammarTopicDetail,
+  GrammarTopicListItem,
+  Rating,
+  Reminder,
+  TopicDetail,
+  TopicListItem,
+} from './types'
 
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Tashkent'
 
@@ -27,6 +36,18 @@ export const api = {
   },
   async topic(slug: string) {
     return request<TopicDetail>(`/topics/${slug}`)
+  },
+  async grammarTopics() {
+    return request<{ topics: GrammarTopicListItem[]; dueCount: number }>('/grammar')
+  },
+  async grammarTopic(slug: string) {
+    return request<GrammarTopicDetail>(`/grammar/${slug}`)
+  },
+  async finishGrammarGame(topicID: string, answers: Record<string, string>) {
+    return request<GrammarGameResult>(`/grammar/${topicID}/games`, {
+      method: 'POST',
+      body: JSON.stringify({ answers }),
+    })
   },
   async addCards(ids: string[]) {
     return request<{ added: number }>('/cards/bulk', {

@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import { BrandLogo } from './components/BrandLogo'
 import { CardsPage } from './components/CardsPage'
+import { GrammarPage } from './components/GrammarPage'
+import { GrammarTopicPage } from './components/GrammarTopicPage'
 import { ReviewPage } from './components/ReviewPage'
 import { TopicPage } from './components/TopicPage'
 import { TopicsPage } from './components/TopicsPage'
 
-type Screen = 'topics' | 'topic' | 'cards' | 'review'
+type Screen = 'topics' | 'topic' | 'grammar' | 'grammar-topic' | 'cards' | 'review'
 
 function TopicsIcon() {
   return (
@@ -25,35 +27,52 @@ function CardsIcon() {
   )
 }
 
+function GrammarIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M5 4.5h9a2 2 0 0 1 2 2V20H7a2 2 0 0 1-2-2V4.5Z" />
+      <path d="M16 8h3v12h-3M8.5 9h4M8.5 13h4" />
+    </svg>
+  )
+}
+
 function initialScreen(): Screen {
-  return new URLSearchParams(window.location.search).get('screen') === 'review' ? 'review' : 'topics'
+  const requested = new URLSearchParams(window.location.search).get('screen')
+  if (requested === 'review' || requested === 'grammar') return requested
+  return 'topics'
 }
 
 export default function App() {
   const [screen, setScreen] = useState<Screen>(initialScreen)
   const [topicSlug, setTopicSlug] = useState('gorod')
+  const [grammarSlug, setGrammarSlug] = useState('rod-i-chislo')
+  const [grammarReview, setGrammarReview] = useState(false)
   const [reviewTopicID, setReviewTopicID] = useState<string | null>(null)
 
   const goBack = useCallback(() => {
-    setScreen((current) => (current === 'review' ? (reviewTopicID ? 'topic' : 'cards') : 'topics'))
+    setScreen((current) => {
+      if (current === 'review') return reviewTopicID ? 'topic' : 'cards'
+      if (current === 'grammar-topic') return 'grammar'
+      return 'topics'
+    })
   }, [reviewTopicID])
 
   useEffect(() => {
     const backButton = window.Telegram?.WebApp.BackButton
     if (!backButton) return
-    if (screen === 'topic' || screen === 'review') backButton.show()
+    if (screen === 'topic' || screen === 'grammar-topic' || screen === 'review') backButton.show()
     else backButton.hide()
     backButton.onClick(goBack)
     return () => backButton.offClick(goBack)
   }, [screen, goBack])
 
   return (
-    <div className={`app-shell ${screen === 'review' ? 'review-mode' : ''}`}>
+    <div className={`app-shell ${screen === 'review' || screen === 'grammar-topic' ? 'review-mode' : ''}`}>
       {screen !== 'review' && (
-        <header className={`topbar ${screen === 'topic' ? 'has-back' : ''}`}>
+        <header className={`topbar ${screen === 'topic' || screen === 'grammar-topic' ? 'has-back' : ''}`}>
           <div className="topbar-leading">
-            {screen === 'topic' && (
-              <button className="topbar-back" onClick={goBack} aria-label="Назад к темам">
+            {(screen === 'topic' || screen === 'grammar-topic') && (
+              <button className="topbar-back" onClick={goBack} aria-label="Назад">
                 <span aria-hidden="true">←</span>
               </button>
             )}
@@ -83,6 +102,22 @@ export default function App() {
             }}
           />
         )}
+        {screen === 'grammar' && (
+          <GrammarPage
+            onOpen={(slug, review) => {
+              setGrammarSlug(slug)
+              setGrammarReview(review)
+              setScreen('grammar-topic')
+            }}
+          />
+        )}
+        {screen === 'grammar-topic' && (
+          <GrammarTopicPage
+            slug={grammarSlug}
+            review={grammarReview}
+            onDone={() => setScreen('grammar')}
+          />
+        )}
         {screen === 'cards' && (
           <CardsPage
             onReview={() => {
@@ -100,7 +135,7 @@ export default function App() {
         )}
       </main>
 
-      {screen !== 'review' && (
+      {screen !== 'review' && screen !== 'grammar-topic' && (
         <nav className="bottom-nav" aria-label="Основная навигация">
           <button
             className={screen === 'topics' || screen === 'topic' ? 'active' : ''}
@@ -109,6 +144,14 @@ export default function App() {
           >
             <span className="nav-icon"><TopicsIcon /></span>
             Темы
+          </button>
+          <button
+            className={screen === 'grammar' ? 'active' : ''}
+            onClick={() => setScreen('grammar')}
+            aria-current={screen === 'grammar' ? 'page' : undefined}
+          >
+            <span className="nav-icon"><GrammarIcon /></span>
+            Грамматика
           </button>
           <button
             className={screen === 'cards' ? 'active' : ''}
