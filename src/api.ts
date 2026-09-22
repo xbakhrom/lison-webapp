@@ -1,5 +1,6 @@
 import type {
   Card,
+  FeedbackCategory,
   GrammarAnswer,
   GrammarGameResult,
   GrammarTopicDetail,
@@ -91,6 +92,12 @@ export const api = {
     return request<Reminder>('/reminder', {
       method: 'PUT',
       body: JSON.stringify(reminder),
+    })
+  },
+  async sendFeedback(feedback: { category: FeedbackCategory; message: string; screen: string; topicSlug: string }) {
+    return request<{ received: boolean }>('/feedback', {
+      method: 'POST',
+      body: JSON.stringify(feedback),
     })
   },
   timezone,

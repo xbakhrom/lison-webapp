@@ -149,3 +149,5 @@ export type GrammarGameResult = {
   dueDate: string
   masteryLevel: number
 }
+
+export type FeedbackCategory = 'idea' | 'bug' | 'content' | 'other'

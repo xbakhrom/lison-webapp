@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { BrandLogo } from './components/BrandLogo'
 import { CardsPage } from './components/CardsPage'
+import { FeedbackSheet } from './components/FeedbackSheet'
 import { GrammarPage } from './components/GrammarPage'
 import { GrammarTopicPage } from './components/GrammarTopicPage'
 import { ReviewPage } from './components/ReviewPage'
@@ -36,6 +37,15 @@ function GrammarIcon() {
   )
 }
 
+function FeedbackIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M20 15.5a2 2 0 0 1-2 2H9l-5 3v-15a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10Z" />
+      <path d="M8 8.5h8M8 12.5h5" />
+    </svg>
+  )
+}
+
 function initialScreen(): Screen {
   const requested = new URLSearchParams(window.location.search).get('screen')
   if (requested === 'review' || requested === 'grammar') return requested
@@ -48,6 +58,7 @@ export default function App() {
   const [grammarSlug, setGrammarSlug] = useState('rod-i-chislo')
   const [grammarReview, setGrammarReview] = useState(false)
   const [reviewTopicID, setReviewTopicID] = useState<string | null>(null)
+  const [feedbackOpen, setFeedbackOpen] = useState(false)
 
   const goBack = useCallback(() => {
     setScreen((current) => {
@@ -80,7 +91,19 @@ export default function App() {
               <BrandLogo compact />
             </button>
           </div>
-          <span className="topbar-caption">Русский каждый день</span>
+          <div className="topbar-actions">
+            <span className="topbar-caption">Русский каждый день</span>
+            <button
+              className="feedback-trigger"
+              onClick={() => {
+                setFeedbackOpen(true)
+                window.Telegram?.WebApp.HapticFeedback?.impactOccurred('light')
+              }}
+              aria-label="Отправить предложение"
+            >
+              <FeedbackIcon />
+            </button>
+          </div>
         </header>
       )}
 
@@ -134,6 +157,13 @@ export default function App() {
           />
         )}
       </main>
+
+      <FeedbackSheet
+        open={feedbackOpen}
+        onClose={() => setFeedbackOpen(false)}
+        screen={screen}
+        topicSlug={screen === 'topic' ? topicSlug : ''}
+      />
 
       {screen !== 'review' && screen !== 'grammar-topic' && (
         <nav className="bottom-nav" aria-label="Основная навигация">

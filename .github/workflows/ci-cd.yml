@@ -117,5 +117,5 @@ jobs:
         run: |
           set -euo pipefail
           ssh -p "$SSH_PORT" "$SSH_USER@$SSH_HOST" \
-            bash -s -- "$DEPLOY_PATH" webapp lison-webapp WEBAPP_IMAGE "$IMAGE" http://127.0.0.1:3000/health \
+            bash -s -- "$DEPLOY_PATH" webapp lison-webapp WEBAPP_IMAGE "$IMAGE" http://127.0.0.1:3010/health \
             < deploy/restart-container.sh
