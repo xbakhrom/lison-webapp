@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { api } from '../api'
 import { advanceDifficulty, grammarDifficulty, pickNextQuestion, type AdaptiveState, type Difficulty } from '../grammarAdaptive'
 import type { GrammarAnswer, GrammarGameResult, GrammarQuestion, GrammarTopicDetail } from '../types'
+import { GrammarQuestGame } from './GrammarQuestGame'
 import { ErrorState, Loading } from './Loading'
 
 type Phase = 'lesson' | 'practice' | 'game' | 'result'
@@ -29,6 +30,9 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
   const [answers, setAnswers] = useState<GrammarAnswer[]>([])
   const [adaptive, setAdaptive] = useState<AdaptiveState>({ difficulty: 1, correctStreak: 0, mistakeStreak: 0 })
   const [adaptiveMessage, setAdaptiveMessage] = useState('')
+  const [questXP, setQuestXP] = useState(0)
+  const [questCombo, setQuestCombo] = useState(0)
+  const [questHearts, setQuestHearts] = useState(3)
   const [result, setResult] = useState<GrammarGameResult | null>(null)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
@@ -56,6 +60,9 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
     setAnswers([])
     setGameChoice('')
     setAdaptiveMessage(review && difficulty > 1 ? `Начинаем с уровня «${grammarDifficulty[difficulty].label}»` : '')
+    setQuestXP(0)
+    setQuestCombo(0)
+    setQuestHearts(3)
     setResult(null)
     setError('')
     setCurrentQuestion(pickNextQuestion(currentTopic.game, new Set(), difficulty))
@@ -93,6 +100,14 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
       setAdaptiveMessage('')
     }
     setAdaptive(nextAdaptive)
+    if (correct) {
+      setQuestXP((value) => value + currentQuestion.difficulty * 20 + Math.min(questCombo, 4) * 5)
+      setQuestCombo((value) => value + 1)
+      if ((questCombo + 1) % 3 === 0) setQuestHearts((value) => Math.min(3, value + 1))
+    } else {
+      setQuestCombo(0)
+      setQuestHearts((value) => Math.max(0, value - 1))
+    }
     setGameChoice(option)
     setAnswers((current) => [...current, { questionId: currentQuestion.id, answer: option }])
     window.Telegram?.WebApp.HapticFeedback?.notificationOccurred(correct ? 'success' : 'error')
@@ -130,7 +145,7 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
 
   if (phase === 'game' && currentQuestion) {
     return (
-      <GrammarGame
+      <GrammarQuestGame
         topic={topic}
         question={currentQuestion}
         answered={answers.length}
@@ -142,6 +157,9 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
         review={review}
         nextDifficulty={adaptive.difficulty}
         adaptiveMessage={adaptiveMessage}
+        xp={questXP}
+        combo={questCombo}
+        hearts={questHearts}
         onChoose={chooseGame}
         onNext={nextGame}
       />
@@ -156,12 +174,12 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
         <div className={`grammar-result-orbit ${passed ? '' : 'retry'}`} aria-hidden="true">
           <span>{passed ? '✓' : '↻'}</span><i /><b>★</b>
         </div>
-        <div className="eyebrow">Адаптивная игра завершена</div>
+        <div className="eyebrow">Lison Quest завершён</div>
         <h1>{passed ? 'Правило закреплено' : 'Ещё один короткий круг'}</h1>
         <p>{passed
           ? `Верно ${result.correct} из ${result.total}. Следующее повторение появится через ${result.intervalDays} дн.`
           : `Верно ${result.correct} из ${result.total}. Вернёмся к простым примерам и попробуем ещё раз.`}</p>
-        <div className="grammar-score"><strong>{result.score}%</strong><span>ваш уровень заданий · {resultDifficulty.label}</span></div>
+        <div className="grammar-score"><strong>{result.score}%</strong><span>+{questXP} XP · уровень заданий {resultDifficulty.label}</span></div>
         <button className="button primary wide" onClick={onDone}>К учебному маршруту</button>
         {!passed && <button className="button ghost wide" onClick={() => { setPhase('lesson'); setPracticeIndex(0); setPracticeChoice(''); setPracticeCorrect(0); setAnswers([]); setResult(null) }}>Повторить правило</button>}
       </div>
@@ -180,7 +198,7 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
         <QuestionCard question={question} choice={practiceChoice} onChoose={choosePractice} />
         {practiceChoice && (
           <button className="button primary wide" onClick={nextPractice}>
-            {practiceIndex + 1 === topic.practice.length ? `Начать адаптивную игру · ${practiceCorrect}/${topic.practice.length}` : 'Дальше'}
+            {practiceIndex + 1 === topic.practice.length ? `Начать Lison Quest · ${practiceCorrect}/${topic.practice.length}` : 'Дальше'}
           </button>
         )}
       </div>
@@ -203,7 +221,7 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
       <div className="grammar-roadmap" aria-label="Этапы изучения">
         <span className="active"><b>1</b>Правило</span><i />
         <span><b>2</b>Разминка</span><i />
-        <span><b>3</b>Адаптивная игра</span>
+        <span><b>3</b>2D-квест</span>
       </div>
 
       <section className="grammar-difficulty-map" aria-label="Уровни заданий">
@@ -294,43 +312,4 @@ function OrderQuestion({ question, choice, onChoose }: { question: GrammarQuesti
 
 function tokenHash(value: string) {
   return [...value].reduce((sum, character) => (sum * 31 + character.charCodeAt(0)) % 997, 7)
-}
-
-function GrammarGame({ topic, question, answered, total, choice, progress, saving, error, review, nextDifficulty, adaptiveMessage, onChoose, onNext }: {
-  topic: GrammarTopicDetail
-  question: GrammarQuestion
-  answered: number
-  total: number
-  choice: string
-  progress: number
-  saving: boolean
-  error: string
-  review: boolean
-  nextDifficulty: Difficulty
-  adaptiveMessage: string
-  onChoose: (option: string) => void
-  onNext: () => void
-}) {
-  const position = Math.min(92, 8 + progress * .84)
-  const currentNumber = Math.min(total, answered + (choice ? 0 : 1))
-  return (
-    <div className="grammar-game-shell">
-      <div className="grammar-game-sky" aria-hidden="true"><i /><i /><i /></div>
-      <div className="grammar-game-header">
-        <div><span>{review ? 'Умное повторение' : 'Адаптивная игра'} · {grammarDifficulty[question.difficulty].label}</span><strong>{topic.title}</strong></div>
-        <b>{currentNumber}/{total}</b>
-      </div>
-      <div className="grammar-game-route" aria-hidden="true">
-        <div className="grammar-game-line"><span style={{ width: `${progress}%` }} /></div>
-        <div className={`grammar-mascot ${choice === question.answer ? 'is-happy' : choice ? 'is-shaking' : ''}`} style={{ left: `${position}%` }}><span>Л</span></div>
-        <b className="grammar-finish">★</b>
-      </div>
-      <div className="grammar-game-content">
-        {adaptiveMessage && <div className={`grammar-adaptive-note level-${nextDifficulty}`}><span>{adaptiveMessage.startsWith('Закрепим') ? '↘' : '↗'}</span>{adaptiveMessage}</div>}
-        <QuestionCard question={question} choice={choice} onChoose={onChoose} />
-        {error && <div className="inline-error">{error}</div>}
-        {choice && <button className="button light wide" onClick={onNext} disabled={saving}>{saving ? 'Сохраняем результат…' : answered >= total ? 'Завершить маршрут' : 'Следующее задание'}</button>}
-      </div>
-    </div>
-  )
 }
