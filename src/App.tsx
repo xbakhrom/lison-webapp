@@ -1,4 +1,5 @@
 import { Suspense, lazy, useCallback, useEffect, useState } from 'react'
+import { AssistantButton } from './assistant/AssistantButton'
 import { BrandLogo } from './components/BrandLogo'
 import { CardsPage } from './components/CardsPage'
 import { FeedbackSheet } from './components/FeedbackSheet'
@@ -11,6 +12,8 @@ import { TopicsPage } from './components/TopicsPage'
 
 // The 3D game pulls in Three.js, so it is only fetched when its tab is opened.
 const TemurGame = lazy(() => import('./game/TemurGame'))
+// Likewise the voice assistant, which pulls in the Gemini SDK.
+const AssistantDock = lazy(() => import('./assistant/AssistantDock'))
 
 type Screen = 'topics' | 'topic' | 'grammar' | 'grammar-topic' | 'cards' | 'review' | 'game'
 
@@ -65,6 +68,12 @@ function initialScreen(): Screen {
   return 'topics'
 }
 
+// The daily discussion push deep-links straight into a conversation, which now
+// opens over the topics screen instead of on one of its own.
+function assistantRequested(): boolean {
+  return new URLSearchParams(window.location.search).get('screen') === 'assistant'
+}
+
 export default function App() {
   const [screen, setScreen] = useState<Screen>(initialScreen)
   const [topicSlug, setTopicSlug] = useState('gorod')
@@ -72,6 +81,10 @@ export default function App() {
   const [grammarReview, setGrammarReview] = useState(false)
   const [reviewTopicID, setReviewTopicID] = useState<string | null>(null)
   const [feedbackOpen, setFeedbackOpen] = useState(false)
+  const [assistantOpen, setAssistantOpen] = useState(assistantRequested)
+  // Which lesson Maks was summoned from, frozen at that moment so the learner
+  // can keep browsing mid-conversation without moving the goalposts.
+  const [assistantTopicSlug, setAssistantTopicSlug] = useState<string | undefined>(undefined)
 
   const goBack = useCallback(() => {
     setScreen((current) => {
@@ -80,6 +93,11 @@ export default function App() {
       return 'topics'
     })
   }, [reviewTopicID])
+
+  const openAssistant = useCallback(() => {
+    setAssistantTopicSlug(screen === 'topic' ? topicSlug : undefined)
+    setAssistantOpen(true)
+  }, [screen, topicSlug])
 
   useEffect(() => {
     const backButton = window.Telegram?.WebApp.BackButton
@@ -90,8 +108,10 @@ export default function App() {
     return () => backButton.offClick(goBack)
   }, [screen, goBack])
 
+  const fullBleed = screen === 'review' || screen === 'grammar-topic'
+
   return (
-    <div className={`app-shell ${screen === 'review' || screen === 'grammar-topic' ? 'review-mode' : ''}`}>
+    <div className={`app-shell ${fullBleed ? 'review-mode' : ''}`}>
       {screen !== 'review' && (
         <header className={`topbar ${screen === 'topic' || screen === 'grammar-topic' ? 'has-back' : ''}`}>
           <div className="topbar-leading">
@@ -176,6 +196,18 @@ export default function App() {
         )}
       </main>
 
+      {/* Maks stays on top of the current screen rather than replacing it, so a
+          lesson never has to be left behind to talk about it. The game is the
+          exception: it owns the whole viewport. */}
+      {screen !== 'game' &&
+        (assistantOpen ? (
+          <Suspense fallback={<AssistantButton onOpen={openAssistant} connecting />}>
+            <AssistantDock topicSlug={assistantTopicSlug} onClose={() => setAssistantOpen(false)} />
+          </Suspense>
+        ) : (
+          <AssistantButton onOpen={openAssistant} />
+        ))}
+
       <FeedbackSheet
         open={feedbackOpen}
         onClose={() => setFeedbackOpen(false)}
@@ -183,7 +215,7 @@ export default function App() {
         topicSlug={screen === 'topic' ? topicSlug : ''}
       />
 
-      {screen !== 'review' && screen !== 'grammar-topic' && (
+      {!fullBleed && (
         <nav className="bottom-nav" aria-label="Основная навигация">
           <button
             className={screen === 'topics' || screen === 'topic' ? 'active' : ''}

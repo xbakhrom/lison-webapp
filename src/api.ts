@@ -1,5 +1,9 @@
 import type {
+  AssistantToken,
+  AssistantUsage,
   Card,
+  CustomWordResult,
+  DiscussionQuestion,
   FeedbackCategory,
   GrammarAnswer,
   GrammarGameResult,
@@ -9,9 +13,23 @@ import type {
   Reminder,
   TopicDetail,
   TopicListItem,
+  VocabularySearchResult,
 } from './types'
 
 const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Asia/Tashkent'
+
+/** Carries the backend's error code so callers can react to a specific failure. */
+export class ApiError extends Error {
+  readonly code: string
+  readonly status: number
+
+  constructor(message: string, code: string, status: number) {
+    super(message)
+    this.name = 'ApiError'
+    this.code = code
+    this.status = status
+  }
+}
 
 async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   const initData = window.Telegram?.WebApp.initData ?? ''
@@ -26,7 +44,11 @@ async function request<T>(path: string, options: RequestInit = {}): Promise<T> {
   })
   if (!response.ok) {
     const payload = await response.json().catch(() => null)
-    throw new Error(payload?.error?.message ?? 'Что-то пошло не так. Попробуйте ещё раз.')
+    throw new ApiError(
+      payload?.error?.message ?? 'Что-то пошло не так. Попробуйте ещё раз.',
+      payload?.error?.code ?? 'unknown_error',
+      response.status,
+    )
   }
   if (response.status === 204) return undefined as T
   return response.json() as Promise<T>
@@ -98,6 +120,47 @@ export const api = {
     return request<{ received: boolean }>('/feedback', {
       method: 'POST',
       body: JSON.stringify(feedback),
+    })
+  },
+  async assistantToken(topicSlug?: string) {
+    return request<AssistantToken>('/assistant/token', {
+      method: 'POST',
+      body: JSON.stringify(topicSlug ? { topicSlug } : {}),
+    })
+  },
+  async setAssistantLevel(level: string) {
+    return request<{ level: string }>('/assistant/level', {
+      method: 'PUT',
+      body: JSON.stringify({ level }),
+    })
+  },
+  async reportAssistantSession(seconds: number) {
+    return request<AssistantUsage>('/assistant/sessions', {
+      method: 'POST',
+      body: JSON.stringify({ seconds }),
+    })
+  },
+  async searchVocabulary(query: string, limit = 8) {
+    const params = new URLSearchParams({ q: query, limit: String(limit) })
+    return request<{ results: VocabularySearchResult[] }>(`/vocabulary/search?${params}`)
+  },
+  async addCustomWord(russian: string, uzbek: string) {
+    return request<CustomWordResult>('/vocabulary/custom', {
+      method: 'POST',
+      body: JSON.stringify({ russian, uzbek }),
+    })
+  },
+  async nextDiscussion(topicID?: string) {
+    const query = topicID ? `?topicId=${encodeURIComponent(topicID)}` : ''
+    const { question } = await request<{ question: DiscussionQuestion | null; exhausted: boolean }>(
+      `/discussions/next${query}`,
+    )
+    return question
+  },
+  async logDiscussion(questionID: string, summary: string) {
+    return request<{ saved: boolean }>(`/discussions/${encodeURIComponent(questionID)}/log`, {
+      method: 'POST',
+      body: JSON.stringify({ summary }),
     })
   },
   timezone,

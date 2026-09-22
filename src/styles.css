@@ -597,6 +597,149 @@ p { color: var(--muted); line-height: 1.6; }
   h1 { font-size: 46px; }
 }
 
+/* Voice assistant ("Макс") */
+.maks-dock {
+  position: fixed; right: 12px; z-index: 40;
+  bottom: calc(74px + env(safe-area-inset-bottom));
+  width: min(calc(100vw - 24px), 340px);
+  display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+  pointer-events: none;
+}
+.maks-dock > * { pointer-events: auto; }
+.app-shell.review-mode .maks-dock { bottom: calc(14px + env(safe-area-inset-bottom)); }
+
+.maks-launcher-row { display: flex; align-items: center; gap: 8px; }
+.maks-launcher {
+  width: 64px; height: 64px; padding: 0; border: 0; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  background: linear-gradient(160deg, #e8f1ff, #cfe0fb);
+  box-shadow: 0 10px 26px rgba(28, 60, 140, .28);
+}
+.maks-launcher.active { background: linear-gradient(160deg, #dcebff, #b9d4fb); }
+.maks-mute {
+  width: 40px; height: 40px; padding: 0; border: 0; border-radius: 50%;
+  display: grid; place-items: center; cursor: pointer;
+  color: var(--ink); background: color-mix(in srgb, var(--surface) 92%, transparent);
+  font-size: 12px; box-shadow: 0 6px 18px rgba(24, 45, 80, .16);
+}
+.maks-mute.muted { color: white; background: #e0a33c; }
+.maks-mute:disabled { opacity: .45; }
+
+/* Panel */
+.maks-panel {
+  width: 100%; padding: 10px 12px; border-radius: 18px;
+  display: flex; flex-direction: column; gap: 8px;
+  background: color-mix(in srgb, var(--surface) 95%, transparent);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--line);
+  box-shadow: 0 14px 36px rgba(24, 45, 80, .18);
+  animation: maks-rise .2s ease;
+}
+@keyframes maks-rise { from { opacity: 0; transform: translateY(8px); } }
+.maks-panel-head { display: flex; align-items: center; gap: 6px; }
+.maks-status {
+  flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: var(--muted); font-size: 11px; font-weight: 800;
+  letter-spacing: .07em; text-transform: uppercase;
+}
+.maks-status.live { color: var(--blue); }
+.maks-quota {
+  flex: 0 0 auto; padding: 3px 7px; border-radius: 8px;
+  color: var(--muted); background: rgba(80, 92, 112, .1);
+  font-size: 10.5px; font-weight: 700;
+}
+.maks-icon-button {
+  width: 26px; height: 26px; flex: 0 0 auto; padding: 0; border: 0; border-radius: 9px;
+  display: grid; place-items: center; cursor: pointer;
+  color: var(--muted); background: rgba(80, 92, 112, .1); font-size: 12px; line-height: 1;
+}
+.maks-toast, .maks-notice, .maks-fatal {
+  margin: 0; padding: 7px 10px; border-radius: 11px; font-size: 12.5px; line-height: 1.4;
+}
+.maks-toast { color: #0964d8; background: var(--soft-blue); font-weight: 600; }
+.maks-notice { color: var(--muted); background: rgba(80, 92, 112, .09); }
+.maks-fatal { color: #b43c4c; background: rgba(220, 86, 96, .13); }
+
+.maks-last {
+  margin: 0; max-height: 3.2em; overflow: hidden;
+  color: var(--ink); font-size: 13.5px; line-height: 1.45;
+}
+.maks-last.learner { color: var(--muted); }
+
+.maks-transcript {
+  max-height: 34vh; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 7px;
+}
+.maks-hint { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.maks-line {
+  margin: 0; padding: 7px 11px; border-radius: 13px;
+  max-width: 92%; font-size: 13.5px; line-height: 1.45;
+}
+.maks-line.learner { align-self: flex-end; color: white; background: var(--blue); }
+.maks-line.maks { align-self: flex-start; background: rgba(80, 92, 112, .1); }
+
+.maks-compose { display: flex; gap: 6px; }
+.maks-compose input {
+  flex: 1 1 auto; min-width: 0; height: 38px; padding: 0 12px;
+  border: 1px solid var(--line); border-radius: 12px;
+  color: var(--ink); background: transparent; font-size: 14px;
+}
+.maks-compose button {
+  flex: 0 0 auto; width: 38px; height: 38px; border: 0; border-radius: 12px;
+  color: white; background: var(--blue); font-size: 16px; cursor: pointer;
+}
+.maks-compose button:disabled { opacity: .45; }
+
+/* Mascot */
+.maks { position: relative; display: inline-grid; place-items: center; flex: 0 0 auto; }
+.maks svg { width: 100%; height: 100%; overflow: visible; }
+.maks-body { fill: #1479f8; }
+.maks-collar { fill: none; stroke: #cfe0fb; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.maks-skin { fill: #f3c9a6; }
+.maks-hair { fill: #3b2b23; }
+.maks-brow { fill: none; stroke: #3b2b23; stroke-width: 1.7; stroke-linecap: round; }
+.maks-eye { fill: #2c2320; }
+.maks-glint { fill: #ffffff; }
+.maks-blush { fill: #ef9a8d; opacity: .5; }
+.maks-mouth-quiet { fill: none; stroke: #7a4a3a; stroke-width: 1.6; stroke-linecap: round; }
+.maks-mouth-open { fill: #7a4a3a; opacity: 0; transform-origin: 32px 37.6px; }
+.maks-band { fill: none; stroke: #2f3846; stroke-width: 3.2; stroke-linecap: round; }
+.maks-cup { fill: #2f3846; }
+.maks-boom { fill: none; stroke: #2f3846; stroke-width: 1.8; stroke-linecap: round; }
+.maks-boom-tip { fill: #2f3846; }
+
+/* Mascot states */
+.maks-ring {
+  position: absolute; inset: -6px; border-radius: 50%;
+  border: 2px solid var(--blue); opacity: 0; pointer-events: none;
+}
+.maks-listening .maks-ring { animation: maks-ping 1.8s ease-out infinite; }
+.maks-listening .maks-ring-late { animation-delay: .9s; }
+@keyframes maks-ping {
+  0% { opacity: .55; transform: scale(.88); }
+  100% { opacity: 0; transform: scale(1.35); }
+}
+/* He leans in by the loudness of the room, so "it hears me" needs no words. */
+.maks-listening svg { transform: scale(calc(1 + var(--maks-level, 0) * .06)); transition: transform .12s ease-out; }
+.maks-speaking .maks-mouth-quiet { opacity: 0; }
+.maks-speaking .maks-mouth-open { opacity: 1; animation: maks-talk .34s ease-in-out infinite; }
+@keyframes maks-talk {
+  0%, 100% { transform: scaleY(.45); }
+  50% { transform: scaleY(1.1); }
+}
+.maks-connecting svg { animation: maks-bob 1.1s ease-in-out infinite; }
+@keyframes maks-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2.5px); }
+}
+.maks-paused svg, .maks-idle svg { filter: none; }
+.maks-paused { opacity: .6; }
+
+@media (prefers-reduced-motion: reduce) {
+  .maks svg, .maks-ring, .maks-mouth-open { animation: none !important; transition: none; }
+  .maks-speaking .maks-mouth-open { opacity: 1; }
+}
+
 @media (prefers-color-scheme: dark) {
   /* Headings inherit the root colour, so it has to follow the dark palette too. */
   :root { color: var(--ink); --ink: var(--tg-theme-text-color, #f4f7fb); --muted: #9da8b7; --surface: var(--tg-theme-bg-color, #171b22); --line: rgba(225,235,250,.1); --soft-blue: rgba(20,121,248,.16); --shadow: 0 14px 40px rgba(0,0,0,.18); }
@@ -610,4 +753,11 @@ p { color: var(--muted); line-height: 1.6; }
   .feedback-field textarea { background: rgba(255,255,255,.04); }
   .word-row.added .custom-check, .question-row.checked .custom-check { color: white; }
   .icon-button.danger { background: rgba(220,86,96,.12); }
+  .maks-line.maks, .maks-notice, .maks-icon-button, .maks-quota { background: rgba(255,255,255,.08); }
+  .maks-toast { color: #8ec2ff; }
+  .maks-fatal { color: #f0949f; }
+  .maks-compose input { background: rgba(255,255,255,.04); }
+  .maks-launcher { background: linear-gradient(160deg, #2b3646, #1d2632); }
+  .maks-launcher.active { background: linear-gradient(160deg, #35455c, #22303f); }
+  .maks-mute { background: #2b3646; }
 }

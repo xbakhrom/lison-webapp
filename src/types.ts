@@ -155,3 +155,42 @@ export type GrammarGameResult = {
 }
 
 export type FeedbackCategory = 'idea' | 'bug' | 'content' | 'other'
+
+export type AssistantToken = {
+  token: string
+  model: string
+  expiresAt: string
+  newSessionExpiresAt: string
+  remainingSeconds: number
+  dailyLimitSeconds: number
+}
+
+export type AssistantUsage = {
+  usedSeconds: number
+  remainingSeconds: number
+  dailyLimitSeconds: number
+}
+
+export type VocabularySearchResult = {
+  id: string
+  russian: string
+  uzbek: string
+  topicTitle: string
+  added: boolean
+}
+
+export type CustomWordResult = {
+  cardId: number
+  russian: string
+  uzbek: string
+  created: boolean
+}
+
+export type DiscussionQuestion = {
+  id: string
+  topicId: string
+  question: string
+  uzbekHint: string
+  level: string
+  followUps: string[]
+}
