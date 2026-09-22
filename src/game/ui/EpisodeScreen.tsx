@@ -103,13 +103,20 @@ export function EpisodeScreen({ episode, onExit }: Props) {
     setSlots(next)
   }, [])
 
-  /** Fills every pedestal once both the world and the task queue are ready.
+  /** Lights up every other pedestal at the start. Leaving half of them free is
+   *  what makes the episode a walk: a solved task can then respawn somewhere
+   *  else instead of at the player's feet.
    *  Written so a repeated run assigns the same tasks rather than skipping ahead. */
   useEffect(() => {
     if (!world || queue.length === 0 || slots.length > 0) return
     const count = world.stationCount
-    const initial: (Task | null)[] = Array.from({ length: count }, (_, index) => queue[index] ?? null)
-    cursorRef.current = Math.min(count, queue.length)
+    const initial: (Task | null)[] = Array.from({ length: count }, () => null)
+    let assigned = 0
+    for (let index = 0; index < count && assigned < queue.length; index += 2) {
+      initial[index] = queue[assigned]
+      assigned += 1
+    }
+    cursorRef.current = assigned
     initial.forEach((task, index) => {
       world.setStation(index, task ? (task.item.isException ? 'exception' : 'normal') : 'empty')
     })
@@ -133,10 +140,15 @@ export function EpisodeScreen({ episode, onExit }: Props) {
       next[solvedSlot] = null
 
       if (cursorRef.current < queue.length) {
+        // Never respawn on the pedestal just solved while another one is free —
+        // that would pin the player in place, answering without ever walking.
+        const free = next.map((task, index) => (task ? -1 : index)).filter((index) => index >= 0)
+        const elsewhere = free.filter((index) => index !== solvedSlot)
+        const pool = elsewhere.length > 0 ? elsewhere : free
+
         let best = -1
         let bestDistance = -1
-        next.forEach((task, index) => {
-          if (task) return
+        pool.forEach((index) => {
           const distance = world.distanceToPlayer(index)
           if (distance > bestDistance) {
             bestDistance = distance
