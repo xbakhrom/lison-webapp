@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api'
-import { grammarDifficulty } from '../grammarAdaptive'
+import { grammarDifficulty, grammarStages } from '../grammarAdaptive'
 import type { GrammarTopicListItem } from '../types'
 import { ErrorState, Loading } from './Loading'
 
@@ -33,30 +33,18 @@ export function GrammarPage({ onOpen }: Props) {
   if (error) return <ErrorState message={error} onRetry={() => { setError(''); setReload((value) => value + 1) }} />
 
   const learned = topics.filter((topic) => topic.status === 'review').length
-  const groups = [
-    {
-      key: 'A1',
-      eyebrow: 'Старт · A1',
-      title: 'Собираем основу',
-      description: 'Сначала слова и базовые формы, затем первые падежи и время.',
-      topics: topics.filter((topic) => topic.level.startsWith('A1')),
-    },
-    {
-      key: 'A2',
-      eyebrow: 'Следующий шаг · A2',
-      title: 'Говорим точнее',
-      description: 'Расширяем падежи и переходим к более тонким значениям.',
-      topics: topics.filter((topic) => !topic.level.startsWith('A1')),
-    },
-  ]
+  const groups = grammarStages.map((stage) => ({
+    ...stage,
+    topics: topics.filter((topic) => topic.stage === stage.key),
+  }))
 
   return (
     <div className="page grammar-index stack-xl">
       <section className="grammar-welcome">
         <div>
-          <div className="eyebrow">Ваш маршрут A1 → A2</div>
+          <div className="eyebrow">Маршрут из четырёх ступеней</div>
           <h1>От простого<br />к уверенному.</h1>
-          <p>Задания подстраиваются под ответы: два верных — сложнее, две ошибки — снова проще.</p>
+          <p>Сначала слово, потом глагол, потом падежи и живая речь. Задания подстраиваются под ответы: два верных — сложнее, две ошибки — снова проще.</p>
         </div>
         <div className="grammar-welcome-orbit" aria-hidden="true">
           <span>Л</span><i /><b>я</b>
@@ -77,12 +65,12 @@ export function GrammarPage({ onOpen }: Props) {
       <section className="grammar-route-summary" aria-label="Прогресс по маршруту">
         <span><strong>{learned}</strong><small>тем изучено</small></span>
         <i />
-        <span><strong>3</strong><small>уровня заданий</small></span>
+        <span><strong>{topics.length}</strong><small>тем в маршруте</small></span>
         <i />
         <span><strong>{dueCount}</strong><small>ждут повтора</small></span>
       </section>
 
-      {groups.map((group) => group.topics.length > 0 && (
+      {groups.map((group, groupIndex) => group.topics.length > 0 && (
         <section className="grammar-level-group" key={group.key}>
           <div className="grammar-section-heading">
             <div>
@@ -98,7 +86,7 @@ export function GrammarPage({ onOpen }: Props) {
               const mastery = grammarDifficulty[Math.min(3, Math.max(1, topic.masteryLevel)) as 1 | 2 | 3]
               return (
                 <button
-                  className={`grammar-card ${topic.due ? 'is-due' : ''}`}
+                  className={`grammar-card stage-${groupIndex + 1} ${topic.due ? 'is-due' : ''}`}
                   key={topic.id}
                   onClick={() => onOpen(topic.slug, topic.due)}
                 >

@@ -1,8 +1,17 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { api } from '../api'
-import { advanceDifficulty, grammarDifficulty, pickNextQuestion, type AdaptiveState, type Difficulty } from '../grammarAdaptive'
+import {
+  advanceDifficulty,
+  grammarDifficulty,
+  pickNextQuestion,
+  pickPracticeSet,
+  questionSeconds,
+  roundPoints,
+  type AdaptiveState,
+  type Difficulty,
+} from '../grammarAdaptive'
 import type { GrammarAnswer, GrammarGameResult, GrammarQuestion, GrammarTopicDetail } from '../types'
-import { GrammarQuestGame } from './GrammarQuestGame'
+import { GrammarKahootGame } from './GrammarKahootGame'
 import { ErrorState, Loading } from './Loading'
 
 type Phase = 'lesson' | 'practice' | 'game' | 'result'
@@ -13,7 +22,10 @@ type Props = {
   onDone: () => void
 }
 
-const SESSION_SIZE = 8
+const SESSION_SIZE = 10
+// A question nobody answered in time is submitted as an empty answer: the API
+// compares it with the stored answer and counts it as a miss.
+const TIMED_OUT = ''
 
 function safeDifficulty(value: number): Difficulty {
   return Math.min(3, Math.max(1, value)) as Difficulty
@@ -22,21 +34,57 @@ function safeDifficulty(value: number): Difficulty {
 export function GrammarTopicPage({ slug, review, onDone }: Props) {
   const [topic, setTopic] = useState<GrammarTopicDetail | null>(null)
   const [phase, setPhase] = useState<Phase>(review ? 'game' : 'lesson')
+  const [practiceSet, setPracticeSet] = useState<GrammarQuestion[]>([])
   const [practiceIndex, setPracticeIndex] = useState(0)
   const [practiceChoice, setPracticeChoice] = useState('')
   const [practiceCorrect, setPracticeCorrect] = useState(0)
   const [currentQuestion, setCurrentQuestion] = useState<GrammarQuestion | null>(null)
   const [gameChoice, setGameChoice] = useState('')
+  const [timedOut, setTimedOut] = useState(false)
+  const [secondsLeft, setSecondsLeft] = useState(0)
   const [answers, setAnswers] = useState<GrammarAnswer[]>([])
   const [adaptive, setAdaptive] = useState<AdaptiveState>({ difficulty: 1, correctStreak: 0, mistakeStreak: 0 })
   const [adaptiveMessage, setAdaptiveMessage] = useState('')
-  const [questXP, setQuestXP] = useState(0)
-  const [questCombo, setQuestCombo] = useState(0)
-  const [questHearts, setQuestHearts] = useState(3)
+  const [score, setScore] = useState(0)
+  const [streak, setStreak] = useState(0)
+  const [bestStreak, setBestStreak] = useState(0)
+  const [lastPoints, setLastPoints] = useState(0)
   const [result, setResult] = useState<GrammarGameResult | null>(null)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
   const [reload, setReload] = useState(0)
+  const deadline = useRef(0)
+  const resolvedQuestion = useRef('')
+
+  const limitSeconds = currentQuestion ? questionSeconds[safeDifficulty(currentQuestion.difficulty)] : 20
+  const answered = Boolean(gameChoice) || timedOut
+
+  const startQuestion = useCallback((question: GrammarQuestion) => {
+    setCurrentQuestion(question)
+    setGameChoice('')
+    setTimedOut(false)
+    const limit = questionSeconds[safeDifficulty(question.difficulty)]
+    deadline.current = Date.now() + limit * 1000
+    resolvedQuestion.current = ''
+    setSecondsLeft(limit)
+  }, [])
+
+  const startGame = useCallback((currentTopic: GrammarTopicDetail) => {
+    const difficulty = review ? safeDifficulty(currentTopic.progress.masteryLevel) : 1
+    setAdaptive({ difficulty, correctStreak: 0, mistakeStreak: 0 })
+    setAnswers([])
+    setAdaptiveMessage(review && difficulty > 1 ? `Начинаем с уровня «${grammarDifficulty[difficulty].label}»` : '')
+    setScore(0)
+    setStreak(0)
+    setBestStreak(0)
+    setLastPoints(0)
+    setResult(null)
+    setError('')
+    const first = pickNextQuestion(currentTopic.game, new Set(), difficulty)
+    if (first) startQuestion(first)
+    setPhase('game')
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [review, startQuestion])
 
   useEffect(() => {
     let active = true
@@ -44,52 +92,17 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
       .then((data) => {
         if (!active) return
         setTopic(data)
+        setPracticeSet(pickPracticeSet(data.practice))
         if (review) startGame(data)
       })
       .catch((reason: Error) => active && setError(reason.message))
     return () => { active = false }
-  }, [slug, reload, review])
+  }, [slug, reload, review, startGame])
 
   const sessionSize = Math.min(SESSION_SIZE, topic?.game.length ?? SESSION_SIZE)
-  const gameProgress = sessionSize ? (answers.length / sessionSize) * 100 : 0
 
-  function startGame(currentTopic: GrammarTopicDetail) {
-    const difficulty = review ? safeDifficulty(currentTopic.progress.masteryLevel) : 1
-    const state: AdaptiveState = { difficulty, correctStreak: 0, mistakeStreak: 0 }
-    setAdaptive(state)
-    setAnswers([])
-    setGameChoice('')
-    setAdaptiveMessage(review && difficulty > 1 ? `Начинаем с уровня «${grammarDifficulty[difficulty].label}»` : '')
-    setQuestXP(0)
-    setQuestCombo(0)
-    setQuestHearts(3)
-    setResult(null)
-    setError('')
-    setCurrentQuestion(pickNextQuestion(currentTopic.game, new Set(), difficulty))
-    setPhase('game')
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  function choosePractice(option: string) {
-    if (practiceChoice) return
-    setPracticeChoice(option)
-    const question = topic?.practice[practiceIndex]
-    if (question && option === question.answer) setPracticeCorrect((value) => value + 1)
-    window.Telegram?.WebApp.HapticFeedback?.notificationOccurred(option === question?.answer ? 'success' : 'error')
-  }
-
-  function nextPractice() {
-    if (!topic) return
-    if (practiceIndex + 1 < topic.practice.length) {
-      setPracticeIndex((value) => value + 1)
-      setPracticeChoice('')
-    } else {
-      startGame(topic)
-    }
-  }
-
-  function chooseGame(option: string) {
-    if (gameChoice || !currentQuestion) return
+  function registerAnswer(option: string, remainingSeconds: number) {
+    if (!currentQuestion) return
     const correct = option === currentQuestion.answer
     const nextAdaptive = advanceDifficulty(adaptive, correct)
     if (nextAdaptive.difficulty > adaptive.difficulty) {
@@ -100,28 +113,75 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
       setAdaptiveMessage('')
     }
     setAdaptive(nextAdaptive)
+
+    const points = roundPoints(correct, remainingSeconds, limitSeconds, streak)
+    setLastPoints(points)
+    setScore((value) => value + points)
     if (correct) {
-      setQuestXP((value) => value + currentQuestion.difficulty * 20 + Math.min(questCombo, 4) * 5)
-      setQuestCombo((value) => value + 1)
-      if ((questCombo + 1) % 3 === 0) setQuestHearts((value) => Math.min(3, value + 1))
+      setStreak((value) => {
+        const next = value + 1
+        setBestStreak((best) => Math.max(best, next))
+        return next
+      })
     } else {
-      setQuestCombo(0)
-      setQuestHearts((value) => Math.max(0, value - 1))
+      setStreak(0)
     }
-    setGameChoice(option)
     setAnswers((current) => [...current, { questionId: currentQuestion.id, answer: option }])
     window.Telegram?.WebApp.HapticFeedback?.notificationOccurred(correct ? 'success' : 'error')
   }
 
+  // The countdown is the whole point of the Kahoot format, so it runs off a
+  // wall-clock deadline instead of a tick counter that a backgrounded tab drifts.
+  useEffect(() => {
+    if (phase !== 'game' || !currentQuestion || answered) return
+    const tick = () => {
+      const remaining = Math.max(0, (deadline.current - Date.now()) / 1000)
+      setSecondsLeft((shown) => (shown === Math.ceil(remaining) ? shown : Math.ceil(remaining)))
+      // The ref, not the state flag, guards the miss: a second tick can fire
+      // before React re-renders with timedOut set.
+      if (remaining <= 0 && resolvedQuestion.current !== currentQuestion.id) {
+        resolvedQuestion.current = currentQuestion.id
+        setTimedOut(true)
+        registerAnswer(TIMED_OUT, 0)
+      }
+    }
+    const timer = window.setInterval(tick, 200)
+    return () => window.clearInterval(timer)
+  })
+
+  function choosePractice(option: string) {
+    if (practiceChoice) return
+    setPracticeChoice(option)
+    const question = practiceSet[practiceIndex]
+    if (question && option === question.answer) setPracticeCorrect((value) => value + 1)
+    window.Telegram?.WebApp.HapticFeedback?.notificationOccurred(option === question?.answer ? 'success' : 'error')
+  }
+
+  function nextPractice() {
+    if (!topic) return
+    if (practiceIndex + 1 < practiceSet.length) {
+      setPracticeIndex((value) => value + 1)
+      setPracticeChoice('')
+    } else {
+      startGame(topic)
+    }
+  }
+
+  function chooseGame(option: string) {
+    if (answered || !currentQuestion || resolvedQuestion.current === currentQuestion.id) return
+    resolvedQuestion.current = currentQuestion.id
+    setGameChoice(option)
+    registerAnswer(option, Math.max(0, (deadline.current - Date.now()) / 1000))
+  }
+
   async function nextGame() {
-    if (!topic || !currentQuestion || !gameChoice || saving) return
+    if (!topic || !currentQuestion || !answered || saving) return
 
     const usedIDs = new Set(answers.map((answer) => answer.questionId))
     if (answers.length < sessionSize) {
       const nextQuestion = pickNextQuestion(topic.game, usedIDs, adaptive.difficulty, currentQuestion.kind)
       if (nextQuestion) {
-        setCurrentQuestion(nextQuestion)
-        setGameChoice('')
+        startQuestion(nextQuestion)
         return
       }
     }
@@ -140,26 +200,39 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
     }
   }
 
+  function restart() {
+    if (!topic) return
+    setPhase('lesson')
+    setPracticeSet(pickPracticeSet(topic.practice))
+    setPracticeIndex(0)
+    setPracticeChoice('')
+    setPracticeCorrect(0)
+    setAnswers([])
+    setResult(null)
+  }
+
   if (!topic && !error) return <Loading />
   if (!topic) return <ErrorState message={error} onRetry={() => { setError(''); setReload((value) => value + 1) }} />
 
   if (phase === 'game' && currentQuestion) {
     return (
-      <GrammarQuestGame
+      <GrammarKahootGame
         topic={topic}
         question={currentQuestion}
         answered={answers.length}
         total={sessionSize}
         choice={gameChoice}
-        progress={gameProgress}
+        timedOut={timedOut}
+        secondsLeft={secondsLeft}
+        limitSeconds={limitSeconds}
+        score={score}
+        streak={streak}
+        lastPoints={lastPoints}
         saving={saving}
         error={error}
         review={review}
         nextDifficulty={adaptive.difficulty}
         adaptiveMessage={adaptiveMessage}
-        xp={questXP}
-        combo={questCombo}
-        hearts={questHearts}
         onChoose={chooseGame}
         onNext={nextGame}
       />
@@ -174,31 +247,37 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
         <div className={`grammar-result-orbit ${passed ? '' : 'retry'}`} aria-hidden="true">
           <span>{passed ? '✓' : '↻'}</span><i /><b>★</b>
         </div>
-        <div className="eyebrow">Lison Quest завершён</div>
+        <div className="eyebrow">Раунд завершён</div>
         <h1>{passed ? 'Правило закреплено' : 'Ещё один короткий круг'}</h1>
         <p>{passed
           ? `Верно ${result.correct} из ${result.total}. Следующее повторение появится через ${result.intervalDays} дн.`
           : `Верно ${result.correct} из ${result.total}. Вернёмся к простым примерам и попробуем ещё раз.`}</p>
-        <div className="grammar-score"><strong>{result.score}%</strong><span>+{questXP} XP · уровень заданий {resultDifficulty.label}</span></div>
+        <div className="kahoot-podium">
+          <span><strong>{score}</strong><small>очков</small></span>
+          <span><strong>{result.score}%</strong><small>точность</small></span>
+          <span><strong>{bestStreak}</strong><small>серия подряд</small></span>
+        </div>
+        <p className="kahoot-podium-note">Уровень заданий: {resultDifficulty.label}</p>
         <button className="button primary wide" onClick={onDone}>К учебному маршруту</button>
-        {!passed && <button className="button ghost wide" onClick={() => { setPhase('lesson'); setPracticeIndex(0); setPracticeChoice(''); setPracticeCorrect(0); setAnswers([]); setResult(null) }}>Повторить правило</button>}
+        {!passed && <button className="button ghost wide" onClick={restart}>Повторить правило</button>}
       </div>
     )
   }
 
   if (phase === 'practice') {
-    const question = topic.practice[practiceIndex]
+    const question = practiceSet[practiceIndex]
+    if (!question) return <Loading />
     return (
       <div className="page grammar-practice-page">
         <div className="grammar-flow-head">
-          <div><span>Разминка · легко</span><strong>{topic.title}</strong></div>
-          <span>{practiceIndex + 1}/{topic.practice.length}</span>
+          <div><span>Разминка · без таймера</span><strong>{topic.title}</strong></div>
+          <span>{practiceIndex + 1}/{practiceSet.length}</span>
         </div>
-        <div className="progress-track"><span style={{ width: `${((practiceIndex + 1) / topic.practice.length) * 100}%` }} /></div>
+        <div className="progress-track"><span style={{ width: `${((practiceIndex + 1) / practiceSet.length) * 100}%` }} /></div>
         <QuestionCard question={question} choice={practiceChoice} onChoose={choosePractice} />
         {practiceChoice && (
           <button className="button primary wide" onClick={nextPractice}>
-            {practiceIndex + 1 === topic.practice.length ? `Начать Lison Quest · ${practiceCorrect}/${topic.practice.length}` : 'Дальше'}
+            {practiceIndex + 1 === practiceSet.length ? `Начать игру · ${practiceCorrect}/${practiceSet.length}` : 'Дальше'}
           </button>
         )}
       </div>
@@ -221,14 +300,14 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
       <div className="grammar-roadmap" aria-label="Этапы изучения">
         <span className="active"><b>1</b>Правило</span><i />
         <span><b>2</b>Разминка</span><i />
-        <span><b>3</b>2D-квест</span>
+        <span><b>3</b>Игра</span>
       </div>
 
       <section className="grammar-difficulty-map" aria-label="Уровни заданий">
         {([1, 2, 3] as Difficulty[]).map((difficulty, index) => (
           <div className={`level-${difficulty}`} key={difficulty}>
             <b>{difficulty}</b>
-            <span><strong>{grammarDifficulty[difficulty].label}</strong><small>{gameCounts[index]} задания в банке</small></span>
+            <span><strong>{grammarDifficulty[difficulty].label}</strong><small>{gameCounts[index]} заданий в банке</small></span>
           </div>
         ))}
       </section>

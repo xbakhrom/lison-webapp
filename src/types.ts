@@ -106,6 +106,8 @@ export type GrammarAnswer = {
   answer: string
 }
 
+export type GrammarStage = 'foundation' | 'verbs' | 'cases' | 'fluency'
+
 export type GrammarTopicListItem = {
   id: string
   slug: string
@@ -113,6 +115,7 @@ export type GrammarTopicListItem = {
   summary: string
   level: string
   icon: string
+  stage: GrammarStage
   status: 'new' | 'learning' | 'review'
   bestScore: number
   dueDate: string
@@ -128,6 +131,7 @@ export type GrammarTopicDetail = {
   summary: string
   level: string
   icon: string
+  stage: GrammarStage
   lesson: GrammarLessonBlock[]
   practice: GrammarQuestion[]
   game: GrammarQuestion[]
