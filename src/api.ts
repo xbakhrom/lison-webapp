@@ -1,5 +1,6 @@
 import type {
   Card,
+  GrammarAnswer,
   GrammarGameResult,
   GrammarTopicDetail,
   GrammarTopicListItem,
@@ -43,7 +44,7 @@ export const api = {
   async grammarTopic(slug: string) {
     return request<GrammarTopicDetail>(`/grammar/${slug}`)
   },
-  async finishGrammarGame(topicID: string, answers: Record<string, string>) {
+  async finishGrammarGame(topicID: string, answers: GrammarAnswer[]) {
     return request<GrammarGameResult>(`/grammar/${topicID}/games`, {
       method: 'POST',
       body: JSON.stringify({ answers }),

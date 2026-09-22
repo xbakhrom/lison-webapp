@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { api } from '../api'
+import { grammarDifficulty } from '../grammarAdaptive'
 import type { GrammarTopicListItem } from '../types'
 import { ErrorState, Loading } from './Loading'
 
@@ -32,14 +33,30 @@ export function GrammarPage({ onOpen }: Props) {
   if (error) return <ErrorState message={error} onRetry={() => { setError(''); setReload((value) => value + 1) }} />
 
   const learned = topics.filter((topic) => topic.status === 'review').length
+  const groups = [
+    {
+      key: 'A1',
+      eyebrow: 'Старт · A1',
+      title: 'Собираем основу',
+      description: 'Сначала слова и базовые формы, затем первые падежи и время.',
+      topics: topics.filter((topic) => topic.level.startsWith('A1')),
+    },
+    {
+      key: 'A2',
+      eyebrow: 'Следующий шаг · A2',
+      title: 'Говорим точнее',
+      description: 'Расширяем падежи и переходим к более тонким значениям.',
+      topics: topics.filter((topic) => !topic.level.startsWith('A1')),
+    },
+  ]
 
   return (
     <div className="page grammar-index stack-xl">
       <section className="grammar-welcome">
         <div>
-          <div className="eyebrow">Грамматика без перегруза</div>
-          <h1>Поймите правило.<br />Закрепите в игре.</h1>
-          <p>Короткие объяснения, практика и лёгкие повторения в нужный момент.</p>
+          <div className="eyebrow">Ваш маршрут A1 → A2</div>
+          <h1>От простого<br />к уверенному.</h1>
+          <p>Задания подстраиваются под ответы: два верных — сложнее, две ошибки — снова проще.</p>
         </div>
         <div className="grammar-welcome-orbit" aria-hidden="true">
           <span>Л</span><i /><b>я</b>
@@ -57,37 +74,53 @@ export function GrammarPage({ onOpen }: Props) {
         </section>
       )}
 
-      <section>
-        <div className="grammar-section-heading">
-          <div>
-            <span className="eyebrow">Ваша программа</span>
-            <h2>Изученные темы</h2>
-          </div>
-          <span>{learned}/{topics.length}</span>
-        </div>
-        <div className="grammar-grid">
-          {topics.map((topic, index) => (
-            <button
-              className={`grammar-card ${topic.due ? 'is-due' : ''}`}
-              key={topic.id}
-              onClick={() => onOpen(topic.slug, topic.due)}
-            >
-              <span className="grammar-card-number">{String(index + 1).padStart(2, '0')}</span>
-              <span className="grammar-card-icon" aria-hidden="true">{topic.icon}</span>
-              <span className="grammar-card-copy">
-                <span className="grammar-card-meta">
-                  <span>{topic.level}</span>
-                  {topic.due && <b>Повторить</b>}
-                  {!topic.due && topic.status === 'review' && <b className="learned">{topic.bestScore}%</b>}
-                </span>
-                <strong>{topic.title}</strong>
-                <small>{topic.summary}</small>
-              </span>
-              <span className="grammar-card-arrow" aria-hidden="true">→</span>
-            </button>
-          ))}
-        </div>
+      <section className="grammar-route-summary" aria-label="Прогресс по маршруту">
+        <span><strong>{learned}</strong><small>тем изучено</small></span>
+        <i />
+        <span><strong>3</strong><small>уровня заданий</small></span>
+        <i />
+        <span><strong>{dueCount}</strong><small>ждут повтора</small></span>
       </section>
+
+      {groups.map((group) => group.topics.length > 0 && (
+        <section className="grammar-level-group" key={group.key}>
+          <div className="grammar-section-heading">
+            <div>
+              <span className="eyebrow">{group.eyebrow}</span>
+              <h2>{group.title}</h2>
+              <p>{group.description}</p>
+            </div>
+            <span>{group.topics.filter((topic) => topic.status === 'review').length}/{group.topics.length}</span>
+          </div>
+          <div className="grammar-grid">
+            {group.topics.map((topic) => {
+              const routeIndex = topics.findIndex((item) => item.id === topic.id)
+              const mastery = grammarDifficulty[Math.min(3, Math.max(1, topic.masteryLevel)) as 1 | 2 | 3]
+              return (
+                <button
+                  className={`grammar-card ${topic.due ? 'is-due' : ''}`}
+                  key={topic.id}
+                  onClick={() => onOpen(topic.slug, topic.due)}
+                >
+                  <span className="grammar-card-number">{String(routeIndex + 1).padStart(2, '0')}</span>
+                  <span className="grammar-card-icon" aria-hidden="true">{topic.icon}</span>
+                  <span className="grammar-card-copy">
+                    <span className="grammar-card-meta">
+                      <span>{topic.level}</span>
+                      {topic.due && <b>Повторить</b>}
+                      {!topic.due && topic.status === 'review' && <b className="learned">{topic.bestScore}%</b>}
+                    </span>
+                    <strong>{topic.title}</strong>
+                    <small>{topic.summary}</small>
+                    <span className={`grammar-mastery level-${topic.masteryLevel}`}>{mastery.label}</span>
+                  </span>
+                  <span className="grammar-card-arrow" aria-hidden="true">→</span>
+                </button>
+              )
+            })}
+          </div>
+        </section>
+      ))}
     </div>
   )
 }

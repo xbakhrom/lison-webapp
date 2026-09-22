@@ -93,9 +93,17 @@ export type GrammarQuestion = {
   id: string
   prompt: string
   phrase: string
-  options: string[]
+  kind: 'choice' | 'true_false' | 'order'
+  difficulty: 1 | 2 | 3
+  options?: string[]
+  tokens?: string[]
   answer: string
   explanation: string
+}
+
+export type GrammarAnswer = {
+  questionId: string
+  answer: string
 }
 
 export type GrammarTopicListItem = {
@@ -110,6 +118,7 @@ export type GrammarTopicListItem = {
   dueDate: string
   due: boolean
   lessonBlocks: number
+  masteryLevel: number
 }
 
 export type GrammarTopicDetail = {
@@ -127,6 +136,7 @@ export type GrammarTopicDetail = {
     bestScore: number
     dueDate: string
     repetitions: number
+    masteryLevel: number
   }
 }
 
@@ -137,4 +147,5 @@ export type GrammarGameResult = {
   status: 'learning' | 'review'
   intervalDays: number
   dueDate: string
+  masteryLevel: number
 }
