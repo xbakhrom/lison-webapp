@@ -1,0 +1,1567 @@
+{
+  "id": "ep01",
+  "order": 1,
+  "title": "Аэропорт",
+  "titleUz": "Aeroport",
+  "topic": "rod",
+  "topicUz": "Ot jinsi (род)",
+  "summaryUz": "Bagaj lentasidagi buyumlarni rod bo'yicha uchta aravaga saralang.",
+  "icon": "✈️",
+  "intro": [
+    {
+      "textUz": "Salom! Men — Barsik. Sen Temursan, shundaymi? Bagajing lentada aylanib yuribdi."
+    },
+    {
+      "textUz": "Moskvada har bir narsaning «jinsi» bor: он, она yoki оно. Buni bilmasang, keyingi hech qaysi kelishik ishlamaydi.",
+      "ru": "он — она — оно"
+    },
+    {
+      "textUz": "Buyumlarni uchta aravaga saralaymiz. Oltin rangda yaltiragan ⭐ so'zlarga ehtiyot bo'l — ular qoidaga bo'ysunmaydi."
+    }
+  ],
+  "ruleCards": [
+    {
+      "titleUz": "Rod nima?",
+      "bodyUz": "Rus tilida har bir ot uch roddan biriga tegishli: мужской (erkaklik), женский (ayollik), средний (o'rta). Tekshirish oson — otni olmosh bilan almashtiring: он, она yoki оно.",
+      "examplesRu": [
+        "стол — он",
+        "кни́га — она́",
+        "окно́ — оно́"
+      ]
+    },
+    {
+      "titleUz": "Oxirgi harfga qarang",
+      "bodyUz": "Asosiy qoida so'z oxirida: undosh bilan tugasa — мужской; -а yoki -я bilan tugasa — женский; -о yoki -е bilan tugasa — средний.",
+      "examplesRu": [
+        "па́спорт — он",
+        "су́мка — она́",
+        "письмо́ — оно́",
+        "мо́ре — оно́"
+      ]
+    },
+    {
+      "titleUz": "-ь bilan tugaganlar ikkilanadi",
+      "bodyUz": "Yumshoq belgi (-ь) bilan tugagan otlar ham мужской, ham женский bo'lishi mumkin. Qoida yo'q — har birini lug'at bilan birga yodlang.",
+      "examplesRu": [
+        "слова́рь — он",
+        "тетра́дь — она́",
+        "день — он",
+        "ночь — она́"
+      ]
+    },
+    {
+      "titleUz": "Istisnolar — bosslar",
+      "bodyUz": "Ko'rinishi bir xil, rodi boshqa: ко́фе -е bilan tugasa ham мужской; -мя bilan tugaganlar (вре́мя, и́мя) — средний; erkak kishini bildiruvchi па́па, де́душка, дя́дя -а/-я bilan tugasa ham мужской; путь yagona -ь li мужской ot, мышь/ночь/дверь esa женский.",
+      "examplesRu": [
+        "чёрный ко́фе — он",
+        "моё вре́мя — оно́",
+        "мой па́па — он",
+        "до́лгий путь — он",
+        "э́та дверь — она́"
+      ],
+      "isException": true
+    }
+  ],
+  "requiredExceptions": [
+    {
+      "key": "кофе",
+      "match": "кофе"
+    },
+    {
+      "key": "время",
+      "match": "время"
+    },
+    {
+      "key": "имя",
+      "match": "имя"
+    },
+    {
+      "key": "папа",
+      "match": "папа"
+    },
+    {
+      "key": "дедушка",
+      "match": "дедушка"
+    },
+    {
+      "key": "дядя",
+      "match": "дядя"
+    },
+    {
+      "key": "мышь",
+      "match": "мышь"
+    },
+    {
+      "key": "ночь",
+      "match": "ночь"
+    },
+    {
+      "key": "дверь",
+      "match": "дверь"
+    },
+    {
+      "key": "путь",
+      "match": "путь"
+    },
+    {
+      "key": "словарь",
+      "match": "словарь"
+    },
+    {
+      "key": "тетрадь",
+      "match": "тетрадь"
+    }
+  ],
+  "scene": {
+    "ground": "#d5dae4",
+    "sky": "#cfe3ff",
+    "fog": "#dce8fa",
+    "bounds": [
+      9.5,
+      6.6
+    ],
+    "spawn": [
+      0,
+      1.0
+    ],
+    "zones": [
+      {
+        "label": "мужской",
+        "labelUz": "mujskoy · он",
+        "pos": [
+          -5.5,
+          0,
+          -6
+        ],
+        "color": "#2f6fd0"
+      },
+      {
+        "label": "женский",
+        "labelUz": "jenskiy · она",
+        "pos": [
+          0,
+          0,
+          -6.8
+        ],
+        "color": "#d8557f"
+      },
+      {
+        "label": "средний",
+        "labelUz": "sredniy · оно",
+        "pos": [
+          5.5,
+          0,
+          -6
+        ],
+        "color": "#2f9e6b"
+      }
+    ],
+    "props": [
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          -1
+        ],
+        "size": [
+          17,
+          0.5,
+          2.2
+        ],
+        "color": "#5d6879"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0.5,
+          -1
+        ],
+        "size": [
+          17,
+          0.1,
+          2
+        ],
+        "color": "#3b4353"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -6,
+          0.6,
+          -1
+        ],
+        "size": [
+          0.9,
+          0.6,
+          0.6
+        ],
+        "color": "#c8503f"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -3,
+          0.6,
+          -1.3
+        ],
+        "size": [
+          0.8,
+          0.55,
+          0.6
+        ],
+        "color": "#2f7fb5"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0.6,
+          -0.7
+        ],
+        "size": [
+          1,
+          0.62,
+          0.6
+        ],
+        "color": "#7a5ab5"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          3,
+          0.6,
+          -1.2
+        ],
+        "size": [
+          0.85,
+          0.5,
+          0.6
+        ],
+        "color": "#c9a227"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          6,
+          0.6,
+          -0.9
+        ],
+        "size": [
+          0.9,
+          0.58,
+          0.6
+        ],
+        "color": "#3f8f6a"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -1.5,
+          0.6,
+          -0.5
+        ],
+        "size": [
+          0.75,
+          0.5,
+          0.55
+        ],
+        "color": "#b5556d"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          -9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -6,
+          1.1,
+          -8.7
+        ],
+        "size": [
+          5,
+          2.2,
+          0.1
+        ],
+        "color": "#9fd0ff"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0.5,
+          1.1,
+          -8.7
+        ],
+        "size": [
+          5,
+          2.2,
+          0.1
+        ],
+        "color": "#9fd0ff"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          7,
+          1.1,
+          -8.7
+        ],
+        "size": [
+          4,
+          2.2,
+          0.1
+        ],
+        "color": "#9fd0ff"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -3,
+          3.4,
+          -8.6
+        ],
+        "size": [
+          3,
+          0.7,
+          0.12
+        ],
+        "color": "#1479f8"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -8,
+          0,
+          -6.5
+        ],
+        "size": [
+          3.6,
+          1.1,
+          1.3
+        ],
+        "color": "#dfe6f2",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          8,
+          0,
+          -6.5
+        ],
+        "size": [
+          3.6,
+          1.1,
+          1.3
+        ],
+        "color": "#dfe6f2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -10.2,
+          0,
+          3
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          -10.2,
+          0.8,
+          3
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          10.2,
+          0,
+          3
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          10.2,
+          0.8,
+          3
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          6,
+          0,
+          -14
+        ],
+        "size": [
+          3.4,
+          12,
+          3.4
+        ],
+        "color": "#f4f7fc",
+        "rotY": 90
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          10.5,
+          2,
+          -14
+        ],
+        "size": [
+          4.4,
+          4,
+          4.4
+        ],
+        "color": "#d8e2f0"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          3,
+          4.6,
+          -14
+        ],
+        "size": [
+          2.4,
+          3,
+          0.4
+        ],
+        "color": "#1479f8"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -9.0,
+          0,
+          4.0
+        ],
+        "size": [
+          0.9,
+          0.45,
+          2.4
+        ],
+        "color": "#8a93a6",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          9.0,
+          0,
+          4.0
+        ],
+        "size": [
+          0.9,
+          0.45,
+          2.4
+        ],
+        "color": "#8a93a6",
+        "solid": true
+      }
+    ],
+    "stations": [
+      [
+        -8,
+        4
+      ],
+      [
+        -4,
+        5.5
+      ],
+      [
+        4,
+        5.5
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        -9,
+        1
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        -6,
+        -3.5
+      ],
+      [
+        -2,
+        -4.2
+      ],
+      [
+        2,
+        -4.2
+      ],
+      [
+        6,
+        -3.5
+      ],
+      [
+        -3,
+        2.8
+      ],
+      [
+        3,
+        2.8
+      ]
+    ]
+  },
+  "boss": {
+    "nameRu": "Таможенник",
+    "nameUz": "Bojxonachi",
+    "introUz": "«Bagajingizni tekshiramiz. Har bir buyumning rodini ayting — xato qilsangiz, chegaradan o'tmaysiz.» Vaqt cheklangan: har savolga 15 soniya.",
+    "winUz": "«O'tishingiz mumkin. Moskvaga xush kelibsiz!» — bojxonachi muhr bosdi.",
+    "loseUz": "«Yo'q, bu yetarli emas.» Bojxonachi ro'yxatni qaytadan ochdi — yana urinib ko'ring.",
+    "color": "#3c6fa8"
+  },
+  "items": [
+    {
+      "id": "ep01-001",
+      "type": "sort",
+      "promptRu": "стол",
+      "uz": "stol",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "explainUz": "Undosh bilan tugagan ot — мужской rod: стол — он."
+    },
+    {
+      "id": "ep01-002",
+      "type": "sort",
+      "promptRu": "книга",
+      "uz": "kitob",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "explainUz": "-а bilan tugagan ot — женский rod: кни́га — она́."
+    },
+    {
+      "id": "ep01-003",
+      "type": "sort",
+      "promptRu": "окно",
+      "uz": "deraza",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "explainUz": "-о bilan tugagan ot — средний rod: окно́ — оно́."
+    },
+    {
+      "id": "ep01-004",
+      "type": "sort",
+      "promptRu": "дом",
+      "uz": "uy",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "explainUz": "Undosh bilan tugadi — мужской rod: дом — он."
+    },
+    {
+      "id": "ep01-005",
+      "type": "sort",
+      "promptRu": "сумка",
+      "uz": "sumka",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "explainUz": "-а bilan tugadi — женский rod: су́мка — она́."
+    },
+    {
+      "id": "ep01-006",
+      "type": "sort",
+      "promptRu": "письмо",
+      "uz": "xat",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "explainUz": "-о bilan tugadi — средний rod: письмо́ — оно́."
+    },
+    {
+      "id": "ep01-007",
+      "type": "sort",
+      "promptRu": "город",
+      "uz": "shahar",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "explainUz": "Undosh bilan tugadi — мужской rod: го́род — он."
+    },
+    {
+      "id": "ep01-008",
+      "type": "sort",
+      "promptRu": "машина",
+      "uz": "mashina",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "explainUz": "-а bilan tugadi — женский rod: маши́на — она́."
+    },
+    {
+      "id": "ep01-009",
+      "type": "sort",
+      "promptRu": "море",
+      "uz": "dengiz",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "explainUz": "-е bilan tugadi — средний rod: мо́ре — оно́."
+    },
+    {
+      "id": "ep01-010",
+      "type": "sort",
+      "promptRu": "брат",
+      "uz": "aka, uka",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "explainUz": "Undosh bilan tugadi va erkak kishi — мужской rod: брат — он."
+    },
+    {
+      "id": "ep01-011",
+      "type": "sort",
+      "promptRu": "комната",
+      "uz": "xona",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "explainUz": "-а bilan tugadi — женский rod: ко́мната — она́."
+    },
+    {
+      "id": "ep01-012",
+      "type": "sort",
+      "promptRu": "здание",
+      "uz": "bino",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "explainUz": "-е bilan tugadi — средний rod: зда́ние — оно́."
+    },
+    {
+      "id": "ep01-013",
+      "type": "sort",
+      "promptRu": "паспорт",
+      "uz": "pasport",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "explainUz": "Undosh bilan tugadi — мужской rod: па́спорт — он."
+    },
+    {
+      "id": "ep01-014",
+      "type": "sort",
+      "promptRu": "газета",
+      "uz": "gazeta",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "explainUz": "-а bilan tugadi — женский rod: газе́та — она́."
+    },
+    {
+      "id": "ep01-015",
+      "type": "sort",
+      "promptRu": "яблоко",
+      "uz": "olma",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "explainUz": "-о bilan tugadi — средний rod: я́блоко — оно́."
+    },
+    {
+      "id": "ep01-016",
+      "type": "sort",
+      "promptRu": "чемодан",
+      "uz": "chamadon",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "explainUz": "Undosh bilan tugadi — мужской rod: чемода́н — он."
+    },
+    {
+      "id": "ep01-017",
+      "type": "sort",
+      "promptRu": "аптека",
+      "uz": "dorixona",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "explainUz": "-а bilan tugadi — женский rod: апте́ка — она́."
+    },
+    {
+      "id": "ep01-018",
+      "type": "sort",
+      "promptRu": "молоко",
+      "uz": "sut",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "explainUz": "-о bilan tugadi — средний rod: молоко́ — оно́."
+    },
+    {
+      "id": "ep01-019",
+      "type": "sort",
+      "promptRu": "билет",
+      "uz": "chipta",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "explainUz": "Undosh bilan tugadi — мужской rod: биле́т — он."
+    },
+    {
+      "id": "ep01-020",
+      "type": "sort",
+      "promptRu": "неделя",
+      "uz": "hafta",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "explainUz": "-я bilan tugadi — женский rod: неде́ля — она́."
+    },
+    {
+      "id": "ep01-021",
+      "type": "sort",
+      "promptRu": "кофе",
+      "uz": "kofe",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "hintUz": "Oxirgi harfga ishonma. Bu so'z o'zlashma va u «напи́ток» (ichimlik) sifatida erkaklik rodida qoladi.",
+      "explainUz": "Istisno! -е bilan tugasa ham ко́фе — мужской rod: чёрный ко́фе, он гото́в."
+    },
+    {
+      "id": "ep01-022",
+      "type": "sort",
+      "promptRu": "время",
+      "uz": "vaqt",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "isException": true,
+      "hintUz": "-мя bilan tugagan o'nta ot bor, ularning hammasi bitta guruh.",
+      "explainUz": "Istisno! -мя bilan tugagan otlar (вре́мя, и́мя) — средний rod: моё вре́мя."
+    },
+    {
+      "id": "ep01-023",
+      "type": "sort",
+      "promptRu": "имя",
+      "uz": "ism",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "isException": true,
+      "hintUz": "-я ga qarab женский demang: bu so'z вре́мя bilan bir oilada.",
+      "explainUz": "Istisno! И́мя — средний rod, вре́мя kabi: моё и́мя — Тему́р."
+    },
+    {
+      "id": "ep01-024",
+      "type": "sort",
+      "promptRu": "папа",
+      "uz": "ota",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "hintUz": "Bu yerda so'z oxiri emas, kim haqida gap ketayotgani muhim.",
+      "explainUz": "Istisno! -а bilan tugasa ham erkak kishini bildiradi — мужской rod: мой па́па."
+    },
+    {
+      "id": "ep01-025",
+      "type": "sort",
+      "promptRu": "дедушка",
+      "uz": "bobo",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "hintUz": "Kim bu? Erkak kishi. Demak, so'z oxiri hal qilmaydi.",
+      "explainUz": "Istisno! Де́душка -а bilan tugsa ham мужской rod: мой де́душка."
+    },
+    {
+      "id": "ep01-026",
+      "type": "sort",
+      "promptRu": "дядя",
+      "uz": "amaki, tog'a",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "hintUz": "Papa va dedushka bilan bir guruhda.",
+      "explainUz": "Istisno! Дя́дя — erkak kishi, shuning uchun мужской rod: мой дя́дя."
+    },
+    {
+      "id": "ep01-027",
+      "type": "sort",
+      "promptRu": "мышь",
+      "uz": "sichqon",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isException": true,
+      "hintUz": "-ь li otlar ikkiga bo'linadi. Buni yod olish kerak.",
+      "explainUz": "-ь bilan tugadi, lekin женский rod: э́та мышь, она́ ма́ленькая."
+    },
+    {
+      "id": "ep01-028",
+      "type": "sort",
+      "promptRu": "ночь",
+      "uz": "tun",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isException": true,
+      "hintUz": "Kun qismlarini eslang: день — он, lekin bu so'z boshqacha.",
+      "explainUz": "-ь bilan tugadi, женский rod: до́брая ночь, она́ дли́нная. Taqqoslang: день — он."
+    },
+    {
+      "id": "ep01-029",
+      "type": "sort",
+      "promptRu": "дверь",
+      "uz": "eshik",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isException": true,
+      "hintUz": "Uy buyumlari orasida bu so'z «она» bo'ladi.",
+      "explainUz": "-ь bilan tugadi, женский rod: э́та дверь закры́та."
+    },
+    {
+      "id": "ep01-030",
+      "type": "sort",
+      "promptRu": "путь",
+      "uz": "yo'l",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "hintUz": "Bu so'z -ь li otlar ichida alohida turadi: uning turlanishi ham boshqacha.",
+      "explainUz": "Istisno! Путь — мужской rod: до́лгий путь, он тру́дный. -ь li so'zlar orasida eng noodatiysi."
+    },
+    {
+      "id": "ep01-031",
+      "type": "sort",
+      "promptRu": "словарь",
+      "uz": "lug'at",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "hintUz": "-арь bilan tugagan otlar odatda erkaklik rodida.",
+      "explainUz": "-ь bilan tugadi, lekin мужской rod: но́вый слова́рь, он ну́жен."
+    },
+    {
+      "id": "ep01-032",
+      "type": "sort",
+      "promptRu": "тетрадь",
+      "uz": "daftar",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isException": true,
+      "hintUz": "Slovar bilan yonma-yon yuradi, lekin rodi qarama-qarshi.",
+      "explainUz": "-ь bilan tugadi, женский rod: моя́ тетра́дь. Taqqoslang: слова́рь — он, тетра́дь — она́."
+    },
+    {
+      "id": "ep01-033",
+      "type": "choice",
+      "promptRu": "телефон",
+      "uz": "telefon",
+      "askUz": "Bu ot qaysi olmosh bilan almashadi?",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "он",
+      "explainUz": "Undosh bilan tugadi — мужской rod, ya'ni он: телефо́н здесь, он но́вый."
+    },
+    {
+      "id": "ep01-034",
+      "type": "choice",
+      "promptRu": "семья",
+      "uz": "oila",
+      "askUz": "Bu ot qaysi olmosh bilan almashadi?",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "она",
+      "explainUz": "-я bilan tugadi — женский rod: семья́ — она́ больша́я."
+    },
+    {
+      "id": "ep01-035",
+      "type": "choice",
+      "promptRu": "солнце",
+      "uz": "quyosh",
+      "askUz": "Bu ot qaysi olmosh bilan almashadi?",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "оно",
+      "explainUz": "-е bilan tugadi — средний rod: со́лнце — оно́ я́ркое."
+    },
+    {
+      "id": "ep01-036",
+      "type": "choice",
+      "promptRu": "мужчина",
+      "uz": "erkak",
+      "askUz": "Bu ot qaysi olmosh bilan almashadi?",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "он",
+      "isException": true,
+      "hintUz": "So'z oxiri -а, lekin kim haqida gap ketyapti?",
+      "explainUz": "Istisno! -а bilan tugasa ham erkak kishi — мужской rod: мужчи́на — он, па́па kabi."
+    },
+    {
+      "id": "ep01-037",
+      "type": "choice",
+      "promptRu": "площадь",
+      "uz": "maydon",
+      "askUz": "Bu ot qaysi olmosh bilan almashadi?",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "она",
+      "isException": true,
+      "hintUz": "-ь bilan tugadi — ikkilanish bor, yodda saqlash kerak.",
+      "explainUz": "-ь li ot, женский rod: Кра́сная пло́щадь — она́ краси́вая."
+    },
+    {
+      "id": "ep01-038",
+      "type": "choice",
+      "promptRu": "кресло",
+      "uz": "kreslo",
+      "askUz": "Bu ot qaysi olmosh bilan almashadi?",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "оно",
+      "explainUz": "-о bilan tugadi — средний rod: кре́сло — оно́ мя́гкое."
+    },
+    {
+      "id": "ep01-039",
+      "type": "fill",
+      "promptRu": "Где сумка? — ___ здесь.",
+      "uz": "Sumka qayerda? — U shu yerda.",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "она",
+      "explainUz": "Су́мка — женский rod, shuning uchun olmosh она́: она́ здесь."
+    },
+    {
+      "id": "ep01-040",
+      "type": "fill",
+      "promptRu": "Это ___ папа.",
+      "uz": "Bu mening otam.",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "isException": true,
+      "hintUz": "So'z -а bilan tugagan, lekin egalik olmoshi rodga qarab tanlanadi.",
+      "explainUz": "Па́па — мужской rod, shuning uchun мой па́па (мо́я emas)."
+    },
+    {
+      "id": "ep01-041",
+      "type": "fill",
+      "promptRu": "___ время идёт быстро.",
+      "uz": "Mening vaqtim tez o'tmoqda.",
+      "options": [
+        "Моё",
+        "Мой",
+        "Моя"
+      ],
+      "answer": "Моё",
+      "isException": true,
+      "hintUz": "-мя bilan tugagan otlar qaysi rodda edi?",
+      "explainUz": "Вре́мя — средний rod: моё вре́мя. Shuning uchun Моё."
+    },
+    {
+      "id": "ep01-042",
+      "type": "fill",
+      "promptRu": "Где ключ? — ___ в чемодане.",
+      "uz": "Kalit qayerda? — U chamadonda.",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "он",
+      "explainUz": "Ключ undosh bilan tugagan — мужской rod, olmosh он."
+    },
+    {
+      "id": "ep01-043",
+      "type": "order",
+      "promptRu": "Bu mening eshigim",
+      "uz": "Bu mening eshigim.",
+      "askUz": "So'zlarni to'g'ri tartibda tering",
+      "tokens": [
+        "Это",
+        "моя",
+        "дверь"
+      ],
+      "answer": "Это моя дверь",
+      "isException": true,
+      "hintUz": "Дверь -ь bilan tugagan, lekin qaysi rodda?",
+      "explainUz": "Дверь — женский rod, shuning uchun моя́ дверь: Э́то моя́ дверь."
+    },
+    {
+      "id": "ep01-044",
+      "type": "order",
+      "promptRu": "Bu mening bobom",
+      "uz": "Bu mening bobom.",
+      "askUz": "So'zlarni to'g'ri tartibda tering",
+      "tokens": [
+        "Это",
+        "мой",
+        "дедушка"
+      ],
+      "answer": "Это мой дедушка",
+      "isException": true,
+      "hintUz": "Dedushka -а bilan tugaydi, lekin u erkak kishi.",
+      "explainUz": "Де́душка — мужской rod: Э́то мой де́душка (моя́ emas)."
+    },
+    {
+      "id": "ep01-045",
+      "type": "sort",
+      "promptRu": "кофе",
+      "uz": "kofe",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "isBoss": true,
+      "hintUz": "Bojxonachi qahva ichyapti. Rodini eslang — bu istisno.",
+      "explainUz": "Ко́фе — мужской rod: оди́н ко́фе, он горя́чий."
+    },
+    {
+      "id": "ep01-046",
+      "type": "sort",
+      "promptRu": "время",
+      "uz": "vaqt",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Вре́мя — средний rod: моё вре́мя, оно́ идёт."
+    },
+    {
+      "id": "ep01-047",
+      "type": "choice",
+      "promptRu": "имя",
+      "uz": "ism",
+      "askUz": "Bu ot qaysi olmosh bilan almashadi?",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "оно",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "И́мя — средний rod: моё и́мя, оно́ коро́ткое."
+    },
+    {
+      "id": "ep01-048",
+      "type": "sort",
+      "promptRu": "папа",
+      "uz": "ota",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Па́па — erkak kishi, мужской rod: мой па́па."
+    },
+    {
+      "id": "ep01-049",
+      "type": "sort",
+      "promptRu": "дедушка",
+      "uz": "bobo",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Де́душка — мужской rod: мой де́душка."
+    },
+    {
+      "id": "ep01-050",
+      "type": "choice",
+      "promptRu": "дядя",
+      "uz": "amaki, tog'a",
+      "askUz": "Bu ot qaysi olmosh bilan almashadi?",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "он",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Дя́дя — erkak kishi, мужской rod, olmosh он."
+    },
+    {
+      "id": "ep01-051",
+      "type": "sort",
+      "promptRu": "мышь",
+      "uz": "sichqon",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Мышь — женский rod: э́та мышь."
+    },
+    {
+      "id": "ep01-052",
+      "type": "sort",
+      "promptRu": "ночь",
+      "uz": "tun",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Ночь — женский rod: холо́дная ночь."
+    },
+    {
+      "id": "ep01-053",
+      "type": "sort",
+      "promptRu": "дверь",
+      "uz": "eshik",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Дверь — женский rod: откры́тая дверь."
+    },
+    {
+      "id": "ep01-054",
+      "type": "sort",
+      "promptRu": "путь",
+      "uz": "yo'l",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Путь — мужской rod: до́лгий путь."
+    },
+    {
+      "id": "ep01-055",
+      "type": "sort",
+      "promptRu": "словарь",
+      "uz": "lug'at",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Слова́рь — мужской rod: ру́сский слова́рь."
+    },
+    {
+      "id": "ep01-056",
+      "type": "sort",
+      "promptRu": "тетрадь",
+      "uz": "daftar",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isException": true,
+      "isBoss": true,
+      "explainUz": "Тетра́дь — женский rod: то́нкая тетра́дь."
+    },
+    {
+      "id": "ep01-057",
+      "type": "sort",
+      "promptRu": "ключ",
+      "uz": "kalit",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isBoss": true,
+      "explainUz": "Undosh bilan tugadi — мужской rod: ключ — он."
+    },
+    {
+      "id": "ep01-058",
+      "type": "sort",
+      "promptRu": "река",
+      "uz": "daryo",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isBoss": true,
+      "explainUz": "-а bilan tugadi — женский rod: река́ — она́."
+    },
+    {
+      "id": "ep01-059",
+      "type": "sort",
+      "promptRu": "зеркало",
+      "uz": "oyna",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "isBoss": true,
+      "explainUz": "-о bilan tugadi — средний rod: зе́ркало — оно́."
+    },
+    {
+      "id": "ep01-060",
+      "type": "sort",
+      "promptRu": "самолёт",
+      "uz": "samolyot",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "мужской",
+      "isBoss": true,
+      "explainUz": "Undosh bilan tugadi — мужской rod: самолёт — он."
+    },
+    {
+      "id": "ep01-061",
+      "type": "sort",
+      "promptRu": "остановка",
+      "uz": "bekat",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "женский",
+      "isBoss": true,
+      "explainUz": "-а bilan tugadi — женский rod: остано́вка — она́."
+    },
+    {
+      "id": "ep01-062",
+      "type": "sort",
+      "promptRu": "поле",
+      "uz": "dala",
+      "options": [
+        "мужской",
+        "женский",
+        "средний"
+      ],
+      "answer": "средний",
+      "isBoss": true,
+      "explainUz": "-е bilan tugadi — средний rod: по́ле — оно́."
+    },
+    {
+      "id": "ep01-063",
+      "type": "choice",
+      "promptRu": "студент",
+      "uz": "talaba",
+      "askUz": "Bu ot qaysi olmosh bilan almashadi?",
+      "options": [
+        "он",
+        "она",
+        "оно"
+      ],
+      "answer": "он",
+      "isBoss": true,
+      "explainUz": "Undosh bilan tugadi va erkak kishi — мужской rod, olmosh он."
+    }
+  ]
+}

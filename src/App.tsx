@@ -1,14 +1,18 @@
-import { useCallback, useEffect, useState } from 'react'
+import { Suspense, lazy, useCallback, useEffect, useState } from 'react'
 import { BrandLogo } from './components/BrandLogo'
 import { CardsPage } from './components/CardsPage'
 import { FeedbackSheet } from './components/FeedbackSheet'
 import { GrammarPage } from './components/GrammarPage'
 import { GrammarTopicPage } from './components/GrammarTopicPage'
+import { Loading } from './components/Loading'
 import { ReviewPage } from './components/ReviewPage'
 import { TopicPage } from './components/TopicPage'
 import { TopicsPage } from './components/TopicsPage'
 
-type Screen = 'topics' | 'topic' | 'grammar' | 'grammar-topic' | 'cards' | 'review'
+// The 3D game pulls in Three.js, so it is only fetched when its tab is opened.
+const TemurGame = lazy(() => import('./game/TemurGame'))
+
+type Screen = 'topics' | 'topic' | 'grammar' | 'grammar-topic' | 'cards' | 'review' | 'game'
 
 function TopicsIcon() {
   return (
@@ -33,6 +37,15 @@ function GrammarIcon() {
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path d="M5 4.5h9a2 2 0 0 1 2 2V20H7a2 2 0 0 1-2-2V4.5Z" />
       <path d="M16 8h3v12h-3M8.5 9h4M8.5 13h4" />
+    </svg>
+  )
+}
+
+function GameIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 3.4 20 8v8l-8 4.6L4 16V8l8-4.6Z" />
+      <path d="M12 12.2 20 8M12 12.2V20M12 12.2 4 8" />
     </svg>
   )
 }
@@ -141,6 +154,11 @@ export default function App() {
             onDone={() => setScreen('grammar')}
           />
         )}
+        {screen === 'game' && (
+          <Suspense fallback={<Loading />}>
+            <TemurGame />
+          </Suspense>
+        )}
         {screen === 'cards' && (
           <CardsPage
             onReview={() => {
@@ -182,6 +200,14 @@ export default function App() {
           >
             <span className="nav-icon"><GrammarIcon /></span>
             Грамматика
+          </button>
+          <button
+            className={screen === 'game' ? 'active' : ''}
+            onClick={() => setScreen('game')}
+            aria-current={screen === 'game' ? 'page' : undefined}
+          >
+            <span className="nav-icon"><GameIcon /></span>
+            Игра
           </button>
           <button
             className={screen === 'cards' ? 'active' : ''}

@@ -1,0 +1,112 @@
+[
+  {
+    "id": "ep01",
+    "order": 1,
+    "title": "Аэропорт",
+    "titleUz": "Aeroport",
+    "topicUz": "Ot jinsi (род)",
+    "icon": "✈️",
+    "summaryUz": "Bagaj lentasidagi buyumlarni rod bo'yicha uchta aravaga saralang.",
+    "map": [14, 14]
+  },
+  {
+    "id": "ep02",
+    "order": 2,
+    "title": "Общежитие",
+    "titleUz": "Yotoqxona",
+    "topicUz": "Egalik olmoshlari va moslashuv",
+    "icon": "🏠",
+    "summaryUz": "Xonadagi buyumlar kimniki? Egalik olmoshini to'g'ri tanlang.",
+    "map": [35, 9]
+  },
+  {
+    "id": "ep03",
+    "order": 3,
+    "title": "Город",
+    "titleUz": "Shahar",
+    "topicUz": "Предложный + в/на",
+    "icon": "🗺",
+    "summaryUz": "Xarita bo'ylab yuring va «Где?» savollariga javob bering.",
+    "map": [57, 16]
+  },
+  {
+    "id": "ep04",
+    "order": 4,
+    "title": "Магазин и дорога",
+    "titleUz": "Do'kon va yo'l",
+    "topicUz": "Винительный kelishik",
+    "icon": "🛒",
+    "summaryUz": "Xarid ro'yxati va «Куда?» yo'nalishlari.",
+    "map": [79, 13]
+  },
+  {
+    "id": "ep05",
+    "order": 5,
+    "title": "Рынок",
+    "titleUz": "Bozor",
+    "topicUz": "Родительный kelishik",
+    "icon": "🧺",
+    "summaryUz": "Narx so'rang, «yo'q» deng, miqdorni to'g'ri ayting.",
+    "map": [88, 36]
+  },
+  {
+    "id": "ep06",
+    "order": 6,
+    "title": "День рождения",
+    "titleUz": "Tug'ilgan kun",
+    "topicUz": "Дательный kelishik",
+    "icon": "🎂",
+    "summaryUz": "Sovg'a bering, yosh ayting, tabriklang.",
+    "map": [74, 55]
+  },
+  {
+    "id": "ep07",
+    "order": 7,
+    "title": "Кафе и кухня",
+    "titleUz": "Kafe va oshxona",
+    "topicUz": "Творительный kelishik",
+    "icon": "☕",
+    "summaryUz": "Buyurtma bering: kim bilan, nima bilan.",
+    "map": [52, 45]
+  },
+  {
+    "id": "ep08",
+    "order": 8,
+    "title": "Фабрика глаголов",
+    "titleUz": "Fe'llar fabrikasi",
+    "topicUz": "Tuslanish I/II, hozirgi zamon",
+    "icon": "🏭",
+    "summaryUz": "Konveyerdagi fe'llarni to'g'ri shaxs shakliga yig'ing.",
+    "map": [27, 42]
+  },
+  {
+    "id": "ep09",
+    "order": 9,
+    "title": "Вчерашний день",
+    "titleUz": "Kechagi kun",
+    "topicUz": "O'tgan zamon va вид",
+    "icon": "📅",
+    "summaryUz": "Kecha bo'lgan voqealarni hikoya qiling.",
+    "map": [13, 63]
+  },
+  {
+    "id": "ep10",
+    "order": 10,
+    "title": "Метро",
+    "titleUz": "Metro",
+    "topicUz": "Harakat fe'llari",
+    "icon": "🚇",
+    "summaryUz": "Shahar bo'ylab marshrutlar: piyoda va transportda.",
+    "map": [40, 76]
+  },
+  {
+    "id": "ep11",
+    "order": 11,
+    "title": "Экзамен",
+    "titleUz": "Imtihon",
+    "topicUz": "Hammasi aralash",
+    "icon": "🎓",
+    "summaryUz": "Final: 1–10 epizodlarning eng og'ir shakllari.",
+    "map": [69, 84]
+  }
+]
