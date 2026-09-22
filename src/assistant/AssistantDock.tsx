@@ -183,7 +183,8 @@ export function AssistantDock({ topicSlug, onClose }: AssistantDockProps) {
           <div className="maks-transcript" ref={transcriptRef}>
             {transcript.length === 0 ? (
               <p className="maks-hint">
-                Говорите по-русски — Макс объяснит по-узбекски и сам добавит новые слова в карточки.
+                Говорите по-русски. Макс тоже отвечает по-русски — попросите, если нужно объяснить
+                по-узбекски. Новые слова он сам добавит в карточки.
               </p>
             ) : (
               transcript.map((entry) => (
