@@ -55,14 +55,6 @@ export type AudioInput = {
   stop: () => Promise<void>
 }
 
-// Below this RMS the learner is treated as silent. Chosen to sit above typical
-// room noise while still catching a quiet voice.
-const SILENCE_RMS = 0.006
-// Keep streaming this long after the voice drops so the server's own turn
-// detection hears the trailing silence and closes the turn. Cutting the stream
-// dead on silence would leave it waiting for an end that never arrives.
-const HANGOVER_MS = 1200
-
 export async function startAudioInput(options: AudioInputOptions): Promise<AudioInput> {
   if (!navigator.mediaDevices?.getUserMedia) {
     throw new MicrophoneDeniedError(new Error('getUserMedia is unavailable'))
@@ -105,17 +97,15 @@ export async function startAudioInput(options: AudioInputOptions): Promise<Audio
   const source = context.createMediaStreamSource(stream)
   const capture = new AudioWorkletNode(context, 'pcm-capture')
   let muted = false
-  let lastVoiceAt = 0
 
+  // Silence is streamed on purpose. Turn detection lives in the server's VAD,
+  // which needs to hear the trailing quiet to close a turn; a client-side gate
+  // tried here earlier kept cutting real speech once autoGainControl drifted,
+  // leaving the model waiting forever on a half-heard utterance.
   capture.port.onmessage = (event: MessageEvent<Float32Array>) => {
     if (muted) return
     const frame = event.data
-    const level = rms(frame)
-    options.onLevel?.(Math.min(1, level * 12))
-
-    const now = Date.now()
-    if (level >= SILENCE_RMS) lastVoiceAt = now
-    else if (now - lastVoiceAt > HANGOVER_MS) return
+    options.onLevel?.(Math.min(1, rms(frame) * 12))
 
     const samples = context.sampleRate === TARGET_SAMPLE_RATE
       ? frame

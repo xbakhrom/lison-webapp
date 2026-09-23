@@ -50,6 +50,12 @@ export type AssistantSessionOptions = {
 
 const MAX_RECONNECT_ATTEMPTS = 3
 const RECONNECT_BASE_DELAY_MS = 600
+// Mic chunks captured while the socket is being replaced (the ten-minute goAway
+// handover) are held and flushed after the session resumes, so a sentence
+// spoken across the gap reaches the model whole instead of arriving truncated
+// and leaving it waiting for an ending that never comes. One chunk is 128 ms,
+// so this is about ten seconds — longer than any reconnect that will succeed.
+const PENDING_AUDIO_MAX_CHUNKS = 80
 
 export type AssistantSession = {
   stop: () => Promise<void>
@@ -72,6 +78,7 @@ export async function startAssistantSession(
   let stopped = false
   let reconnectAttempts = 0
   let muted = false
+  let pendingAudio: string[] = []
   // Transcription arrives in fragments; keep appending to the open entry until
   // the speaker changes so the UI reads as sentences, not confetti.
   let openEntry: TranscriptEntry | null = null
@@ -157,6 +164,10 @@ export async function startAssistantSession(
     }
   }
 
+  function sendAudio(target: Session, base64: string) {
+    target.sendRealtimeInput({ audio: { data: base64, mimeType: 'audio/pcm;rate=16000' } })
+  }
+
   async function connect(resume: boolean): Promise<void> {
     const token = await api.assistantToken(topicSlug)
     callbacks.onRemainingSeconds?.(token.remainingSeconds)
@@ -186,6 +197,10 @@ export async function startAssistantSession(
         },
       },
     })
+
+    for (const chunk of pendingAudio.splice(0)) {
+      sendAudio(session, chunk)
+    }
   }
 
   let reconnecting = false
@@ -265,8 +280,13 @@ export async function startAssistantSession(
   try {
     audioIn = await startAudioInput({
       onChunk: (base64) => {
-        if (stopped || muted || !session) return
-        session.sendRealtimeInput({ audio: { data: base64, mimeType: 'audio/pcm;rate=16000' } })
+        if (stopped || muted) return
+        if (!session) {
+          pendingAudio.push(base64)
+          if (pendingAudio.length > PENDING_AUDIO_MAX_CHUNKS) pendingAudio.shift()
+          return
+        }
+        sendAudio(session, base64)
       },
       onLevel: callbacks.onLevel,
     })
@@ -291,7 +311,18 @@ export async function startAssistantSession(
     setMuted(next: boolean) {
       muted = next
       audioIn?.setMuted(next)
-      if (next) audioOut?.interrupt()
+      if (next) {
+        audioOut?.interrupt()
+        pendingAudio = []
+        // Flush the audio the server has already buffered, so its turn
+        // detection is not left waiting for the rest of an utterance that the
+        // mute guarantees will never arrive.
+        try {
+          session?.sendRealtimeInput({ audioStreamEnd: true })
+        } catch {
+          // The socket may be mid-reconnect; the fresh session starts clean.
+        }
+      }
       if (!stopped) callbacks.onStatus(next ? 'idle' : 'listening')
     },
     sendText(text: string) {
