@@ -1,0 +1,1476 @@
+{
+  "id": "ep03",
+  "order": 3,
+  "title": "Город",
+  "titleUz": "Shahar",
+  "topic": "prepositional",
+  "topicUz": "Предложный + в/на",
+  "summaryUz": "Xarita bo'ylab yuring va «Где?» savollariga javob bering.",
+  "icon": "🗺",
+  "intro": [
+    {
+      "textUz": "Bugun shaharni aylanamiz! Moskvada adashmaslik uchun «Где?» — «Qayerda?» deb so'ray olish kerak."
+    },
+    {
+      "textUz": "Javob — предложный kelishik: so'z oxiriga -е qo'shiladi, oldiga в yoki на keladi.",
+      "ru": "в шко́ле — на у́лице"
+    },
+    {
+      "textUz": "Lekin ba'zi joylar на bilan yodlanadi, ba'zilari esa -е o'rniga -у oladi. Oltin ⭐ belgilarga ehtiyot bo'l!"
+    }
+  ],
+  "ruleCards": [
+    {
+      "titleUz": "Где? — предложный kelishik",
+      "bodyUz": "Qayerda ekanini aytganda ot предложный kelishikka o'tadi: odatda oxiriga -е qo'shiladi (-а/-я tushib qoladi). Oldida doim predlog bo'ladi.",
+      "examplesRu": [
+        "шко́ла → в шко́ле",
+        "го́род → в го́роде",
+        "стол → на столе́"
+      ]
+    },
+    {
+      "titleUz": "в yoki на?",
+      "bodyUz": "в — ichida (yopiq joy, bino): в ко́мнате, в теа́тре. на — yuzasida yoki ochiq joyda va tadbirlarda: на столе́, на у́лице, на конце́рте.",
+      "examplesRu": [
+        "в магази́не",
+        "в музе́е",
+        "на пло́щади",
+        "на уро́ке"
+      ]
+    },
+    {
+      "titleUz": "О — «haqida»",
+      "bodyUz": "Nimadir haqida gapirganda о + предложный ishlatiladi. Keyingi so'z unli bilan boshlansa о → об bo'ladi.",
+      "examplesRu": [
+        "о Москве́",
+        "о ма́ме",
+        "об э́том",
+        "об экза́мене"
+      ]
+    },
+    {
+      "titleUz": "Istisnolar — yodlang!",
+      "bodyUz": "Bir guruh joylar «ichida» bo'lsa ham на oladi: на почте, на заводе, на вокзале, на работе, на стадионе, на рынке. Yana bir guruh -е o'rniga urg'uli -у oladi: в аэропорту, в лесу, в саду, на полу, в шкафу.",
+      "examplesRu": [
+        "на по́чте",
+        "на заво́де",
+        "на вокза́ле",
+        "в аэропорту́",
+        "в лесу́",
+        "на полу́"
+      ],
+      "isException": true
+    }
+  ],
+  "requiredExceptions": [
+    {
+      "key": "на почте",
+      "match": "почт"
+    },
+    {
+      "key": "на заводе",
+      "match": "завод"
+    },
+    {
+      "key": "на вокзале",
+      "match": "вокзал"
+    },
+    {
+      "key": "на работе",
+      "match": "работ"
+    },
+    {
+      "key": "в аэропорту",
+      "match": "аэропорту"
+    },
+    {
+      "key": "в лесу",
+      "match": "лесу"
+    },
+    {
+      "key": "в саду",
+      "match": "саду"
+    },
+    {
+      "key": "на полу",
+      "match": "полу"
+    },
+    {
+      "key": "в шкафу",
+      "match": "шкафу"
+    },
+    {
+      "key": "об этом",
+      "match": "об этом"
+    }
+  ],
+  "scene": {
+    "ground": "#b8c4cc",
+    "sky": "#bfe0ff",
+    "fog": "#d5e7fa",
+    "bounds": [
+      9.5,
+      6.6
+    ],
+    "spawn": [
+      0,
+      1.0
+    ],
+    "zones": [
+      {
+        "label": "в",
+        "labelUz": "в · ichida",
+        "pos": [
+          -4.5,
+          0,
+          -6.2
+        ],
+        "color": "#2f6fd0"
+      },
+      {
+        "label": "на",
+        "labelUz": "на · ustida, ochiq joy",
+        "pos": [
+          4.5,
+          0,
+          -6.2
+        ],
+        "color": "#d8862f"
+      }
+    ],
+    "props": [
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          -9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -8.5,
+          0,
+          -7.8
+        ],
+        "size": [
+          3.2,
+          3.6,
+          1.6
+        ],
+        "color": "#d8a86a",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -4.5,
+          0,
+          -8
+        ],
+        "size": [
+          2.8,
+          4.4,
+          1.4
+        ],
+        "color": "#8fb3d8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          4.5,
+          0,
+          -8
+        ],
+        "size": [
+          2.8,
+          3.2,
+          1.4
+        ],
+        "color": "#c98a8a",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          8.5,
+          0,
+          -7.8
+        ],
+        "size": [
+          3.2,
+          4.0,
+          1.6
+        ],
+        "color": "#a8c49a",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          0.6
+        ],
+        "size": [
+          19,
+          0.02,
+          2.4
+        ],
+        "color": "#8a93a2"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0.01,
+          0.6
+        ],
+        "size": [
+          19,
+          0.02,
+          0.14
+        ],
+        "color": "#f2f5fa"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          0,
+          0,
+          -3.2
+        ],
+        "size": [
+          2.4,
+          0.5,
+          2.4
+        ],
+        "color": "#9cc6f2"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          0,
+          0.5,
+          -3.2
+        ],
+        "size": [
+          0.5,
+          1.0,
+          0.5
+        ],
+        "color": "#e6eaf2"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          0,
+          1.5,
+          -3.2
+        ],
+        "size": [
+          0.7,
+          0.7,
+          0.7
+        ],
+        "color": "#bfe0ff"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -6.5,
+          0,
+          2.2
+        ],
+        "size": [
+          0.18,
+          2.6,
+          0.18
+        ],
+        "color": "#3b4353"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -6.5,
+          2.6,
+          2.2
+        ],
+        "size": [
+          0.5,
+          1.1,
+          0.4
+        ],
+        "color": "#2b3245"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -10.4,
+          0,
+          5.5
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          -10.4,
+          0.8,
+          5.5
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#57a05e"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          10.4,
+          0,
+          5.5
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          10.4,
+          0.8,
+          5.5
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#57a05e"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -10.4,
+          0,
+          -2
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          -10.4,
+          0.8,
+          -2
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          10.4,
+          0,
+          -2
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          10.4,
+          0.8,
+          -2
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      }
+    ],
+    "stations": [
+      [
+        -8,
+        4
+      ],
+      [
+        -4,
+        5.5
+      ],
+      [
+        4,
+        5.5
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        -9,
+        1
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        -6,
+        -3.5
+      ],
+      [
+        -2,
+        -4.2
+      ],
+      [
+        2,
+        -4.2
+      ],
+      [
+        6,
+        -3.5
+      ],
+      [
+        -3,
+        2.8
+      ],
+      [
+        3,
+        2.8
+      ]
+    ]
+  },
+  "boss": {
+    "nameRu": "Экскурсовод",
+    "nameUz": "Gid (ekskursovod)",
+    "introUz": "«Moskva bo'ylab ekskursiya! Har bir joy qayerdaligini to'g'ri ayting — adashganlar guruhdan qoladi.» Har savolga 15 soniya.",
+    "winUz": "«Siz shaharni bilar ekansiz! Mana sizga xarita — yo'lda kerak bo'ladi.»",
+    "loseUz": "«Guruh sizni kutmaydi. Marshrutni qaytadan boshlaymiz.»",
+    "color": "#3c8a5a"
+  },
+  "items": [
+    {
+      "id": "ep03-001",
+      "type": "sort",
+      "promptRu": "школа",
+      "uz": "maktab",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Yopiq bino ichi — в: в шко́ле."
+    },
+    {
+      "id": "ep03-002",
+      "type": "sort",
+      "promptRu": "комната",
+      "uz": "xona",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Ichkarida — в: в ко́мнате."
+    },
+    {
+      "id": "ep03-003",
+      "type": "sort",
+      "promptRu": "театр",
+      "uz": "teatr",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino ichida — в: в теа́тре."
+    },
+    {
+      "id": "ep03-004",
+      "type": "sort",
+      "promptRu": "музей",
+      "uz": "muzey",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino ichida — в: в музе́е."
+    },
+    {
+      "id": "ep03-005",
+      "type": "sort",
+      "promptRu": "магазин",
+      "uz": "do'kon",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino ichida — в: в магази́не."
+    },
+    {
+      "id": "ep03-006",
+      "type": "sort",
+      "promptRu": "банк",
+      "uz": "bank",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino ichida — в: в ба́нке."
+    },
+    {
+      "id": "ep03-007",
+      "type": "sort",
+      "promptRu": "аптека",
+      "uz": "dorixona",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino ichida — в: в апте́ке."
+    },
+    {
+      "id": "ep03-008",
+      "type": "sort",
+      "promptRu": "университет",
+      "uz": "universitet",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino/muassasa ichida — в: в университе́те."
+    },
+    {
+      "id": "ep03-009",
+      "type": "sort",
+      "promptRu": "библиотека",
+      "uz": "kutubxona",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino ichida — в: в библиоте́ке."
+    },
+    {
+      "id": "ep03-010",
+      "type": "sort",
+      "promptRu": "больница",
+      "uz": "kasalxona",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino ichida — в: в больни́це."
+    },
+    {
+      "id": "ep03-011",
+      "type": "sort",
+      "promptRu": "парк",
+      "uz": "istirohat bog'i",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Rus tilida park — в: в па́рке."
+    },
+    {
+      "id": "ep03-012",
+      "type": "sort",
+      "promptRu": "улица",
+      "uz": "ko'cha",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Ochiq joy — на: на у́лице."
+    },
+    {
+      "id": "ep03-013",
+      "type": "sort",
+      "promptRu": "площадь",
+      "uz": "maydon",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Ochiq maydon — на: на пло́щади."
+    },
+    {
+      "id": "ep03-014",
+      "type": "sort",
+      "promptRu": "остановка",
+      "uz": "bekat",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Ochiq joy — на: на остано́вке."
+    },
+    {
+      "id": "ep03-015",
+      "type": "sort",
+      "promptRu": "концерт",
+      "uz": "konsert",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Tadbir — на: на конце́рте."
+    },
+    {
+      "id": "ep03-016",
+      "type": "sort",
+      "promptRu": "урок",
+      "uz": "dars",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Jarayon/tadbir — на: на уро́ке."
+    },
+    {
+      "id": "ep03-017",
+      "type": "sort",
+      "promptRu": "почта",
+      "uz": "pochta",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Istisno! Yodlanadi: на по́чте (в emas).",
+      "hintUz": "Bu so'z «yodlanadigan на» ro'yxatida.",
+      "isException": true
+    },
+    {
+      "id": "ep03-018",
+      "type": "sort",
+      "promptRu": "завод",
+      "uz": "zavod",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Istisno! Yodlanadi: на заво́де.",
+      "hintUz": "Ish joylari ko'pincha на bilan.",
+      "isException": true
+    },
+    {
+      "id": "ep03-019",
+      "type": "sort",
+      "promptRu": "вокзал",
+      "uz": "vokzal",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Istisno! Yodlanadi: на вокза́ле.",
+      "isException": true
+    },
+    {
+      "id": "ep03-020",
+      "type": "sort",
+      "promptRu": "работа",
+      "uz": "ish",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Istisno! Yodlanadi: на рабо́те.",
+      "isException": true
+    },
+    {
+      "id": "ep03-021",
+      "type": "sort",
+      "promptRu": "стадион",
+      "uz": "stadion",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Istisno! Yodlanadi: на стадио́не.",
+      "isException": true
+    },
+    {
+      "id": "ep03-022",
+      "type": "sort",
+      "promptRu": "рынок",
+      "uz": "bozor",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Istisno! Yodlanadi: на ры́нке.",
+      "isException": true
+    },
+    {
+      "id": "ep03-023",
+      "type": "fill",
+      "promptRu": "Антон сейчас в ___ (школа).",
+      "uz": "Anton hozir maktabda.",
+      "options": [
+        "школе",
+        "школу",
+        "школа"
+      ],
+      "answer": "школе",
+      "explainUz": "Где? savoliga предложный: в шко́ле (-а → -е)."
+    },
+    {
+      "id": "ep03-024",
+      "type": "fill",
+      "promptRu": "Мама сейчас на ___ (работа).",
+      "uz": "Oyim hozir ishda.",
+      "options": [
+        "работе",
+        "работу",
+        "работа"
+      ],
+      "answer": "работе",
+      "explainUz": "Где? — на рабо́те: -а → -е."
+    },
+    {
+      "id": "ep03-025",
+      "type": "fill",
+      "promptRu": "Мы живём в ___ (город).",
+      "uz": "Biz shaharda yashaymiz.",
+      "options": [
+        "городе",
+        "город",
+        "городу"
+      ],
+      "answer": "городе",
+      "explainUz": "Undosh bilan tugagan otga -е qo'shiladi: в го́роде."
+    },
+    {
+      "id": "ep03-026",
+      "type": "fill",
+      "promptRu": "Книга лежит на ___ (стол).",
+      "uz": "Kitob stol ustida yotibdi.",
+      "options": [
+        "столе",
+        "стол",
+        "столу"
+      ],
+      "answer": "столе",
+      "explainUz": "Ustida — на + предложный: на столе́."
+    },
+    {
+      "id": "ep03-027",
+      "type": "fill",
+      "promptRu": "Самолёт стоит в ___ (аэропорт).",
+      "uz": "Samolyot aeroportda turibdi.",
+      "options": [
+        "аэропорту",
+        "аэропорте",
+        "аэропорт"
+      ],
+      "answer": "аэропорту",
+      "explainUz": "Istisno! Bir bo'g'inli/maxsus otlarda -у: в аэропорту (в аэропорте emas).",
+      "hintUz": "Bu so'z -е emas, boshqa unli oladi.",
+      "isException": true
+    },
+    {
+      "id": "ep03-028",
+      "type": "fill",
+      "promptRu": "Мы гуляем в ___ (лес).",
+      "uz": "Biz o'rmonda sayr qilyapmiz.",
+      "options": [
+        "лесу",
+        "лесе",
+        "лес"
+      ],
+      "answer": "лесу",
+      "explainUz": "Istisno! в лесу — urg'uli -у bilan.",
+      "isException": true
+    },
+    {
+      "id": "ep03-029",
+      "type": "fill",
+      "promptRu": "Дети играют в ___ (сад).",
+      "uz": "Bolalar bog'da o'ynayapti.",
+      "options": [
+        "саду",
+        "саде",
+        "сад"
+      ],
+      "answer": "саду",
+      "explainUz": "Istisno! в саду — urg'uli -у bilan.",
+      "isException": true
+    },
+    {
+      "id": "ep03-030",
+      "type": "fill",
+      "promptRu": "Сумка лежит на ___ (пол).",
+      "uz": "Sumka polda yotibdi.",
+      "options": [
+        "полу",
+        "поле",
+        "пол"
+      ],
+      "answer": "полу",
+      "explainUz": "Istisno! на полу — urg'uli -у bilan.",
+      "isException": true
+    },
+    {
+      "id": "ep03-031",
+      "type": "fill",
+      "promptRu": "Пальто висит в ___ (шкаф).",
+      "uz": "Palto shkafda osilib turibdi.",
+      "options": [
+        "шкафу",
+        "шкафе",
+        "шкаф"
+      ],
+      "answer": "шкафу",
+      "explainUz": "Istisno! в шкафу — urg'uli -у bilan.",
+      "isException": true
+    },
+    {
+      "id": "ep03-032",
+      "type": "fill",
+      "promptRu": "Мы говорим ___ Москве.",
+      "uz": "Biz Moskva haqida gaplashyapmiz.",
+      "options": [
+        "о",
+        "об",
+        "в"
+      ],
+      "answer": "о",
+      "explainUz": "«Haqida» — о + предложный: о Москве́."
+    },
+    {
+      "id": "ep03-033",
+      "type": "fill",
+      "promptRu": "Мы говорим ___ этом.",
+      "uz": "Biz bu haqda gaplashyapmiz.",
+      "options": [
+        "об",
+        "о",
+        "в"
+      ],
+      "answer": "об",
+      "explainUz": "Istisno! Unlidan oldin о → об bo'ladi: об этом.",
+      "hintUz": "Keyingi so'z qaysi tovush bilan boshlanyapti?",
+      "isException": true
+    },
+    {
+      "id": "ep03-034",
+      "type": "fill",
+      "promptRu": "Он думает ___ экзамене.",
+      "uz": "U imtihon haqida o'ylayapti.",
+      "options": [
+        "об",
+        "о",
+        "на"
+      ],
+      "answer": "об",
+      "explainUz": "Э unlisidan oldin об: об экза́мене.",
+      "isException": true
+    },
+    {
+      "id": "ep03-035",
+      "type": "fill",
+      "promptRu": "Она рассказывает ___ маме.",
+      "uz": "U onasi haqida gapirib beryapti.",
+      "options": [
+        "о",
+        "об",
+        "у"
+      ],
+      "answer": "о",
+      "explainUz": "Undoshdan oldin о: о ма́ме."
+    },
+    {
+      "id": "ep03-036",
+      "type": "fill",
+      "promptRu": "Брат сейчас на ___ (вокзал).",
+      "uz": "Akam hozir vokzalda.",
+      "options": [
+        "вокзале",
+        "вокзал",
+        "вокзалу"
+      ],
+      "answer": "вокзале",
+      "explainUz": "Yodlanadigan на: на вокза́ле.",
+      "isException": true
+    },
+    {
+      "id": "ep03-037",
+      "type": "fill",
+      "promptRu": "Папа работает на ___ (завод).",
+      "uz": "Otam zavodda ishlaydi.",
+      "options": [
+        "заводе",
+        "завод",
+        "заводу"
+      ],
+      "answer": "заводе",
+      "explainUz": "Yodlanadigan на: на заво́де.",
+      "isException": true
+    },
+    {
+      "id": "ep03-038",
+      "type": "fill",
+      "promptRu": "Марки можно купить на ___ (почта).",
+      "uz": "Markalarni pochtada sotib olsa bo'ladi.",
+      "options": [
+        "почте",
+        "почту",
+        "почта"
+      ],
+      "answer": "почте",
+      "explainUz": "Yodlanadigan на: на по́чте.",
+      "isException": true
+    },
+    {
+      "id": "ep03-039",
+      "type": "choice",
+      "promptRu": "аэропорт",
+      "uz": "aeroport",
+      "askUz": "Qayerda? To'g'ri shaklni tanlang",
+      "options": [
+        "в аэропорту",
+        "в аэропорте",
+        "на аэропорту"
+      ],
+      "answer": "в аэропорту",
+      "explainUz": "Istisno: в аэропорту.",
+      "isException": true
+    },
+    {
+      "id": "ep03-040",
+      "type": "choice",
+      "promptRu": "лес",
+      "uz": "o'rmon",
+      "askUz": "Qayerda? To'g'ri shaklni tanlang",
+      "options": [
+        "в лесу",
+        "в лесе",
+        "на лесу"
+      ],
+      "answer": "в лесу",
+      "explainUz": "Istisno: в лесу.",
+      "isException": true
+    },
+    {
+      "id": "ep03-041",
+      "type": "choice",
+      "promptRu": "почта",
+      "uz": "pochta",
+      "askUz": "Qayerda? To'g'ri shaklni tanlang",
+      "options": [
+        "на почте",
+        "в почте",
+        "на почту"
+      ],
+      "answer": "на почте",
+      "explainUz": "Yodlanadigan на: на почте.",
+      "isException": true
+    },
+    {
+      "id": "ep03-042",
+      "type": "choice",
+      "promptRu": "пол",
+      "uz": "pol (yer)",
+      "askUz": "Qayerda? To'g'ri shaklni tanlang",
+      "options": [
+        "на полу",
+        "на поле",
+        "в полу"
+      ],
+      "answer": "на полу",
+      "explainUz": "Istisno: на полу. «На поле» — bu boshqa so'z (dala).",
+      "isException": true
+    },
+    {
+      "id": "ep03-043",
+      "type": "order",
+      "promptRu": "Biz Moskva haqida gaplashyapmiz",
+      "uz": "Biz Moskva haqida gaplashyapmiz",
+      "tokens": [
+        "Мы",
+        "говорим",
+        "о",
+        "Москве"
+      ],
+      "answer": "Мы говорим о Москве",
+      "explainUz": "«Haqida» — о + предложный: Мы говорим о Москве."
+    },
+    {
+      "id": "ep03-044",
+      "type": "order",
+      "promptRu": "Kitob stol ustida",
+      "uz": "Kitob stol ustida",
+      "tokens": [
+        "Книга",
+        "на",
+        "столе"
+      ],
+      "answer": "Книга на столе",
+      "explainUz": "Ustida — на + предложный: Книга на столе."
+    },
+    {
+      "id": "ep03-045",
+      "type": "sort",
+      "promptRu": "почта",
+      "uz": "pochta",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Yodlanadigan на: на почте.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-046",
+      "type": "sort",
+      "promptRu": "завод",
+      "uz": "zavod",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Yodlanadigan на: на заводе.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-047",
+      "type": "sort",
+      "promptRu": "вокзал",
+      "uz": "vokzal",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Yodlanadigan на: на вокзале.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-048",
+      "type": "sort",
+      "promptRu": "работа",
+      "uz": "ish",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Yodlanadigan на: на работе.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-049",
+      "type": "fill",
+      "promptRu": "Мы в ___ (аэропорт).",
+      "uz": "Biz aeroportdamiz.",
+      "options": [
+        "аэропорту",
+        "аэропорте",
+        "аэропорт"
+      ],
+      "answer": "аэропорту",
+      "explainUz": "Istisno: в аэропорту.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-050",
+      "type": "fill",
+      "promptRu": "Грибы растут в ___ (лес).",
+      "uz": "Qo'ziqorinlar o'rmonda o'sadi.",
+      "options": [
+        "лесу",
+        "лесе",
+        "лес"
+      ],
+      "answer": "лесу",
+      "explainUz": "Istisno: в лесу.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-051",
+      "type": "fill",
+      "promptRu": "Яблоки растут в ___ (сад).",
+      "uz": "Olmalar bog'da o'sadi.",
+      "options": [
+        "саду",
+        "саде",
+        "сад"
+      ],
+      "answer": "саду",
+      "explainUz": "Istisno: в саду.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-052",
+      "type": "fill",
+      "promptRu": "Ковёр лежит на ___ (пол).",
+      "uz": "Gilam polda yotibdi.",
+      "options": [
+        "полу",
+        "поле",
+        "пол"
+      ],
+      "answer": "полу",
+      "explainUz": "Istisno: на полу.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-053",
+      "type": "fill",
+      "promptRu": "Мы говорим ___ этом фильме.",
+      "uz": "Biz bu film haqida gaplashyapmiz.",
+      "options": [
+        "об",
+        "о",
+        "в"
+      ],
+      "answer": "об",
+      "explainUz": "Unlidan oldin об: об этом фильме.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-054",
+      "type": "choice",
+      "promptRu": "пол",
+      "uz": "pol (yer)",
+      "askUz": "Qayerda? To'g'ri shaklni tanlang",
+      "options": [
+        "на полу",
+        "на поле",
+        "в полу"
+      ],
+      "answer": "на полу",
+      "explainUz": "Istisno: на полу.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-055",
+      "type": "choice",
+      "promptRu": "аэропорт",
+      "uz": "aeroport",
+      "askUz": "Qayerda? To'g'ri shaklni tanlang",
+      "options": [
+        "в аэропорту",
+        "в аэропорте",
+        "на аэропорте"
+      ],
+      "answer": "в аэропорту",
+      "explainUz": "Istisno: в аэропорту.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-056",
+      "type": "fill",
+      "promptRu": "Вещи лежат в ___ (шкаф).",
+      "uz": "Narsalar shkafda turibdi.",
+      "options": [
+        "шкафу",
+        "шкафе",
+        "шкаф"
+      ],
+      "answer": "шкафу",
+      "explainUz": "Istisno: в шкафу.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep03-057",
+      "type": "sort",
+      "promptRu": "школа",
+      "uz": "maktab",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino ichida — в: в школе.",
+      "isBoss": true
+    },
+    {
+      "id": "ep03-058",
+      "type": "sort",
+      "promptRu": "улица",
+      "uz": "ko'cha",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Ochiq joy — на: на улице.",
+      "isBoss": true
+    },
+    {
+      "id": "ep03-059",
+      "type": "sort",
+      "promptRu": "музей",
+      "uz": "muzey",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "в",
+      "explainUz": "Bino ichida — в: в музее.",
+      "isBoss": true
+    },
+    {
+      "id": "ep03-060",
+      "type": "sort",
+      "promptRu": "концерт",
+      "uz": "konsert",
+      "askUz": "Qaysi predlog: в yoki на?",
+      "options": [
+        "в",
+        "на"
+      ],
+      "answer": "на",
+      "explainUz": "Tadbir — на: на концерте.",
+      "isBoss": true
+    },
+    {
+      "id": "ep03-061",
+      "type": "fill",
+      "promptRu": "Мы живём в ___ (Москва).",
+      "uz": "Biz Moskvada yashaymiz.",
+      "options": [
+        "Москве",
+        "Москву",
+        "Москва"
+      ],
+      "answer": "Москве",
+      "explainUz": "Где? — в Москве́: -а → -е.",
+      "isBoss": true
+    },
+    {
+      "id": "ep03-062",
+      "type": "fill",
+      "promptRu": "Хлеб лежит на ___ (стол).",
+      "uz": "Non stol ustida.",
+      "options": [
+        "столе",
+        "стол",
+        "столу"
+      ],
+      "answer": "столе",
+      "explainUz": "На + предложный: на столе́.",
+      "isBoss": true
+    },
+    {
+      "id": "ep03-063",
+      "type": "fill",
+      "promptRu": "Он учится в ___ (университет).",
+      "uz": "U universitetda o'qiydi.",
+      "options": [
+        "университете",
+        "университет",
+        "университету"
+      ],
+      "answer": "университете",
+      "explainUz": "Где? — в университе́те.",
+      "isBoss": true
+    }
+  ]
+}

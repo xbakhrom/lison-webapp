@@ -1,0 +1,1423 @@
+{
+  "id": "ep02",
+  "order": 2,
+  "title": "Общежитие",
+  "titleUz": "Yotoqxona",
+  "topic": "possessives",
+  "topicUz": "Egalik olmoshlari va moslashuv",
+  "summaryUz": "Xonadagi buyumlar kimniki? Egalik olmoshini to'g'ri tanlang.",
+  "icon": "🏠",
+  "intro": [
+    {
+      "textUz": "Yotoqxonaga yetib keldik! Mana sening xonang — va men ham shu yerda yashayman endi."
+    },
+    {
+      "textUz": "Rus tilida «mening» so'zi otga moslashadi: мой, моя yoki моё.",
+      "ru": "мой стол — моя́ ко́мната — моё окно́"
+    },
+    {
+      "textUz": "Lekin его, её va их hech qachon o'zgarmaydi. Oltin ⭐ buyumlar — aynan shu tuzoqlar."
+    }
+  ],
+  "ruleCards": [
+    {
+      "titleUz": "«Mening» rodga qarab o'zgaradi",
+      "bodyUz": "Egalik olmoshi o'zidan keyingi otning rodiga moslashadi: мужской — мой, женский — моя́, средний — моё, ko'plik — мои́.",
+      "examplesRu": [
+        "мой стол",
+        "моя́ ко́мната",
+        "моё окно́",
+        "мои́ кни́ги"
+      ]
+    },
+    {
+      "titleUz": "Sen, biz, sizlar ham xuddi shunday",
+      "bodyUz": "ты → твой/твоя́/твоё, мы → наш/на́ша/на́ше, вы → ваш/ва́ша/ва́ше. Qoida bir xil: otning rodiga qarang.",
+      "examplesRu": [
+        "твой друг",
+        "на́ша ку́хня",
+        "ва́ше ме́сто",
+        "твои́ ве́щи"
+      ]
+    },
+    {
+      "titleUz": "его, её, их — o'zgarmaydi",
+      "bodyUz": "Uchinchi shaxs egalik olmoshlari otga moslashmaydi. Shakl faqat egasiga bog'liq: у erkak bo'lsa — его, ayol bo'lsa — её, ko'p kishi bo'lsa — их.",
+      "examplesRu": [
+        "его́ кни́га",
+        "его́ окно́",
+        "её брат",
+        "их дом"
+      ]
+    },
+    {
+      "titleUz": "Istisnolar: мой папа, моё время, свой",
+      "bodyUz": "Rod istisnolari egalik olmoshini ham o'zgartiradi: папа, дедушка, дядя — мужской (мой папа); время, имя — средний (моё время); -ь li otlar yodlanadi (моя дверь, мой словарь). Свой — «o'zining»: ega o'z buyumi haqida gapirsa ishlatiladi.",
+      "examplesRu": [
+        "мой па́па",
+        "моё вре́мя",
+        "моя́ дверь",
+        "Он лю́бит свой го́род"
+      ],
+      "isException": true
+    }
+  ],
+  "requiredExceptions": [
+    {
+      "key": "моё время",
+      "match": "время"
+    },
+    {
+      "key": "мой папа",
+      "match": "папа"
+    },
+    {
+      "key": "имя",
+      "match": "имя"
+    },
+    {
+      "key": "его o'zgarmasligi",
+      "match": "его"
+    },
+    {
+      "key": "её o'zgarmasligi",
+      "match": "её"
+    },
+    {
+      "key": "их o'zgarmasligi",
+      "match": "их"
+    },
+    {
+      "key": "свой",
+      "match": "сво"
+    },
+    {
+      "key": "-ь li otlar",
+      "match": "тетрадь"
+    }
+  ],
+  "scene": {
+    "ground": "#cdbfae",
+    "sky": "#e8dcc8",
+    "fog": "#efe6d8",
+    "bounds": [
+      9.5,
+      6.6
+    ],
+    "spawn": [
+      0,
+      1.0
+    ],
+    "zones": [
+      {
+        "label": "мой",
+        "labelUz": "мой · erkak rod",
+        "pos": [
+          -5.5,
+          0,
+          -6.2
+        ],
+        "color": "#2f6fd0"
+      },
+      {
+        "label": "моя",
+        "labelUz": "моя · ayol rod",
+        "pos": [
+          0,
+          0,
+          -6.2
+        ],
+        "color": "#d8557f"
+      },
+      {
+        "label": "моё",
+        "labelUz": "моё · o'rta rod",
+        "pos": [
+          5.5,
+          0,
+          -6.2
+        ],
+        "color": "#2f9e6b"
+      }
+    ],
+    "props": [
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          -9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -8,
+          0,
+          -0.8
+        ],
+        "size": [
+          1.9,
+          0.55,
+          3.0
+        ],
+        "color": "#dde6f0",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -8,
+          0.55,
+          -1.9
+        ],
+        "size": [
+          1.7,
+          0.28,
+          0.7
+        ],
+        "color": "#f4f7fc"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          8,
+          0,
+          -0.8
+        ],
+        "size": [
+          1.9,
+          0.55,
+          3.0
+        ],
+        "color": "#e8ddc8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          8,
+          0.55,
+          -1.9
+        ],
+        "size": [
+          1.7,
+          0.28,
+          0.7
+        ],
+        "color": "#f4f7fc"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -10.4,
+          0,
+          -5.2
+        ],
+        "size": [
+          1.6,
+          2.6,
+          1.1
+        ],
+        "color": "#a8815a",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          10.4,
+          0,
+          -5.2
+        ],
+        "size": [
+          1.6,
+          2.6,
+          1.1
+        ],
+        "color": "#a8815a",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          1.2,
+          -8.7
+        ],
+        "size": [
+          5.5,
+          2.4,
+          0.1
+        ],
+        "color": "#9fd0ff"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          -2.2
+        ],
+        "size": [
+          4.5,
+          0.03,
+          2.6
+        ],
+        "color": "#b8534f"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0.6,
+          6.2
+        ],
+        "size": [
+          2.4,
+          0.12,
+          1.1
+        ],
+        "color": "#c8a171"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          6.2
+        ],
+        "size": [
+          1.7,
+          0.6,
+          0.7000000000000001
+        ],
+        "color": "#9a7c55",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -10.4,
+          0,
+          2.5
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          -10.4,
+          0.8,
+          2.5
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          10.4,
+          0,
+          2.5
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          10.4,
+          0.8,
+          2.5
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      }
+    ],
+    "stations": [
+      [
+        -8,
+        4
+      ],
+      [
+        -4,
+        5.5
+      ],
+      [
+        4,
+        5.5
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        -9,
+        1
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        -6,
+        -3.5
+      ],
+      [
+        -2,
+        -4.2
+      ],
+      [
+        2,
+        -4.2
+      ],
+      [
+        6,
+        -3.5
+      ],
+      [
+        -3,
+        2.8
+      ],
+      [
+        3,
+        2.8
+      ]
+    ]
+  },
+  "boss": {
+    "nameRu": "Комендант",
+    "nameUz": "Komendant",
+    "introUz": "«Xonadagi har bir narsa kimniki — hozir aniqlaymiz. Adashsangiz, kalit menda qoladi.» Har savolga 15 soniya.",
+    "winUz": "«Yashang. Mana kalitingiz — xona sizniki.» Komendant jurnalga imzo chekdi.",
+    "loseUz": "«Yo'q, siz hali o'z narsangizni tanimaysiz.» Komendant ro'yxatni qaytadan ochdi.",
+    "color": "#8a5a2b"
+  },
+  "items": [
+    {
+      "id": "ep02-001",
+      "type": "sort",
+      "promptRu": "стол",
+      "uz": "stol",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Undosh bilan tugagan ot — мужской rod: мой стол."
+    },
+    {
+      "id": "ep02-002",
+      "type": "sort",
+      "promptRu": "комната",
+      "uz": "xona",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "-а bilan tugadi — женский rod: моя́ ко́мната."
+    },
+    {
+      "id": "ep02-003",
+      "type": "sort",
+      "promptRu": "окно",
+      "uz": "deraza",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моё",
+      "explainUz": "-о bilan tugadi — средний rod: моё окно́."
+    },
+    {
+      "id": "ep02-004",
+      "type": "sort",
+      "promptRu": "брат",
+      "uz": "aka, uka",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Undosh + erkak kishi — мужской rod: мой брат."
+    },
+    {
+      "id": "ep02-005",
+      "type": "sort",
+      "promptRu": "сестра",
+      "uz": "opa, singil",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "-а bilan tugadi — женский rod: моя́ сестра́."
+    },
+    {
+      "id": "ep02-006",
+      "type": "sort",
+      "promptRu": "письмо",
+      "uz": "xat",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моё",
+      "explainUz": "-о bilan tugadi — средний rod: моё письмо́."
+    },
+    {
+      "id": "ep02-007",
+      "type": "sort",
+      "promptRu": "телефон",
+      "uz": "telefon",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Undosh bilan tugadi — мужской rod: мой телефо́н."
+    },
+    {
+      "id": "ep02-008",
+      "type": "sort",
+      "promptRu": "сумка",
+      "uz": "sumka",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "-а bilan tugadi — женский rod: моя́ су́мка."
+    },
+    {
+      "id": "ep02-009",
+      "type": "sort",
+      "promptRu": "место",
+      "uz": "joy",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моё",
+      "explainUz": "-о bilan tugadi — средний rod: моё ме́сто."
+    },
+    {
+      "id": "ep02-010",
+      "type": "sort",
+      "promptRu": "друг",
+      "uz": "do'st",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Undosh bilan tugadi — мужской rod: мой друг."
+    },
+    {
+      "id": "ep02-011",
+      "type": "sort",
+      "promptRu": "лампа",
+      "uz": "chiroq",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "-а bilan tugadi — женский rod: моя́ ла́мпа."
+    },
+    {
+      "id": "ep02-012",
+      "type": "sort",
+      "promptRu": "одеяло",
+      "uz": "ko'rpa",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моё",
+      "explainUz": "-о bilan tugadi — средний rod: моё одея́ло."
+    },
+    {
+      "id": "ep02-013",
+      "type": "sort",
+      "promptRu": "шкаф",
+      "uz": "shkaf",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Undosh bilan tugadi — мужской rod: мой шкаф."
+    },
+    {
+      "id": "ep02-014",
+      "type": "sort",
+      "promptRu": "полка",
+      "uz": "javon",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "-а bilan tugadi — женский rod: моя́ по́лка."
+    },
+    {
+      "id": "ep02-015",
+      "type": "sort",
+      "promptRu": "папа",
+      "uz": "ota",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Istisno! -а bilan tugasa ham erkak kishi — мужской rod: мой папа.",
+      "hintUz": "So'z oxiriga emas, kim haqida gap ketayotganiga qarang.",
+      "isException": true
+    },
+    {
+      "id": "ep02-016",
+      "type": "sort",
+      "promptRu": "дедушка",
+      "uz": "bobo",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Istisno! Дедушка — erkak kishi: мой дедушка.",
+      "hintUz": "Papa bilan bir guruhda.",
+      "isException": true
+    },
+    {
+      "id": "ep02-017",
+      "type": "sort",
+      "promptRu": "дядя",
+      "uz": "amaki, tog'a",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Istisno! Дядя — erkak kishi: мой дядя.",
+      "isException": true
+    },
+    {
+      "id": "ep02-018",
+      "type": "sort",
+      "promptRu": "время",
+      "uz": "vaqt",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моё",
+      "explainUz": "Istisno! -мя bilan tugagan otlar — средний rod: моё время.",
+      "hintUz": "-мя bilan tugaganlar alohida guruh.",
+      "isException": true
+    },
+    {
+      "id": "ep02-019",
+      "type": "sort",
+      "promptRu": "имя",
+      "uz": "ism",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моё",
+      "explainUz": "Istisno! Имя — средний rod, время kabi: моё имя.",
+      "isException": true
+    },
+    {
+      "id": "ep02-020",
+      "type": "sort",
+      "promptRu": "кровать",
+      "uz": "karavot",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "-ь bilan tugadi, женский rod: моя́ крова́ть.",
+      "hintUz": "-ь li otlarni yodlash kerak: bu — «она».",
+      "isException": true
+    },
+    {
+      "id": "ep02-021",
+      "type": "sort",
+      "promptRu": "тетрадь",
+      "uz": "daftar",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "-ь bilan tugadi, женский rod: моя тетрадь.",
+      "isException": true
+    },
+    {
+      "id": "ep02-022",
+      "type": "sort",
+      "promptRu": "словарь",
+      "uz": "lug'at",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "-ь bilan tugadi, lekin мужской rod: мой слова́рь.",
+      "hintUz": "Tetrad bilan yonma-yon yuradi, lekin rodi qarama-qarshi.",
+      "isException": true
+    },
+    {
+      "id": "ep02-023",
+      "type": "sort",
+      "promptRu": "дверь",
+      "uz": "eshik",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "-ь bilan tugadi, женский rod: моя́ дверь.",
+      "isException": true
+    },
+    {
+      "id": "ep02-024",
+      "type": "sort",
+      "promptRu": "путь",
+      "uz": "yo'l",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Istisno! Путь — мужской rod: мой путь.",
+      "isException": true
+    },
+    {
+      "id": "ep02-025",
+      "type": "fill",
+      "promptRu": "Это Антон. Это ___ комната.",
+      "uz": "Bu Anton. Bu uning xonasi.",
+      "options": [
+        "его",
+        "её",
+        "их"
+      ],
+      "answer": "его",
+      "explainUz": "Его hech qachon o'zgarmaydi: его комната, его дом, его окно.",
+      "hintUz": "Egasi erkak — bitta shakl, u otga moslashmaydi.",
+      "isException": true
+    },
+    {
+      "id": "ep02-026",
+      "type": "fill",
+      "promptRu": "Это Антон. Это ___ окно.",
+      "uz": "Bu Anton. Bu uning derazasi.",
+      "options": [
+        "его",
+        "её",
+        "их"
+      ],
+      "answer": "его",
+      "explainUz": "Его — средний rod oldida ham o'zgarmaydi: его окно.",
+      "isException": true
+    },
+    {
+      "id": "ep02-027",
+      "type": "fill",
+      "promptRu": "Это Мария. Это ___ брат.",
+      "uz": "Bu Mariya. Bu uning akasi.",
+      "options": [
+        "его",
+        "её",
+        "их"
+      ],
+      "answer": "её",
+      "explainUz": "Её o'zgarmaydi: её брат, её сестра, её окно.",
+      "isException": true
+    },
+    {
+      "id": "ep02-028",
+      "type": "fill",
+      "promptRu": "Это Мария. Это ___ книги.",
+      "uz": "Bu Mariya. Bular uning kitoblari.",
+      "options": [
+        "его",
+        "её",
+        "их"
+      ],
+      "answer": "её",
+      "explainUz": "Ko'plik oldida ham её: её книги.",
+      "isException": true
+    },
+    {
+      "id": "ep02-029",
+      "type": "fill",
+      "promptRu": "Это Антон и Мария. Это ___ комната.",
+      "uz": "Bu Anton va Mariya. Bu ularning xonasi.",
+      "options": [
+        "его",
+        "её",
+        "их"
+      ],
+      "answer": "их",
+      "explainUz": "Их — egasi ko'p bo'lsa, shakli baribir o'zgarmaydi: их комната, их дом.",
+      "isException": true
+    },
+    {
+      "id": "ep02-030",
+      "type": "fill",
+      "promptRu": "Это соседи. Это ___ кухня.",
+      "uz": "Bular qo'shnilar. Bu ularning oshxonasi.",
+      "options": [
+        "его",
+        "её",
+        "их"
+      ],
+      "answer": "их",
+      "explainUz": "Их hech qachon moslashmaydi: их кухня.",
+      "isException": true
+    },
+    {
+      "id": "ep02-031",
+      "type": "fill",
+      "promptRu": "Мы студенты. Это ___ общежитие.",
+      "uz": "Biz talabamiz. Bu bizning yotoqxonamiz.",
+      "options": [
+        "наше",
+        "наш",
+        "наша"
+      ],
+      "answer": "наше",
+      "explainUz": "Общежи́тие — средний rod: на́ше общежи́тие."
+    },
+    {
+      "id": "ep02-032",
+      "type": "fill",
+      "promptRu": "Мы соседи. Это ___ кухня.",
+      "uz": "Biz qo'shnimiz. Bu bizning oshxonamiz.",
+      "options": [
+        "наша",
+        "наш",
+        "наше"
+      ],
+      "answer": "наша",
+      "explainUz": "Ку́хня — женский rod: на́ша ку́хня."
+    },
+    {
+      "id": "ep02-033",
+      "type": "fill",
+      "promptRu": "Вы студенты. Это ___ комната.",
+      "uz": "Sizlar talabasizlar. Bu sizning xonangiz.",
+      "options": [
+        "ваша",
+        "ваш",
+        "ваше"
+      ],
+      "answer": "ваша",
+      "explainUz": "Ко́мната — женский rod: ва́ша ко́мната."
+    },
+    {
+      "id": "ep02-034",
+      "type": "fill",
+      "promptRu": "Я студент. Это ___ книги.",
+      "uz": "Men talabaman. Bular mening kitoblarim.",
+      "options": [
+        "мои",
+        "моя",
+        "моё"
+      ],
+      "answer": "мои",
+      "explainUz": "Ko'plik uchun alohida shakl: мои́ кни́ги."
+    },
+    {
+      "id": "ep02-035",
+      "type": "fill",
+      "promptRu": "Ты студент. Это ___ место.",
+      "uz": "Sen talabasan. Bu sening joying.",
+      "options": [
+        "твоё",
+        "твой",
+        "твоя"
+      ],
+      "answer": "твоё",
+      "explainUz": "Ме́сто — средний rod: твоё ме́сто."
+    },
+    {
+      "id": "ep02-036",
+      "type": "fill",
+      "promptRu": "Где ___ время?",
+      "uz": "Mening vaqtim qayerda?",
+      "options": [
+        "моё",
+        "мой",
+        "моя"
+      ],
+      "answer": "моё",
+      "explainUz": "Время — средний rod: моё время.",
+      "hintUz": "-мя bilan tugaganlar qaysi rodda edi?",
+      "isException": true
+    },
+    {
+      "id": "ep02-037",
+      "type": "fill",
+      "promptRu": "Это ___ папа.",
+      "uz": "Bu mening otam.",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Папа — мужской rod: мой папа (моя emas).",
+      "isException": true
+    },
+    {
+      "id": "ep02-038",
+      "type": "fill",
+      "promptRu": "Это ___ имя.",
+      "uz": "Bu mening ismim.",
+      "options": [
+        "моё",
+        "мой",
+        "моя"
+      ],
+      "answer": "моё",
+      "explainUz": "Имя — средний rod: моё имя.",
+      "isException": true
+    },
+    {
+      "id": "ep02-039",
+      "type": "fill",
+      "promptRu": "Антон взял ___ сумку.",
+      "uz": "Anton o'z sumkasini oldi.",
+      "options": [
+        "свою",
+        "его",
+        "её"
+      ],
+      "answer": "свою",
+      "explainUz": "Свой — «o'zining»: ega o'z buyumini olsa свой ishlatiladi. «Его сумку» desak — boshqa odamning sumkasi.",
+      "hintUz": "Sumka kimniki — Antonnikimi yoki boshqa birovnikimi?",
+      "isException": true
+    },
+    {
+      "id": "ep02-040",
+      "type": "fill",
+      "promptRu": "Мария любит ___ работу.",
+      "uz": "Mariya o'z ishini yaxshi ko'radi.",
+      "options": [
+        "свою",
+        "её",
+        "их"
+      ],
+      "answer": "свою",
+      "explainUz": "Ega o'zi haqida gapiryapti — свою работу. «Её работу» — boshqa ayolning ishi.",
+      "isException": true
+    },
+    {
+      "id": "ep02-041",
+      "type": "fill",
+      "promptRu": "Он живёт в ___ комнате.",
+      "uz": "U o'z xonasida yashaydi.",
+      "options": [
+        "своей",
+        "его",
+        "их"
+      ],
+      "answer": "своей",
+      "explainUz": "Свой kelishiklarda ham ishlaydi: в своей комнате.",
+      "isException": true
+    },
+    {
+      "id": "ep02-042",
+      "type": "order",
+      "promptRu": "Bu mening xonam",
+      "uz": "Bu mening xonam",
+      "tokens": [
+        "Это",
+        "моя",
+        "комната"
+      ],
+      "answer": "Это моя комната",
+      "explainUz": "Комната — женский rod: Это моя комната."
+    },
+    {
+      "id": "ep02-043",
+      "type": "order",
+      "promptRu": "Bu ularning uyi",
+      "uz": "Bu ularning uyi",
+      "tokens": [
+        "Это",
+        "их",
+        "дом"
+      ],
+      "answer": "Это их дом",
+      "explainUz": "Их o'zgarmaydi: Это их дом.",
+      "isException": true
+    },
+    {
+      "id": "ep02-044",
+      "type": "order",
+      "promptRu": "Bu mening otam",
+      "uz": "Bu mening otam",
+      "tokens": [
+        "Это",
+        "мой",
+        "папа"
+      ],
+      "answer": "Это мой папа",
+      "explainUz": "Папа — мужской rod: Это мой папа.",
+      "isException": true
+    },
+    {
+      "id": "ep02-045",
+      "type": "order",
+      "promptRu": "Bu uning daftari (u — qiz)",
+      "uz": "Bu uning daftari (u — qiz)",
+      "tokens": [
+        "Это",
+        "её",
+        "тетрадь"
+      ],
+      "answer": "Это её тетрадь",
+      "explainUz": "Её o'zgarmaydi, тетрадь — женский rod: Это её тетрадь.",
+      "isException": true
+    },
+    {
+      "id": "ep02-046",
+      "type": "sort",
+      "promptRu": "папа",
+      "uz": "ota",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Папа — erkak kishi: мой папа.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-047",
+      "type": "sort",
+      "promptRu": "дедушка",
+      "uz": "bobo",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Дедушка — мужской rod: мой дедушка.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-048",
+      "type": "sort",
+      "promptRu": "имя",
+      "uz": "ism",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моё",
+      "explainUz": "Имя — средний rod: моё имя.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-049",
+      "type": "sort",
+      "promptRu": "кровать",
+      "uz": "karavot",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "Кровать — женский rod: моя кровать.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-050",
+      "type": "sort",
+      "promptRu": "дверь",
+      "uz": "eshik",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "Дверь — женский rod: моя дверь.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-051",
+      "type": "sort",
+      "promptRu": "словарь",
+      "uz": "lug'at",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Словарь — мужской rod: мой словарь.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-052",
+      "type": "sort",
+      "promptRu": "тетрадь",
+      "uz": "daftar",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "Тетрадь — женский rod: моя тетрадь.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-053",
+      "type": "fill",
+      "promptRu": "Это ___ время.",
+      "uz": "Bu mening vaqtim.",
+      "options": [
+        "моё",
+        "мой",
+        "моя"
+      ],
+      "answer": "моё",
+      "explainUz": "Время — средний rod: моё время.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-054",
+      "type": "fill",
+      "promptRu": "Это Антон. Это ___ сестра.",
+      "uz": "Bu Anton. Bu uning opasi.",
+      "options": [
+        "его",
+        "её",
+        "их"
+      ],
+      "answer": "его",
+      "explainUz": "Его o'zgarmaydi: его сестра.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-055",
+      "type": "fill",
+      "promptRu": "Это Мария. Это ___ дом.",
+      "uz": "Bu Mariya. Bu uning uyi.",
+      "options": [
+        "его",
+        "её",
+        "их"
+      ],
+      "answer": "её",
+      "explainUz": "Её o'zgarmaydi: её дом.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-056",
+      "type": "fill",
+      "promptRu": "Это студенты. Это ___ комната.",
+      "uz": "Bular talabalar. Bu ularning xonasi.",
+      "options": [
+        "его",
+        "её",
+        "их"
+      ],
+      "answer": "их",
+      "explainUz": "Их o'zgarmaydi: их комната.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-057",
+      "type": "fill",
+      "promptRu": "Он любит ___ город.",
+      "uz": "U o'z shahrini yaxshi ko'radi.",
+      "options": [
+        "свой",
+        "его",
+        "их"
+      ],
+      "answer": "свой",
+      "explainUz": "Ega o'zi haqida: он любит свой город.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep02-058",
+      "type": "sort",
+      "promptRu": "стол",
+      "uz": "stol",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Undosh bilan tugadi — мужской rod: мой стол.",
+      "isBoss": true
+    },
+    {
+      "id": "ep02-059",
+      "type": "sort",
+      "promptRu": "сестра",
+      "uz": "opa, singil",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моя",
+      "explainUz": "-а bilan tugadi — женский rod: моя́ сестра́.",
+      "isBoss": true
+    },
+    {
+      "id": "ep02-060",
+      "type": "sort",
+      "promptRu": "окно",
+      "uz": "deraza",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моё",
+      "explainUz": "-о bilan tugadi — средний rod: моё окно́.",
+      "isBoss": true
+    },
+    {
+      "id": "ep02-061",
+      "type": "sort",
+      "promptRu": "друг",
+      "uz": "do'st",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "мой",
+      "explainUz": "Undosh bilan tugadi — мужской rod: мой друг.",
+      "isBoss": true
+    },
+    {
+      "id": "ep02-062",
+      "type": "sort",
+      "promptRu": "письмо",
+      "uz": "xat",
+      "options": [
+        "мой",
+        "моя",
+        "моё"
+      ],
+      "answer": "моё",
+      "explainUz": "-о bilan tugadi — средний rod: моё письмо́.",
+      "isBoss": true
+    },
+    {
+      "id": "ep02-063",
+      "type": "fill",
+      "promptRu": "Мы дома. Это ___ кухня.",
+      "uz": "Biz uydamiz. Bu bizning oshxonamiz.",
+      "options": [
+        "наша",
+        "наш",
+        "наше"
+      ],
+      "answer": "наша",
+      "explainUz": "Кухня — женский rod: наша кухня.",
+      "isBoss": true
+    },
+    {
+      "id": "ep02-064",
+      "type": "fill",
+      "promptRu": "Вы студенты. Это ___ автобус.",
+      "uz": "Sizlar talabasizlar. Bu sizning avtobusingiz.",
+      "options": [
+        "ваш",
+        "ваша",
+        "ваше"
+      ],
+      "answer": "ваш",
+      "explainUz": "Автобус — мужской rod: ваш автобус.",
+      "isBoss": true
+    }
+  ]
+}

@@ -1,0 +1,1458 @@
+{
+  "id": "ep04",
+  "order": 4,
+  "title": "Магазин и дорога",
+  "titleUz": "Do'kon va yo'l",
+  "topic": "accusative",
+  "topicUz": "Винительный kelishik",
+  "summaryUz": "Xarid ro'yxati va «Куда?» yo'nalishlari.",
+  "icon": "🛒",
+  "intro": [
+    {
+      "textUz": "Xarid ro'yxati tayyor! Do'konda «nimani» sotib olishni винительный kelishik aytadi."
+    },
+    {
+      "textUz": "Asosiy sir: jonli yoki jonsizligini so'rash. Кого? — kimni, Что? — nimani.",
+      "ru": "ви́жу бра́та — ви́жу стол"
+    },
+    {
+      "textUz": "Yana bir sir: папа, дедушка, дядя erkak bo'lsa ham -а qolipida turlanadi. Oltin ⭐ so'zlarga qarab yur!"
+    }
+  ],
+  "ruleCards": [
+    {
+      "titleUz": "Кого? Что? — винительный",
+      "bodyUz": "To'g'ridan-to'g'ri obyekt (nimani ko'rasan, olasan, o'qiysan) винительный kelishikda turadi. «Куда?» yo'nalishi ham shu kelishik bilan: в/на + винительный.",
+      "examplesRu": [
+        "Я ви́жу дом.",
+        "Я иду́ в магази́н.",
+        "Мы е́дем на вокза́л."
+      ]
+    },
+    {
+      "titleUz": "Jonsiz — tinch turadi",
+      "bodyUz": "Jonsiz мужской va barcha средний otlar винительныйда o'zgarmaydi — bosh kelishik bilan bir xil.",
+      "examplesRu": [
+        "ви́жу стол",
+        "чита́ю письмо́",
+        "покупа́ю хлеб",
+        "жду авто́бус"
+      ]
+    },
+    {
+      "titleUz": "-а/-я → -у/-ю",
+      "bodyUz": "Женский rod -а/-я bilan tugasa, винительныйда -у/-ю bo'ladi.",
+      "examplesRu": [
+        "кни́га → чита́ю кни́гу",
+        "су́мка → несу́ су́мку",
+        "неде́ля → жду неде́лю"
+      ]
+    },
+    {
+      "titleUz": "Istisnolar: jonlilar va мать",
+      "bodyUz": "Jonli erkak otlari -а/-я oladi: вижу брата, знаю Антона. Папа, дедушка, дядя esa -а qolipida: вижу папу, дедушку, дядю. -ь li ayol otlari o'zgarmaydi: вижу мать, дверь, тетрадь.",
+      "examplesRu": [
+        "ви́жу бра́та",
+        "зна́ю студе́нта",
+        "ви́жу па́пу",
+        "ви́жу мать"
+      ],
+      "isException": true
+    }
+  ],
+  "requiredExceptions": [
+    {
+      "key": "вижу брата (jonli)",
+      "match": "брата"
+    },
+    {
+      "key": "jonsiz o'zgarmaydi",
+      "match": "не меняется"
+    },
+    {
+      "key": "книга → книгу",
+      "match": "книгу"
+    },
+    {
+      "key": "мать o'zgarmaydi",
+      "match": "мать"
+    },
+    {
+      "key": "папа → папу",
+      "match": "папу"
+    },
+    {
+      "key": "дедушка → дедушку",
+      "match": "дедушку"
+    },
+    {
+      "key": "дядя → дядю",
+      "match": "дядю"
+    }
+  ],
+  "scene": {
+    "ground": "#d8e2dc",
+    "sky": "#d8f0e4",
+    "fog": "#e5f2ea",
+    "bounds": [
+      9.5,
+      6.6
+    ],
+    "spawn": [
+      0,
+      1.0
+    ],
+    "zones": [
+      {
+        "label": "не меняется",
+        "labelUz": "o'zgarmaydi",
+        "pos": [
+          -5.5,
+          0,
+          -6.2
+        ],
+        "color": "#5a6b7d"
+      },
+      {
+        "label": "-а/-я",
+        "labelUz": "jonli erkak",
+        "pos": [
+          0,
+          0,
+          -6.2
+        ],
+        "color": "#c96f2f"
+      },
+      {
+        "label": "-у/-ю",
+        "labelUz": "-а/-я → -у/-ю",
+        "pos": [
+          5.5,
+          0,
+          -6.2
+        ],
+        "color": "#b0507a"
+      }
+    ],
+    "props": [
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          -9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -5,
+          0,
+          -1.2
+        ],
+        "size": [
+          4.5,
+          1.4,
+          0.9
+        ],
+        "color": "#c9d6ce",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          5,
+          0,
+          -1.2
+        ],
+        "size": [
+          4.5,
+          1.4,
+          0.9
+        ],
+        "color": "#c9d6ce",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -6.2,
+          1.4,
+          -1.2
+        ],
+        "size": [
+          0.7,
+          0.5,
+          0.6
+        ],
+        "color": "#c8503f"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -5,
+          1.4,
+          -1.2
+        ],
+        "size": [
+          0.7,
+          0.5,
+          0.6
+        ],
+        "color": "#c9a227"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -3.8,
+          1.4,
+          -1.2
+        ],
+        "size": [
+          0.7,
+          0.5,
+          0.6
+        ],
+        "color": "#2f7fb5"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          3.8,
+          1.4,
+          -1.2
+        ],
+        "size": [
+          0.7,
+          0.5,
+          0.6
+        ],
+        "color": "#7a5ab5"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          5,
+          1.4,
+          -1.2
+        ],
+        "size": [
+          0.7,
+          0.5,
+          0.6
+        ],
+        "color": "#3f8f6a"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          6.2,
+          1.4,
+          -1.2
+        ],
+        "size": [
+          0.7,
+          0.5,
+          0.6
+        ],
+        "color": "#d8862f"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -10.4,
+          0,
+          -5.2
+        ],
+        "size": [
+          1.5,
+          2.4,
+          1.2
+        ],
+        "color": "#dfe8f2",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          10.4,
+          0,
+          -5.2
+        ],
+        "size": [
+          1.5,
+          2.4,
+          1.2
+        ],
+        "color": "#dfe8f2",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0.6,
+          6.2
+        ],
+        "size": [
+          2.4,
+          0.12,
+          1.1
+        ],
+        "color": "#d8dfe8"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          6.2
+        ],
+        "size": [
+          1.7,
+          0.6,
+          0.7000000000000001
+        ],
+        "color": "#8a93a2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -10.4,
+          0,
+          2.5
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          -10.4,
+          0.8,
+          2.5
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          10.4,
+          0,
+          2.5
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          10.4,
+          0.8,
+          2.5
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      }
+    ],
+    "stations": [
+      [
+        -8,
+        4
+      ],
+      [
+        -4,
+        5.5
+      ],
+      [
+        4,
+        5.5
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        -9,
+        1
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        -6,
+        -3.5
+      ],
+      [
+        -2,
+        -4.2
+      ],
+      [
+        2,
+        -4.2
+      ],
+      [
+        6,
+        -3.5
+      ],
+      [
+        -3,
+        2.8
+      ],
+      [
+        3,
+        2.8
+      ]
+    ]
+  },
+  "boss": {
+    "nameRu": "Кассир",
+    "nameUz": "Kassir",
+    "introUz": "«Xaridlaringizni tekshiramiz! Har bir so'zning to'g'ri shaklini ayting — xato bo'lsa, chek chiqmaydi.» Har savolga 15 soniya.",
+    "winUz": "«Mana chekingiz. Xaridingiz muborak!» Kassir kulib qo'ydi.",
+    "loseUz": "«Kassa xatoni qabul qilmaydi. Navbatga qaytadan turing.»",
+    "color": "#c96f2f"
+  },
+  "items": [
+    {
+      "id": "ep04-001",
+      "type": "sort",
+      "promptRu": "стол",
+      "uz": "stol",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Jonsiz мужской ot o'zgarmaydi: вижу стол."
+    },
+    {
+      "id": "ep04-002",
+      "type": "sort",
+      "promptRu": "дом",
+      "uz": "uy",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Jonsiz мужской ot o'zgarmaydi: вижу дом."
+    },
+    {
+      "id": "ep04-003",
+      "type": "sort",
+      "promptRu": "телефон",
+      "uz": "telefon",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Jonsiz — o'zgarmaydi: покупа́ю телефо́н."
+    },
+    {
+      "id": "ep04-004",
+      "type": "sort",
+      "promptRu": "окно",
+      "uz": "deraza",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Средний rod o'zgarmaydi: вижу окно́."
+    },
+    {
+      "id": "ep04-005",
+      "type": "sort",
+      "promptRu": "письмо",
+      "uz": "xat",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Средний rod o'zgarmaydi: чита́ю письмо́."
+    },
+    {
+      "id": "ep04-006",
+      "type": "sort",
+      "promptRu": "автобус",
+      "uz": "avtobus",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Jonsiz — o'zgarmaydi: жду авто́бус (вижу стол kabi)."
+    },
+    {
+      "id": "ep04-007",
+      "type": "sort",
+      "promptRu": "мать",
+      "uz": "ona",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Istisno! -ь li ayol otlari o'zgarmaydi: вижу мать.",
+      "hintUz": "-ь bilan tugagan ayol otlari bu kelishikda tinch turadi.",
+      "isException": true
+    },
+    {
+      "id": "ep04-008",
+      "type": "sort",
+      "promptRu": "дверь",
+      "uz": "eshik",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "-ь li ayol oti o'zgarmaydi: закро́й дверь.",
+      "isException": true
+    },
+    {
+      "id": "ep04-009",
+      "type": "sort",
+      "promptRu": "тетрадь",
+      "uz": "daftar",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "-ь li ayol oti o'zgarmaydi: возьми́ тетра́дь.",
+      "isException": true
+    },
+    {
+      "id": "ep04-010",
+      "type": "sort",
+      "promptRu": "брат",
+      "uz": "aka, uka",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-а/-я",
+      "explainUz": "Jonli erkak — родительный kabi: вижу брата.",
+      "hintUz": "Jonli yoki jonsizligini so'rang: kimni? yoki nimani?",
+      "isException": true
+    },
+    {
+      "id": "ep04-011",
+      "type": "sort",
+      "promptRu": "друг",
+      "uz": "do'st",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-а/-я",
+      "explainUz": "Jonli — вижу дру́га.",
+      "isException": true
+    },
+    {
+      "id": "ep04-012",
+      "type": "sort",
+      "promptRu": "студент",
+      "uz": "talaba",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-а/-я",
+      "explainUz": "Jonli — зна́ю студе́нта.",
+      "isException": true
+    },
+    {
+      "id": "ep04-013",
+      "type": "sort",
+      "promptRu": "врач",
+      "uz": "shifokor",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-а/-я",
+      "explainUz": "Jonli — вижу врача.",
+      "isException": true
+    },
+    {
+      "id": "ep04-014",
+      "type": "sort",
+      "promptRu": "сосед",
+      "uz": "qo'shni",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-а/-я",
+      "explainUz": "Jonli — зна́ю сосе́да.",
+      "isException": true
+    },
+    {
+      "id": "ep04-015",
+      "type": "sort",
+      "promptRu": "преподаватель",
+      "uz": "o'qituvchi (oliygohda)",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-а/-я",
+      "explainUz": "Jonli, -ь bilan tugagan erkak oti: слу́шаю преподава́теля.",
+      "isException": true
+    },
+    {
+      "id": "ep04-016",
+      "type": "sort",
+      "promptRu": "книга",
+      "uz": "kitob",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "-а → -у: чита́ю кни́гу."
+    },
+    {
+      "id": "ep04-017",
+      "type": "sort",
+      "promptRu": "сумка",
+      "uz": "sumka",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "-а → -у: несу́ су́мку."
+    },
+    {
+      "id": "ep04-018",
+      "type": "sort",
+      "promptRu": "машина",
+      "uz": "mashina",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "-а → -у: вижу маши́ну."
+    },
+    {
+      "id": "ep04-019",
+      "type": "sort",
+      "promptRu": "газета",
+      "uz": "gazeta",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "-а → -у: чита́ю газе́ту."
+    },
+    {
+      "id": "ep04-020",
+      "type": "sort",
+      "promptRu": "неделя",
+      "uz": "hafta",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "-я → -ю: жду неде́лю."
+    },
+    {
+      "id": "ep04-021",
+      "type": "sort",
+      "promptRu": "мама",
+      "uz": "oyi",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "-а → -у: люблю́ ма́му."
+    },
+    {
+      "id": "ep04-022",
+      "type": "sort",
+      "promptRu": "сестра",
+      "uz": "opa, singil",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "-а → -у: вижу сестру́."
+    },
+    {
+      "id": "ep04-023",
+      "type": "sort",
+      "promptRu": "папа",
+      "uz": "ota",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Istisno! Папа — мужской, lekin -а bilan tugagani uchun ayol otlari kabi turlanadi: вижу папу.",
+      "hintUz": "Rodi erkak, lekin oxiri -а. Qaysi qolipda turlanadi?",
+      "isException": true
+    },
+    {
+      "id": "ep04-024",
+      "type": "sort",
+      "promptRu": "дядя",
+      "uz": "amaki, tog'a",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Istisno! -я → -ю: вижу дядю.",
+      "isException": true
+    },
+    {
+      "id": "ep04-025",
+      "type": "sort",
+      "promptRu": "дедушка",
+      "uz": "bobo",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Istisno! -а → -у: вижу дедушку.",
+      "isException": true
+    },
+    {
+      "id": "ep04-026",
+      "type": "fill",
+      "promptRu": "Я вижу ___ (брат).",
+      "uz": "Men akamni ko'ryapman.",
+      "options": [
+        "брата",
+        "брат",
+        "брату"
+      ],
+      "answer": "брата",
+      "explainUz": "Jonli erkak — винительный = родительный: вижу брата.",
+      "isException": true
+    },
+    {
+      "id": "ep04-027",
+      "type": "fill",
+      "promptRu": "Я вижу ___ (стол).",
+      "uz": "Men stolni ko'ryapman.",
+      "options": [
+        "стол",
+        "стола",
+        "столу"
+      ],
+      "answer": "стол",
+      "explainUz": "Jonsiz — o'zgarmaydi: вижу стол."
+    },
+    {
+      "id": "ep04-028",
+      "type": "fill",
+      "promptRu": "Я читаю ___ (книга).",
+      "uz": "Men kitob o'qiyapman.",
+      "options": [
+        "книгу",
+        "книга",
+        "книге"
+      ],
+      "answer": "книгу",
+      "explainUz": "-а → -у: читаю книгу."
+    },
+    {
+      "id": "ep04-029",
+      "type": "fill",
+      "promptRu": "Я знаю ___ (Антон).",
+      "uz": "Men Antonni taniyman.",
+      "options": [
+        "Антона",
+        "Антон",
+        "Антону"
+      ],
+      "answer": "Антона",
+      "explainUz": "Jonli erkak ismi: знаю Антона.",
+      "isException": true
+    },
+    {
+      "id": "ep04-030",
+      "type": "fill",
+      "promptRu": "Мы покупаем ___ (хлеб).",
+      "uz": "Biz non sotib olyapmiz.",
+      "options": [
+        "хлеб",
+        "хлеба",
+        "хлебу"
+      ],
+      "answer": "хлеб",
+      "explainUz": "Jonsiz — o'zgarmaydi: покупа́ем хлеб."
+    },
+    {
+      "id": "ep04-031",
+      "type": "fill",
+      "promptRu": "Он любит ___ (мама).",
+      "uz": "U onasini yaxshi ko'radi.",
+      "options": [
+        "маму",
+        "мама",
+        "маме"
+      ],
+      "answer": "маму",
+      "explainUz": "-а → -у: лю́бит ма́му."
+    },
+    {
+      "id": "ep04-032",
+      "type": "fill",
+      "promptRu": "Я жду ___ (папа).",
+      "uz": "Men otamni kutyapman.",
+      "options": [
+        "папу",
+        "папа",
+        "папе"
+      ],
+      "answer": "папу",
+      "explainUz": "Istisno! Папа -а qolipida turlanadi: жду папу.",
+      "isException": true
+    },
+    {
+      "id": "ep04-033",
+      "type": "fill",
+      "promptRu": "Я вижу ___ (мать).",
+      "uz": "Men onamni ko'ryapman.",
+      "options": [
+        "мать",
+        "матери",
+        "матю"
+      ],
+      "answer": "мать",
+      "explainUz": "Istisno! Мать bu kelishikda o'zgarmaydi: вижу мать.",
+      "isException": true
+    },
+    {
+      "id": "ep04-034",
+      "type": "fill",
+      "promptRu": "Куда ты идёшь? — В ___ (магазин).",
+      "uz": "Qayoqqa ketyapsan? — Do'konga.",
+      "options": [
+        "магазин",
+        "магазине",
+        "магазину"
+      ],
+      "answer": "магазин",
+      "explainUz": "Куда? — винительный. Jonsiz мужской o'zgarmaydi: в магази́н."
+    },
+    {
+      "id": "ep04-035",
+      "type": "fill",
+      "promptRu": "Мы едем на ___ (вокзал).",
+      "uz": "Biz vokzalga ketyapmiz.",
+      "options": [
+        "вокзал",
+        "вокзале",
+        "вокзалу"
+      ],
+      "answer": "вокзал",
+      "explainUz": "Куда? — на вокза́л. (Где? bo'lsa — на вокза́ле.)"
+    },
+    {
+      "id": "ep04-036",
+      "type": "fill",
+      "promptRu": "Она идёт в ___ (аптека).",
+      "uz": "U dorixonaga ketyapti.",
+      "options": [
+        "аптеку",
+        "аптеке",
+        "аптека"
+      ],
+      "answer": "аптеку",
+      "explainUz": "Куда? -а → -у: в апте́ку."
+    },
+    {
+      "id": "ep04-037",
+      "type": "fill",
+      "promptRu": "Я покупаю ___ (газета).",
+      "uz": "Men gazeta sotib olyapman.",
+      "options": [
+        "газету",
+        "газета",
+        "газете"
+      ],
+      "answer": "газету",
+      "explainUz": "-а → -у: покупа́ю газе́ту."
+    },
+    {
+      "id": "ep04-038",
+      "type": "fill",
+      "promptRu": "Мы видим ___ (дедушка).",
+      "uz": "Biz boboni ko'ryapmiz.",
+      "options": [
+        "дедушку",
+        "дедушка",
+        "дедушке"
+      ],
+      "answer": "дедушку",
+      "explainUz": "Istisno! -а qolipi: видим дедушку.",
+      "isException": true
+    },
+    {
+      "id": "ep04-039",
+      "type": "fill",
+      "promptRu": "Я слушаю ___ (музыка).",
+      "uz": "Men musiqa tinglayapman.",
+      "options": [
+        "музыку",
+        "музыка",
+        "музыке"
+      ],
+      "answer": "музыку",
+      "explainUz": "-а → -у: слу́шаю му́зыку."
+    },
+    {
+      "id": "ep04-040",
+      "type": "choice",
+      "promptRu": "брат",
+      "uz": "aka, uka",
+      "askUz": "«Я вижу …» — to'g'ri shaklni tanlang",
+      "options": [
+        "брата",
+        "брат",
+        "брату"
+      ],
+      "answer": "брата",
+      "explainUz": "Jonli — вижу брата.",
+      "isException": true
+    },
+    {
+      "id": "ep04-041",
+      "type": "choice",
+      "promptRu": "стол",
+      "uz": "stol",
+      "askUz": "«Я вижу …» — to'g'ri shaklni tanlang",
+      "options": [
+        "стол",
+        "стола",
+        "столу"
+      ],
+      "answer": "стол",
+      "explainUz": "Jonsiz — o'zgarmaydi: вижу стол."
+    },
+    {
+      "id": "ep04-042",
+      "type": "choice",
+      "promptRu": "сестра",
+      "uz": "opa, singil",
+      "askUz": "«Я вижу …» — to'g'ri shaklni tanlang",
+      "options": [
+        "сестру",
+        "сестра",
+        "сестре"
+      ],
+      "answer": "сестру",
+      "explainUz": "-а → -у: вижу сестру́."
+    },
+    {
+      "id": "ep04-043",
+      "type": "order",
+      "promptRu": "Men akamni ko'ryapman",
+      "uz": "Men akamni ko'ryapman",
+      "tokens": [
+        "Я",
+        "вижу",
+        "брата"
+      ],
+      "answer": "Я вижу брата",
+      "explainUz": "Jonli erkak: Я вижу брата.",
+      "isException": true
+    },
+    {
+      "id": "ep04-044",
+      "type": "order",
+      "promptRu": "Anton kitob o'qiyapti",
+      "uz": "Anton kitob o'qiyapti",
+      "tokens": [
+        "Антон",
+        "читает",
+        "книгу"
+      ],
+      "answer": "Антон читает книгу",
+      "explainUz": "-а → -у: Антон читает книгу."
+    },
+    {
+      "id": "ep04-045",
+      "type": "sort",
+      "promptRu": "мать",
+      "uz": "ona",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Istisno: вижу мать — o'zgarmaydi.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-046",
+      "type": "sort",
+      "promptRu": "папа",
+      "uz": "ota",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Istisno: вижу папу.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-047",
+      "type": "sort",
+      "promptRu": "дедушка",
+      "uz": "bobo",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Istisno: вижу дедушку.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-048",
+      "type": "sort",
+      "promptRu": "дядя",
+      "uz": "amaki, tog'a",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Istisno: вижу дядю.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-049",
+      "type": "fill",
+      "promptRu": "Ты видишь ___ (брат)?",
+      "uz": "Sen akamni ko'ryapsanmi?",
+      "options": [
+        "брата",
+        "брат",
+        "брату"
+      ],
+      "answer": "брата",
+      "explainUz": "Jonli erkak: видишь брата.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-050",
+      "type": "sort",
+      "promptRu": "врач",
+      "uz": "shifokor",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "-а/-я",
+      "explainUz": "Jonli: вижу врача.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-051",
+      "type": "fill",
+      "promptRu": "Я вижу ___ (мать).",
+      "uz": "Men onamni ko'ryapman.",
+      "options": [
+        "мать",
+        "матери",
+        "матю"
+      ],
+      "answer": "мать",
+      "explainUz": "Istisno: вижу мать.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-052",
+      "type": "fill",
+      "promptRu": "Я знаю ___ (дедушка).",
+      "uz": "Men boboni taniyman.",
+      "options": [
+        "дедушку",
+        "дедушка",
+        "дедушке"
+      ],
+      "answer": "дедушку",
+      "explainUz": "Istisno: знаю дедушку.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-053",
+      "type": "fill",
+      "promptRu": "Мы ждём ___ (друг).",
+      "uz": "Biz do'stimizni kutyapmiz.",
+      "options": [
+        "друга",
+        "друг",
+        "другу"
+      ],
+      "answer": "друга",
+      "explainUz": "Jonli: ждём дру́га.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-054",
+      "type": "fill",
+      "promptRu": "Я вижу ___ (дверь).",
+      "uz": "Men eshikni ko'ryapman.",
+      "options": [
+        "дверь",
+        "двери",
+        "дверю"
+      ],
+      "answer": "дверь",
+      "explainUz": "-ь li ayol oti o'zgarmaydi: вижу дверь.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-055",
+      "type": "choice",
+      "promptRu": "студент",
+      "uz": "talaba",
+      "askUz": "«Я вижу …» — to'g'ri shaklni tanlang",
+      "options": [
+        "студента",
+        "студент",
+        "студенту"
+      ],
+      "answer": "студента",
+      "explainUz": "Jonli: вижу студента.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-056",
+      "type": "fill",
+      "promptRu": "Он ждёт ___ (дядя).",
+      "uz": "U amakisini kutyapti.",
+      "options": [
+        "дядю",
+        "дядя",
+        "дяде"
+      ],
+      "answer": "дядю",
+      "explainUz": "Istisno! -я → -ю: ждёт дядю.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep04-057",
+      "type": "sort",
+      "promptRu": "окно",
+      "uz": "deraza",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Средний rod o'zgarmaydi: вижу окно.",
+      "isBoss": true
+    },
+    {
+      "id": "ep04-058",
+      "type": "fill",
+      "promptRu": "Он читает ___ (книга).",
+      "uz": "U kitob o'qiyapti.",
+      "options": [
+        "книгу",
+        "книга",
+        "книге"
+      ],
+      "answer": "книгу",
+      "explainUz": "-а → -у: читает книгу.",
+      "isBoss": true
+    },
+    {
+      "id": "ep04-059",
+      "type": "sort",
+      "promptRu": "автобус",
+      "uz": "avtobus",
+      "askUz": "Винительный kelishikda bu so'z nima bo'ladi?",
+      "options": [
+        "не меняется",
+        "-а/-я",
+        "-у/-ю"
+      ],
+      "answer": "не меняется",
+      "explainUz": "Jonsiz — o'zgarmaydi: жду автобус.",
+      "isBoss": true
+    },
+    {
+      "id": "ep04-060",
+      "type": "fill",
+      "promptRu": "Я покупаю ___ (сумка).",
+      "uz": "Men sumka sotib olyapman.",
+      "options": [
+        "сумку",
+        "сумка",
+        "сумке"
+      ],
+      "answer": "сумку",
+      "explainUz": "-а → -у: покупаю сумку.",
+      "isBoss": true
+    },
+    {
+      "id": "ep04-061",
+      "type": "fill",
+      "promptRu": "Мы видим ___ (дом).",
+      "uz": "Biz uyni ko'ryapmiz.",
+      "options": [
+        "дом",
+        "дома",
+        "дому"
+      ],
+      "answer": "дом",
+      "explainUz": "Jonsiz — o'zgarmaydi: видим дом.",
+      "isBoss": true
+    },
+    {
+      "id": "ep04-062",
+      "type": "fill",
+      "promptRu": "Она читает ___ (газета).",
+      "uz": "U gazeta o'qiyapti.",
+      "options": [
+        "газету",
+        "газета",
+        "газете"
+      ],
+      "answer": "газету",
+      "explainUz": "-а → -у: читает газету.",
+      "isBoss": true
+    },
+    {
+      "id": "ep04-063",
+      "type": "choice",
+      "promptRu": "машина",
+      "uz": "mashina",
+      "askUz": "«Я вижу …» — to'g'ri shaklni tanlang",
+      "options": [
+        "машину",
+        "машина",
+        "машине"
+      ],
+      "answer": "машину",
+      "explainUz": "-а → -у: вижу машину.",
+      "isBoss": true
+    }
+  ]
+}

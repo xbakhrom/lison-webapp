@@ -1,0 +1,1646 @@
+{
+  "id": "ep05",
+  "order": 5,
+  "title": "Рынок",
+  "titleUz": "Bozor",
+  "topic": "genitive",
+  "topicUz": "Родительный kelishik",
+  "summaryUz": "Narx so'rang, «yo'q» deng, miqdorni to'g'ri ayting.",
+  "icon": "🧺",
+  "intro": [
+    {
+      "textUz": "Bozorga keldik! Bu yerda hamma narsa родительный kelishik bilan aytiladi: narx, miqdor, yo'qlik."
+    },
+    {
+      "textUz": "«Yo'q» desangiz — нет + родительный: нет хлеба, нет молока.",
+      "ru": "нет хле́ба — нет молока́"
+    },
+    {
+      "textUz": "Narxda esa songa qarang: 1 рубль, 2 рубля, 5 рублей. Lekin 11–14 — tuzoq! Oltin ⭐ narxlarga ehtiyot bo'l."
+    }
+  ],
+  "ruleCards": [
+    {
+      "titleUz": "Нет + родительный",
+      "bodyUz": "Biror narsa yo'qligini aytganda нет + родительный ishlatiladi. Erkak/o'rta rod: -а/-я; ayol rod: -ы/-и.",
+      "examplesRu": [
+        "нет бра́та",
+        "нет магази́на",
+        "нет молока́",
+        "нет сестры́"
+      ]
+    },
+    {
+      "titleUz": "У меня есть — у меня нет",
+      "bodyUz": "Bor bo'lsa — именительный: у меня есть брат. Yo'q bo'lsa — родительный: у меня нет брата.",
+      "examplesRu": [
+        "У меня́ есть брат.",
+        "У меня́ нет бра́та.",
+        "У него́ нет маши́ны."
+      ]
+    },
+    {
+      "titleUz": "Narx va sanoq",
+      "bodyUz": "Songa qarab shakl o'zgaradi: oxiri 1 — рубль/час; oxiri 2, 3, 4 — рубля́/часа́; 5–20 va 0 — рубле́й/часо́в. Yuz ham — рубле́й.",
+      "examplesRu": [
+        "оди́н рубль",
+        "два рубля́",
+        "пять рубле́й",
+        "два часа́ — пять часо́в"
+      ]
+    },
+    {
+      "titleUz": "Istisnolar",
+      "bodyUz": "11, 12, 13, 14 — oxiriga qaramang, har doim рублей/часов! Yana: нет времени (-мя), много людей (человек → люди), много детей (ребёнок → дети), нет денег, нет матери.",
+      "examplesRu": [
+        "оди́ннадцать рубле́й",
+        "нет вре́мени",
+        "мно́го люде́й",
+        "мно́го дете́й",
+        "нет де́нег"
+      ],
+      "isException": true
+    }
+  ],
+  "requiredExceptions": [
+    {
+      "key": "нет времени",
+      "match": "времени"
+    },
+    {
+      "key": "много людей",
+      "match": "людей"
+    },
+    {
+      "key": "много детей",
+      "match": "детей"
+    },
+    {
+      "key": "нет брата",
+      "match": "брата"
+    },
+    {
+      "key": "2–4 + часа",
+      "match": "часа"
+    },
+    {
+      "key": "5+ часов",
+      "match": "часов"
+    },
+    {
+      "key": "11–14 istisno",
+      "match": "11"
+    },
+    {
+      "key": "нет матери",
+      "match": "матери"
+    },
+    {
+      "key": "нет денег",
+      "match": "денег"
+    }
+  ],
+  "scene": {
+    "ground": "#d9cba8",
+    "sky": "#ffe9c4",
+    "fog": "#f5e6c8",
+    "bounds": [
+      9.5,
+      6.6
+    ],
+    "spawn": [
+      0,
+      1.0
+    ],
+    "zones": [
+      {
+        "label": "рубль",
+        "labelUz": "1, 21, 31…",
+        "pos": [
+          -5.5,
+          0,
+          -6.2
+        ],
+        "color": "#5a6b7d"
+      },
+      {
+        "label": "рубля",
+        "labelUz": "2–4, 22, 33…",
+        "pos": [
+          0,
+          0,
+          -6.2
+        ],
+        "color": "#c96f2f"
+      },
+      {
+        "label": "рублей",
+        "labelUz": "5–20 va 11–14",
+        "pos": [
+          5.5,
+          0,
+          -6.2
+        ],
+        "color": "#3f8f6a"
+      }
+    ],
+    "props": [
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          -9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -6.5,
+          0,
+          -1.2
+        ],
+        "size": [
+          2.6,
+          1.0,
+          1.3
+        ],
+        "color": "#b98b5e",
+        "solid": true
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          -6.5,
+          2.0,
+          -1.2
+        ],
+        "size": [
+          3.2,
+          1.0,
+          3.2
+        ],
+        "color": "#c8503f"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -7.6,
+          0,
+          -0.7
+        ],
+        "size": [
+          0.14,
+          2.0,
+          0.14
+        ],
+        "color": "#8a6a44"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -5.4,
+          0,
+          -0.7
+        ],
+        "size": [
+          0.14,
+          2.0,
+          0.14
+        ],
+        "color": "#8a6a44"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          -7.1,
+          1.0,
+          -1.2
+        ],
+        "size": [
+          0.45,
+          0.45,
+          0.45
+        ],
+        "color": "#c8503f"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          -6.4,
+          1.0,
+          -1.2
+        ],
+        "size": [
+          0.45,
+          0.45,
+          0.45
+        ],
+        "color": "#c9a227"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          -5.8,
+          1.0,
+          -1.2
+        ],
+        "size": [
+          0.45,
+          0.45,
+          0.45
+        ],
+        "color": "#3f8f6a"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          6.5,
+          0,
+          -1.2
+        ],
+        "size": [
+          2.6,
+          1.0,
+          1.3
+        ],
+        "color": "#b98b5e",
+        "solid": true
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          6.5,
+          2.0,
+          -1.2
+        ],
+        "size": [
+          3.2,
+          1.0,
+          3.2
+        ],
+        "color": "#3f8f6a"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          5.4,
+          0,
+          -0.7
+        ],
+        "size": [
+          0.14,
+          2.0,
+          0.14
+        ],
+        "color": "#8a6a44"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          7.6,
+          0,
+          -0.7
+        ],
+        "size": [
+          0.14,
+          2.0,
+          0.14
+        ],
+        "color": "#8a6a44"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          5.9,
+          1.0,
+          -1.2
+        ],
+        "size": [
+          0.45,
+          0.45,
+          0.45
+        ],
+        "color": "#c8503f"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          6.6,
+          1.0,
+          -1.2
+        ],
+        "size": [
+          0.45,
+          0.45,
+          0.45
+        ],
+        "color": "#c9a227"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          7.2,
+          1.0,
+          -1.2
+        ],
+        "size": [
+          0.45,
+          0.45,
+          0.45
+        ],
+        "color": "#3f8f6a"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -9.8,
+          0,
+          -6.8
+        ],
+        "size": [
+          2.6,
+          1.0,
+          1.3
+        ],
+        "color": "#b98b5e",
+        "solid": true
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          -9.8,
+          2.0,
+          -6.8
+        ],
+        "size": [
+          3.2,
+          1.0,
+          3.2
+        ],
+        "color": "#c9a227"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -10.9,
+          0,
+          -6.3
+        ],
+        "size": [
+          0.14,
+          2.0,
+          0.14
+        ],
+        "color": "#8a6a44"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -8.700000000000001,
+          0,
+          -6.3
+        ],
+        "size": [
+          0.14,
+          2.0,
+          0.14
+        ],
+        "color": "#8a6a44"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          9.8,
+          0,
+          -6.8
+        ],
+        "size": [
+          2.6,
+          1.0,
+          1.3
+        ],
+        "color": "#b98b5e",
+        "solid": true
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          9.8,
+          2.0,
+          -6.8
+        ],
+        "size": [
+          3.2,
+          1.0,
+          3.2
+        ],
+        "color": "#2f7fb5"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          8.700000000000001,
+          0,
+          -6.3
+        ],
+        "size": [
+          0.14,
+          2.0,
+          0.14
+        ],
+        "color": "#8a6a44"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          10.9,
+          0,
+          -6.3
+        ],
+        "size": [
+          0.14,
+          2.0,
+          0.14
+        ],
+        "color": "#8a6a44"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          6.4
+        ],
+        "size": [
+          3.4,
+          0.02,
+          2.6
+        ],
+        "color": "#c9b79f"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          0,
+          0,
+          6.4
+        ],
+        "size": [
+          0.9,
+          0.7,
+          0.9
+        ],
+        "color": "#8a6a44"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          0,
+          0.9,
+          6.4
+        ],
+        "size": [
+          0.8,
+          0.8,
+          0.8
+        ],
+        "color": "#d8862f"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -10.4,
+          0,
+          2.5
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          -10.4,
+          0.8,
+          2.5
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          10.4,
+          0,
+          2.5
+        ],
+        "size": [
+          0.9,
+          0.8,
+          0.9
+        ],
+        "color": "#b98b5e"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          10.4,
+          0.8,
+          2.5
+        ],
+        "size": [
+          1.5,
+          1.6,
+          1.5
+        ],
+        "color": "#4f8f5a"
+      }
+    ],
+    "stations": [
+      [
+        -8,
+        4
+      ],
+      [
+        -4,
+        5.5
+      ],
+      [
+        4,
+        5.5
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        -9,
+        1
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        -6,
+        -3.5
+      ],
+      [
+        -2,
+        -4.2
+      ],
+      [
+        2,
+        -4.2
+      ],
+      [
+        6,
+        -3.5
+      ],
+      [
+        -3,
+        2.8
+      ],
+      [
+        3,
+        2.8
+      ]
+    ]
+  },
+  "boss": {
+    "nameRu": "Продавец",
+    "nameUz": "Sotuvchi",
+    "introUz": "«Savdolashamizmi? Narxlarni va shakllarni to'g'ri aytsangiz — chegirma. Xato qilsangiz — bozor sizniki emas.» Har savolga 15 soniya.",
+    "winUz": "«Barakalla! Mana sizga eng shirin olma — tekinga.»",
+    "loseUz": "«Yo'q, uka. Avval sanashni o'rganing, keyin savdoga keling.»",
+    "color": "#3f8f6a"
+  },
+  "items": [
+    {
+      "id": "ep05-001",
+      "type": "sort",
+      "promptRu": "1",
+      "uz": "bir",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубль",
+      "explainUz": "Oxiri 1 (lekin 11 emas) — рубль: два́дцать оди́н рубль."
+    },
+    {
+      "id": "ep05-002",
+      "type": "sort",
+      "promptRu": "21",
+      "uz": "yigirma bir",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубль",
+      "explainUz": "Oxiri 1 — рубль: двадцать один рубль."
+    },
+    {
+      "id": "ep05-003",
+      "type": "sort",
+      "promptRu": "31",
+      "uz": "o'ttiz bir",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубль",
+      "explainUz": "Oxiri 1 — рубль: тридцать один рубль."
+    },
+    {
+      "id": "ep05-004",
+      "type": "sort",
+      "promptRu": "41",
+      "uz": "qirq bir",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубль",
+      "explainUz": "Oxiri 1 — рубль: сорок один рубль."
+    },
+    {
+      "id": "ep05-005",
+      "type": "sort",
+      "promptRu": "2",
+      "uz": "ikki",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубля",
+      "explainUz": "Oxiri 2, 3, 4 (lekin 12–14 emas) — рубля́. Два рубля́."
+    },
+    {
+      "id": "ep05-006",
+      "type": "sort",
+      "promptRu": "3",
+      "uz": "uch",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубля",
+      "explainUz": "Oxiri 2, 3, 4 (lekin 12–14 emas) — рубля́. Три рубля́."
+    },
+    {
+      "id": "ep05-007",
+      "type": "sort",
+      "promptRu": "4",
+      "uz": "to'rt",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубля",
+      "explainUz": "Oxiri 2, 3, 4 (lekin 12–14 emas) — рубля́. Четы́ре рубля́."
+    },
+    {
+      "id": "ep05-008",
+      "type": "sort",
+      "promptRu": "22",
+      "uz": "yigirma ikki",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубля",
+      "explainUz": "Oxiri 2 — рубля́: два́дцать два рубля́."
+    },
+    {
+      "id": "ep05-009",
+      "type": "sort",
+      "promptRu": "33",
+      "uz": "o'ttiz uch",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубля",
+      "explainUz": "Oxiri 3 — рубля́: три́дцать три рубля́."
+    },
+    {
+      "id": "ep05-010",
+      "type": "sort",
+      "promptRu": "44",
+      "uz": "qirq to'rt",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубля",
+      "explainUz": "Oxiri 4 — рубля́: со́рок четы́ре рубля́."
+    },
+    {
+      "id": "ep05-011",
+      "type": "sort",
+      "promptRu": "5",
+      "uz": "besh",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "5–20 va 0 — рубле́й. Пять рубле́й."
+    },
+    {
+      "id": "ep05-012",
+      "type": "sort",
+      "promptRu": "7",
+      "uz": "yetti",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "5–20 va 0 — рубле́й. Семь рубле́й."
+    },
+    {
+      "id": "ep05-013",
+      "type": "sort",
+      "promptRu": "10",
+      "uz": "o'n",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "5–20 va 0 — рубле́й. Де́сять рубле́й."
+    },
+    {
+      "id": "ep05-014",
+      "type": "sort",
+      "promptRu": "18",
+      "uz": "o'n sakkiz",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "5–20 va 0 — рубле́й. Восемна́дцать рубле́й."
+    },
+    {
+      "id": "ep05-015",
+      "type": "sort",
+      "promptRu": "25",
+      "uz": "yigirma besh",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Oxiri 5 — рубле́й: два́дцать пять рубле́й."
+    },
+    {
+      "id": "ep05-016",
+      "type": "sort",
+      "promptRu": "100",
+      "uz": "yuz",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Сто рубле́й — yuzliklar ham рубле́й."
+    },
+    {
+      "id": "ep05-017",
+      "type": "sort",
+      "promptRu": "11",
+      "uz": "o'n bir",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Istisno! 11, 12, 13, 14 — HAR DOIM рублей: одиннадцать рублей.",
+      "hintUz": "Oxiri 1 ko'rinsa ham, o'n birdan o'n to'rtgacha alohida qoida bor.",
+      "isException": true
+    },
+    {
+      "id": "ep05-018",
+      "type": "sort",
+      "promptRu": "12",
+      "uz": "o'n ikki",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Istisno! 11–14 — har doim рублей: двенадцать рублей.",
+      "hintUz": "Oxiri 2 ga ishonmang: 11–14 alohida guruh.",
+      "isException": true
+    },
+    {
+      "id": "ep05-019",
+      "type": "sort",
+      "promptRu": "13",
+      "uz": "o'n uch",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Istisno! 11–14 — har doim рублей: тринадцать рублей.",
+      "isException": true
+    },
+    {
+      "id": "ep05-020",
+      "type": "sort",
+      "promptRu": "14",
+      "uz": "o'n to'rt",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Istisno! 11–14 — har doim рублей: четырнадцать рублей.",
+      "isException": true
+    },
+    {
+      "id": "ep05-021",
+      "type": "fill",
+      "promptRu": "У меня нет ___ (брат).",
+      "uz": "Mening akam yo'q.",
+      "options": [
+        "брата",
+        "брат",
+        "брату"
+      ],
+      "answer": "брата",
+      "explainUz": "Yo'qlik — родительный: у меня нет брата.",
+      "isException": true
+    },
+    {
+      "id": "ep05-022",
+      "type": "fill",
+      "promptRu": "У нас нет ___ (время).",
+      "uz": "Bizda vaqt yo'q.",
+      "options": [
+        "времени",
+        "время",
+        "времена"
+      ],
+      "answer": "времени",
+      "explainUz": "Istisno! -мя otlari: нет времени (время emas).",
+      "hintUz": "-мя bilan tugaganlar boshqacha turlanadi.",
+      "isException": true
+    },
+    {
+      "id": "ep05-023",
+      "type": "fill",
+      "promptRu": "В городе нет ___ (море).",
+      "uz": "Shaharda dengiz yo'q.",
+      "options": [
+        "моря",
+        "море",
+        "морю"
+      ],
+      "answer": "моря",
+      "explainUz": "Средний -е → -я: нет мо́ря."
+    },
+    {
+      "id": "ep05-024",
+      "type": "fill",
+      "promptRu": "Здесь нет ___ (магазин).",
+      "uz": "Bu yerda do'kon yo'q.",
+      "options": [
+        "магазина",
+        "магазин",
+        "магазину"
+      ],
+      "answer": "магазина",
+      "explainUz": "Undosh → -а: нет магази́на."
+    },
+    {
+      "id": "ep05-025",
+      "type": "fill",
+      "promptRu": "У меня нет ___ (сестра).",
+      "uz": "Mening singlim yo'q.",
+      "options": [
+        "сестры",
+        "сестра",
+        "сестру"
+      ],
+      "answer": "сестры",
+      "explainUz": "-а → -ы: нет сестры́."
+    },
+    {
+      "id": "ep05-026",
+      "type": "fill",
+      "promptRu": "У него нет ___ (машина).",
+      "uz": "Uning mashinasi yo'q.",
+      "options": [
+        "машины",
+        "машина",
+        "машину"
+      ],
+      "answer": "машины",
+      "explainUz": "-а → -ы: нет маши́ны."
+    },
+    {
+      "id": "ep05-027",
+      "type": "fill",
+      "promptRu": "В холодильнике нет ___ (молоко).",
+      "uz": "Muzlatkichda sut yo'q.",
+      "options": [
+        "молока",
+        "молоко",
+        "молоку"
+      ],
+      "answer": "молока",
+      "explainUz": "-о → -а: нет молока́."
+    },
+    {
+      "id": "ep05-028",
+      "type": "fill",
+      "promptRu": "На рынке много ___ (люди).",
+      "uz": "Bozorda odam ko'p.",
+      "options": [
+        "людей",
+        "люди",
+        "человеков"
+      ],
+      "answer": "людей",
+      "explainUz": "Istisno! Человек → ko'plikda люди, родительный: много людей.",
+      "hintUz": "«Человеков» degan so'z yo'q — bu so'zning ko'pligi boshqa o'zakdan.",
+      "isException": true
+    },
+    {
+      "id": "ep05-029",
+      "type": "fill",
+      "promptRu": "У них много ___ (дети).",
+      "uz": "Ularning bolalari ko'p.",
+      "options": [
+        "детей",
+        "дети",
+        "ребёнков"
+      ],
+      "answer": "детей",
+      "explainUz": "Istisno! Ребёнок → ko'plikda дети, родительный: много детей.",
+      "isException": true
+    },
+    {
+      "id": "ep05-030",
+      "type": "fill",
+      "promptRu": "У меня нет ___ (деньги).",
+      "uz": "Menda pul yo'q.",
+      "options": [
+        "денег",
+        "деньги",
+        "деньгов"
+      ],
+      "answer": "денег",
+      "explainUz": "Istisno! Деньги → нет денег — maxsus shakl.",
+      "isException": true
+    },
+    {
+      "id": "ep05-031",
+      "type": "fill",
+      "promptRu": "Сколько стоит? — Сто ___ (рубль).",
+      "uz": "Qancha turadi? — Yuz rubl.",
+      "options": [
+        "рублей",
+        "рубля",
+        "рубль"
+      ],
+      "answer": "рублей",
+      "explainUz": "100 — рубле́й: сто рубле́й."
+    },
+    {
+      "id": "ep05-032",
+      "type": "fill",
+      "promptRu": "Это стоит два ___ (рубль).",
+      "uz": "Bu ikki rubl turadi.",
+      "options": [
+        "рубля",
+        "рублей",
+        "рубль"
+      ],
+      "answer": "рубля",
+      "explainUz": "2 — рубля́: два рубля́."
+    },
+    {
+      "id": "ep05-033",
+      "type": "fill",
+      "promptRu": "У неё нет ___ (мать).",
+      "uz": "Uning onasi yo'q.",
+      "options": [
+        "матери",
+        "мать",
+        "мати"
+      ],
+      "answer": "матери",
+      "explainUz": "Istisno! Мать → нет матери.",
+      "isException": true
+    },
+    {
+      "id": "ep05-034",
+      "type": "fill",
+      "promptRu": "В магазине нет ___ (хлеб).",
+      "uz": "Do'konda non yo'q.",
+      "options": [
+        "хлеба",
+        "хлеб",
+        "хлебу"
+      ],
+      "answer": "хлеба",
+      "explainUz": "Undosh → -а: нет хле́ба."
+    },
+    {
+      "id": "ep05-035",
+      "type": "fill",
+      "promptRu": "В чае нет ___ (сахар).",
+      "uz": "Choyda shakar yo'q.",
+      "options": [
+        "сахара",
+        "сахар",
+        "сахаре"
+      ],
+      "answer": "сахара",
+      "explainUz": "Undosh → -а: нет са́хара."
+    },
+    {
+      "id": "ep05-036",
+      "type": "fill",
+      "promptRu": "Сегодня нет ___ (дождь).",
+      "uz": "Bugun yomg'ir yo'q.",
+      "options": [
+        "дождя",
+        "дождь",
+        "дождю"
+      ],
+      "answer": "дождя",
+      "explainUz": "-ь → -я: нет дождя́."
+    },
+    {
+      "id": "ep05-037",
+      "type": "fill",
+      "promptRu": "В бутылке нет ___ (вода).",
+      "uz": "Idishda suv yo'q.",
+      "options": [
+        "воды",
+        "вода",
+        "воду"
+      ],
+      "answer": "воды",
+      "explainUz": "-а → -ы: нет воды́."
+    },
+    {
+      "id": "ep05-038",
+      "type": "fill",
+      "promptRu": "В комнате нет ___ (окно).",
+      "uz": "Xonada deraza yo'q.",
+      "options": [
+        "окна",
+        "окно",
+        "окну"
+      ],
+      "answer": "окна",
+      "explainUz": "-о → -а: нет окна́."
+    },
+    {
+      "id": "ep05-039",
+      "type": "choice",
+      "promptRu": "2 (час)",
+      "uz": "ikki soat",
+      "askUz": "To'g'ri aytilishini tanlang",
+      "options": [
+        "два часа",
+        "два часов",
+        "два час"
+      ],
+      "answer": "два часа",
+      "explainUz": "2, 3, 4 — часа́: два часа́.",
+      "isException": true
+    },
+    {
+      "id": "ep05-040",
+      "type": "choice",
+      "promptRu": "5 (час)",
+      "uz": "besh soat",
+      "askUz": "To'g'ri aytilishini tanlang",
+      "options": [
+        "пять часов",
+        "пять часа",
+        "пять час"
+      ],
+      "answer": "пять часов",
+      "explainUz": "5–20 — часо́в: пять часо́в.",
+      "isException": true
+    },
+    {
+      "id": "ep05-041",
+      "type": "choice",
+      "promptRu": "12 (рубль)",
+      "uz": "o'n ikki rubl",
+      "askUz": "To'g'ri aytilishini tanlang",
+      "options": [
+        "двенадцать рублей",
+        "двенадцать рубля",
+        "двенадцать рубль"
+      ],
+      "answer": "двенадцать рублей",
+      "explainUz": "11–14 — har doim рублей.",
+      "isException": true
+    },
+    {
+      "id": "ep05-042",
+      "type": "choice",
+      "promptRu": "21 (рубль)",
+      "uz": "yigirma bir rubl",
+      "askUz": "To'g'ri aytilishini tanlang",
+      "options": [
+        "двадцать один рубль",
+        "двадцать один рублей",
+        "двадцать один рубля"
+      ],
+      "answer": "двадцать один рубль",
+      "explainUz": "Oxiri 1 — рубль: двадцать один рубль.",
+      "isException": true
+    },
+    {
+      "id": "ep05-043",
+      "type": "order",
+      "promptRu": "Mening akam yo'q",
+      "uz": "Mening akam yo'q",
+      "tokens": [
+        "У",
+        "меня",
+        "нет",
+        "брата"
+      ],
+      "answer": "У меня нет брата",
+      "explainUz": "Yo'qlik — родительный: У меня нет брата.",
+      "isException": true
+    },
+    {
+      "id": "ep05-044",
+      "type": "order",
+      "promptRu": "Bozorda odam ko'p",
+      "uz": "Bozorda odam ko'p",
+      "tokens": [
+        "На",
+        "рынке",
+        "много",
+        "людей"
+      ],
+      "answer": "На рынке много людей",
+      "explainUz": "Много + родительный ko'plik: На рынке много людей.",
+      "isException": true
+    },
+    {
+      "id": "ep05-045",
+      "type": "fill",
+      "promptRu": "У меня нет ___ (время).",
+      "uz": "Menda vaqt yo'q.",
+      "options": [
+        "времени",
+        "время",
+        "времена"
+      ],
+      "answer": "времени",
+      "explainUz": "Istisno: нет времени.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-046",
+      "type": "fill",
+      "promptRu": "Здесь много ___ (люди).",
+      "uz": "Bu yerda odam ko'p.",
+      "options": [
+        "людей",
+        "люди",
+        "человеков"
+      ],
+      "answer": "людей",
+      "explainUz": "Istisno: много людей.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-047",
+      "type": "fill",
+      "promptRu": "В школе много ___ (дети).",
+      "uz": "Maktabda bola ko'p.",
+      "options": [
+        "детей",
+        "дети",
+        "ребёнков"
+      ],
+      "answer": "детей",
+      "explainUz": "Istisno: много детей.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-048",
+      "type": "fill",
+      "promptRu": "У меня нет ___ (брат).",
+      "uz": "Mening akam yo'q.",
+      "options": [
+        "брата",
+        "брат",
+        "брату"
+      ],
+      "answer": "брата",
+      "explainUz": "Нет + родительный: нет брата.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-049",
+      "type": "sort",
+      "promptRu": "11",
+      "uz": "o'n bir",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Istisno: 11–14 — рублей.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-050",
+      "type": "sort",
+      "promptRu": "13",
+      "uz": "o'n uch",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Istisno: 11–14 — рублей.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-051",
+      "type": "sort",
+      "promptRu": "22",
+      "uz": "yigirma ikki",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубля",
+      "explainUz": "Oxiri 2 — рубля́.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-052",
+      "type": "choice",
+      "promptRu": "3 (час)",
+      "uz": "uch soat",
+      "askUz": "To'g'ri aytilishini tanlang",
+      "options": [
+        "три часа",
+        "три часов",
+        "три час"
+      ],
+      "answer": "три часа",
+      "explainUz": "2–4 — часа́: три часа́.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-053",
+      "type": "choice",
+      "promptRu": "6 (час)",
+      "uz": "olti soat",
+      "askUz": "To'g'ri aytilishini tanlang",
+      "options": [
+        "шесть часов",
+        "шесть часа",
+        "шесть час"
+      ],
+      "answer": "шесть часов",
+      "explainUz": "5–20 — часо́в: шесть часо́в.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-054",
+      "type": "fill",
+      "promptRu": "У неё нет ___ (мать).",
+      "uz": "Uning onasi yo'q.",
+      "options": [
+        "матери",
+        "мать",
+        "мати"
+      ],
+      "answer": "матери",
+      "explainUz": "Istisno: нет матери.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-055",
+      "type": "fill",
+      "promptRu": "У нас нет ___ (деньги).",
+      "uz": "Bizda pul yo'q.",
+      "options": [
+        "денег",
+        "деньги",
+        "деньгов"
+      ],
+      "answer": "денег",
+      "explainUz": "Istisno: нет денег.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-056",
+      "type": "sort",
+      "promptRu": "14",
+      "uz": "o'n to'rt",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Istisno: 11–14 — рублей.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep05-057",
+      "type": "sort",
+      "promptRu": "2",
+      "uz": "ikki",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубля",
+      "explainUz": "2 — рубля́: два рубля́.",
+      "isBoss": true
+    },
+    {
+      "id": "ep05-058",
+      "type": "sort",
+      "promptRu": "5",
+      "uz": "besh",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "5 — рубле́й: пять рубле́й.",
+      "isBoss": true
+    },
+    {
+      "id": "ep05-059",
+      "type": "sort",
+      "promptRu": "1",
+      "uz": "bir",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рубль",
+      "explainUz": "1 — рубль: оди́н рубль.",
+      "isBoss": true
+    },
+    {
+      "id": "ep05-060",
+      "type": "fill",
+      "promptRu": "В чае нет ___ (сахар).",
+      "uz": "Choyda shakar yo'q.",
+      "options": [
+        "сахара",
+        "сахар",
+        "сахаре"
+      ],
+      "answer": "сахара",
+      "explainUz": "Нет + родительный: нет са́хара.",
+      "isBoss": true
+    },
+    {
+      "id": "ep05-061",
+      "type": "fill",
+      "promptRu": "У него нет ___ (сумка).",
+      "uz": "Uning sumkasi yo'q.",
+      "options": [
+        "сумки",
+        "сумка",
+        "сумку"
+      ],
+      "answer": "сумки",
+      "explainUz": "-а → -и: нет су́мки.",
+      "isBoss": true
+    },
+    {
+      "id": "ep05-062",
+      "type": "fill",
+      "promptRu": "В доме нет ___ (лифт).",
+      "uz": "Uyda lift yo'q.",
+      "options": [
+        "лифта",
+        "лифт",
+        "лифту"
+      ],
+      "answer": "лифта",
+      "explainUz": "Undosh → -а: нет ли́фта.",
+      "isBoss": true
+    },
+    {
+      "id": "ep05-063",
+      "type": "sort",
+      "promptRu": "25",
+      "uz": "yigirma besh",
+      "askUz": "Bu son bilan «рубль» qanday aytiladi?",
+      "options": [
+        "рубль",
+        "рубля",
+        "рублей"
+      ],
+      "answer": "рублей",
+      "explainUz": "Oxiri 5 — рубле́й.",
+      "isBoss": true
+    }
+  ]
+}

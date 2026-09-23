@@ -1,0 +1,1529 @@
+{
+  "id": "ep06",
+  "order": 6,
+  "title": "День рождения",
+  "titleUz": "Tug'ilgan kun",
+  "topic": "dative",
+  "topicUz": "Дательный kelishik",
+  "summaryUz": "Sovg'a bering, yosh ayting, tabriklang.",
+  "icon": "🎂",
+  "intro": [
+    {
+      "textUz": "Bugun Anna tug'ilgan kunini nishonlayapti — bizni chaqirdi! Sovg'a KIMGA berilishini дательный kelishik aytadi."
+    },
+    {
+      "textUz": "Yosh ham shu kelishik bilan: ruslar «menga 20 yil» deydi.",
+      "ru": "Мне 20 лет. Ско́лько тебе лет?"
+    },
+    {
+      "textUz": "Год, года yoki лет — songa qarang. 11–14 esa yana tuzoq! Oltin ⭐ sovg'alarga ehtiyot bo'l."
+    }
+  ],
+  "ruleCards": [
+    {
+      "titleUz": "Кому? — дательный",
+      "bodyUz": "Berish, aytish, yordam berish — kimga? Erkak/o'rta rod: -у/-ю; ayol rod -а/-я: -е.",
+      "examplesRu": [
+        "даю́ бра́ту",
+        "звоню́ ма́ме",
+        "помога́ю дру́гу",
+        "пишу́ сестре́"
+      ]
+    },
+    {
+      "titleUz": "Olmoshlar",
+      "bodyUz": "я → мне, ты → тебе́, он → ему́, она → ей, мы → нам, вы → вам, они → им. Yosh ham shu olmoshlar bilan aytiladi.",
+      "examplesRu": [
+        "Мне 20 лет.",
+        "Ему́ 25 лет.",
+        "Ско́лько тебе лет?"
+      ]
+    },
+    {
+      "titleUz": "Год, го́да, лет",
+      "bodyUz": "Songa qarang: oxiri 1 — год (21 год); oxiri 2, 3, 4 — го́да (22 го́да); 5–20 va 0 — лет (25 лет, 70 лет).",
+      "examplesRu": [
+        "два́дцать оди́н год",
+        "два́дцать два го́да",
+        "два́дцать пять лет"
+      ]
+    },
+    {
+      "titleUz": "Istisnolar",
+      "bodyUz": "11–14 har doim лет (13 лет!). К врачу — kim TOMONGA borish (дательный), у врача — kimNIKIda bo'lish (родительный). Мать → матери, время → времени, -ия ismlar → -ии (Марии). Папа, дедушка, дядя -а qolipida: папе, дедушке, дяде.",
+      "examplesRu": [
+        "Мне 13 лет.",
+        "иду́ к врачу",
+        "был у врача",
+        "звоню́ Мари́и",
+        "помога́ю ма́тери"
+      ],
+      "isException": true
+    }
+  ],
+  "requiredExceptions": [
+    {
+      "key": "мне",
+      "match": "мне"
+    },
+    {
+      "key": "тебе",
+      "match": "тебе"
+    },
+    {
+      "key": "ему",
+      "match": "ему"
+    },
+    {
+      "key": "к врачу",
+      "match": "к врачу"
+    },
+    {
+      "key": "у врача",
+      "match": "у врача"
+    },
+    {
+      "key": "21 год",
+      "match": "год"
+    },
+    {
+      "key": "22 года",
+      "match": "года"
+    },
+    {
+      "key": "25 лет",
+      "match": "лет"
+    },
+    {
+      "key": "Марии (-ия → -ии)",
+      "match": "марии"
+    },
+    {
+      "key": "матери",
+      "match": "матери"
+    }
+  ],
+  "scene": {
+    "ground": "#cfb9a8",
+    "sky": "#f6dfe6",
+    "fog": "#f6e8ec",
+    "bounds": [
+      9.5,
+      6.6
+    ],
+    "spawn": [
+      0,
+      1.0
+    ],
+    "zones": [
+      {
+        "label": "-у/-ю",
+        "labelUz": "erkak rod → брату",
+        "pos": [
+          -5.5,
+          0,
+          -6.2
+        ],
+        "color": "#2f6fd0"
+      },
+      {
+        "label": "-е",
+        "labelUz": "-а/-я → маме",
+        "pos": [
+          0,
+          0,
+          -6.2
+        ],
+        "color": "#d8557f"
+      },
+      {
+        "label": "-и",
+        "labelUz": "мать, Мария, -ь",
+        "pos": [
+          5.5,
+          0,
+          -6.2
+        ],
+        "color": "#7a5ab5"
+      }
+    ],
+    "props": [
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          -9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          9
+        ],
+        "size": [
+          24,
+          4.2,
+          0.4
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          11.6,
+          0,
+          0
+        ],
+        "size": [
+          0.4,
+          4.2,
+          18.6
+        ],
+        "color": "#eef2f8",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          -4
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          9,
+          0,
+          6.5
+        ],
+        "size": [
+          0.8,
+          4.4,
+          0.8
+        ],
+        "color": "#e6eaf2",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0.6,
+          -3.4
+        ],
+        "size": [
+          2.2,
+          0.12,
+          1.1
+        ],
+        "color": "#f2e6ee"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          -3.4
+        ],
+        "size": [
+          1.5000000000000002,
+          0.6,
+          0.7000000000000001
+        ],
+        "color": "#b98ba6",
+        "solid": true
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          0,
+          0.72,
+          -3.4
+        ],
+        "size": [
+          0.9,
+          0.35,
+          0.9
+        ],
+        "color": "#f6f0f8"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          0,
+          1.07,
+          -3.4
+        ],
+        "size": [
+          0.6,
+          0.28,
+          0.6
+        ],
+        "color": "#e8b6cc"
+      },
+      {
+        "kind": "cone",
+        "pos": [
+          0,
+          1.35,
+          -3.4
+        ],
+        "size": [
+          0.12,
+          0.3,
+          0.12
+        ],
+        "color": "#c9a227"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -8,
+          0,
+          -0.6
+        ],
+        "size": [
+          1.0,
+          0.8,
+          1.0
+        ],
+        "color": "#c8503f",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -8,
+          0.8,
+          -0.6
+        ],
+        "size": [
+          1.1,
+          0.16,
+          1.1
+        ],
+        "color": "#c9a227"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          8,
+          0,
+          -0.6
+        ],
+        "size": [
+          1.0,
+          0.8,
+          1.0
+        ],
+        "color": "#2f7fb5",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          8,
+          0.8,
+          -0.6
+        ],
+        "size": [
+          1.1,
+          0.16,
+          1.1
+        ],
+        "color": "#e8b6cc"
+      },
+      {
+        "kind": "box",
+        "pos": [
+          10.4,
+          0,
+          -5.4
+        ],
+        "size": [
+          1.3,
+          1.0,
+          1.3
+        ],
+        "color": "#7a5ab5",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          -10.4,
+          0,
+          -5.4
+        ],
+        "size": [
+          1.3,
+          1.0,
+          1.3
+        ],
+        "color": "#3f8f6a",
+        "solid": true
+      },
+      {
+        "kind": "box",
+        "pos": [
+          0,
+          0,
+          3.6
+        ],
+        "size": [
+          5.2,
+          0.02,
+          3.0
+        ],
+        "color": "#e0c9d4"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -10.4,
+          0,
+          2.5
+        ],
+        "size": [
+          0.06,
+          2.2,
+          0.06
+        ],
+        "color": "#c9d2de"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          -10.4,
+          2.3,
+          2.5
+        ],
+        "size": [
+          0.75,
+          0.9,
+          0.75
+        ],
+        "color": "#c8503f"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          10.4,
+          0,
+          2.5
+        ],
+        "size": [
+          0.06,
+          2.2,
+          0.06
+        ],
+        "color": "#c9d2de"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          10.4,
+          2.3,
+          2.5
+        ],
+        "size": [
+          0.75,
+          0.9,
+          0.75
+        ],
+        "color": "#2f7fb5"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          -10.4,
+          0,
+          6.2
+        ],
+        "size": [
+          0.06,
+          2.2,
+          0.06
+        ],
+        "color": "#c9d2de"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          -10.4,
+          2.3,
+          6.2
+        ],
+        "size": [
+          0.75,
+          0.9,
+          0.75
+        ],
+        "color": "#c9a227"
+      },
+      {
+        "kind": "cylinder",
+        "pos": [
+          10.4,
+          0,
+          6.2
+        ],
+        "size": [
+          0.06,
+          2.2,
+          0.06
+        ],
+        "color": "#c9d2de"
+      },
+      {
+        "kind": "sphere",
+        "pos": [
+          10.4,
+          2.3,
+          6.2
+        ],
+        "size": [
+          0.75,
+          0.9,
+          0.75
+        ],
+        "color": "#3f8f6a"
+      }
+    ],
+    "stations": [
+      [
+        -8,
+        4
+      ],
+      [
+        -4,
+        5.5
+      ],
+      [
+        4,
+        5.5
+      ],
+      [
+        8,
+        4
+      ],
+      [
+        -9,
+        1
+      ],
+      [
+        9,
+        1
+      ],
+      [
+        -6,
+        -3.5
+      ],
+      [
+        -2,
+        -4.2
+      ],
+      [
+        2,
+        -4.2
+      ],
+      [
+        6,
+        -3.5
+      ],
+      [
+        -3,
+        2.8
+      ],
+      [
+        3,
+        2.8
+      ]
+    ]
+  },
+  "boss": {
+    "nameRu": "Бабушка Анны",
+    "nameUz": "Annaning buvisi",
+    "introUz": "«Mehmonlar, dasturxonga! Lekin avval kim kimga nima sovg'a qilyapti — to'g'ri ayting. Xato qilsangiz, tort yo'q.» Har savolga 15 soniya.",
+    "winUz": "«Yasha, bolam! Mana senga eng katta bo'lak tort.»",
+    "loseUz": "«Voy-voy, hali o'rganish kerak ekan. Tortni keyin yeysiz.»",
+    "color": "#b0507a"
+  },
+  "items": [
+    {
+      "id": "ep06-001",
+      "type": "sort",
+      "promptRu": "брат",
+      "uz": "aka, uka",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Erkak rod → -у: даю́ бра́ту."
+    },
+    {
+      "id": "ep06-002",
+      "type": "sort",
+      "promptRu": "друг",
+      "uz": "do'st",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Erkak rod → -у: звоню́ дру́гу."
+    },
+    {
+      "id": "ep06-003",
+      "type": "sort",
+      "promptRu": "врач",
+      "uz": "shifokor",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Erkak rod → -у: иду́ к врачу."
+    },
+    {
+      "id": "ep06-004",
+      "type": "sort",
+      "promptRu": "студент",
+      "uz": "talaba",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Erkak rod → -у: помога́ю студе́нту."
+    },
+    {
+      "id": "ep06-005",
+      "type": "sort",
+      "promptRu": "сосед",
+      "uz": "qo'shni",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Erkak rod → -у: говорю́ сосе́ду."
+    },
+    {
+      "id": "ep06-006",
+      "type": "sort",
+      "promptRu": "Антон",
+      "uz": "Anton",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Erkak ismi → -у: дарю́ Анто́ну."
+    },
+    {
+      "id": "ep06-007",
+      "type": "sort",
+      "promptRu": "учитель",
+      "uz": "o'qituvchi",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "-ь li erkak oti → -ю: учи́телю."
+    },
+    {
+      "id": "ep06-008",
+      "type": "sort",
+      "promptRu": "мама",
+      "uz": "oyi",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "-а → -е: звоню́ ма́ме."
+    },
+    {
+      "id": "ep06-009",
+      "type": "sort",
+      "promptRu": "сестра",
+      "uz": "opa, singil",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "-а → -е: пишу́ сестре́."
+    },
+    {
+      "id": "ep06-010",
+      "type": "sort",
+      "promptRu": "подруга",
+      "uz": "dugona",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "-а → -е: помога́ю подру́ге."
+    },
+    {
+      "id": "ep06-011",
+      "type": "sort",
+      "promptRu": "бабушка",
+      "uz": "buvi",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "-а → -е: дарю́ ба́бушке."
+    },
+    {
+      "id": "ep06-012",
+      "type": "sort",
+      "promptRu": "Анна",
+      "uz": "Anna",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "-а → -е: говорю́ А́нне."
+    },
+    {
+      "id": "ep06-013",
+      "type": "sort",
+      "promptRu": "папа",
+      "uz": "ota",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "Istisno! Папа erkak, lekin -а qolipida: даю папе.",
+      "hintUz": "Rodi erkak bo'lsa ham, -а bilan tugagani hal qiladi.",
+      "isException": true
+    },
+    {
+      "id": "ep06-014",
+      "type": "sort",
+      "promptRu": "дедушка",
+      "uz": "bobo",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "Istisno! -а qolipi: помогаю дедушке.",
+      "isException": true
+    },
+    {
+      "id": "ep06-015",
+      "type": "sort",
+      "promptRu": "дядя",
+      "uz": "amaki, tog'a",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "Istisno! -я qolipi: звоню дяде.",
+      "isException": true
+    },
+    {
+      "id": "ep06-016",
+      "type": "sort",
+      "promptRu": "мать",
+      "uz": "ona",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-и",
+      "explainUz": "Istisno! Мать → матери: помогаю матери.",
+      "hintUz": "Bu so'z kelishiklarda kengayadi: мать → матер-.",
+      "isException": true
+    },
+    {
+      "id": "ep06-017",
+      "type": "sort",
+      "promptRu": "Мария",
+      "uz": "Mariya",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-и",
+      "explainUz": "Istisno! -ия → -ии: звоню Марии (Марие emas).",
+      "hintUz": "-ия bilan tugagan ismlar alohida qoidaga bo'ysunadi.",
+      "isException": true
+    },
+    {
+      "id": "ep06-018",
+      "type": "sort",
+      "promptRu": "тетрадь",
+      "uz": "daftar",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-и",
+      "explainUz": "-ь li ayol oti → -и: тетра́ди."
+    },
+    {
+      "id": "ep06-019",
+      "type": "sort",
+      "promptRu": "дверь",
+      "uz": "eshik",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-и",
+      "explainUz": "-ь li ayol oti → -и: подошёл к две́ри."
+    },
+    {
+      "id": "ep06-020",
+      "type": "sort",
+      "promptRu": "время",
+      "uz": "vaqt",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-и",
+      "explainUz": "Istisno! Время → времени: к этому времени.",
+      "isException": true
+    },
+    {
+      "id": "ep06-021",
+      "type": "fill",
+      "promptRu": "Я даю книгу ___ (брат).",
+      "uz": "Men kitobni akamga beryapman.",
+      "options": [
+        "брату",
+        "брат",
+        "брата"
+      ],
+      "answer": "брату",
+      "explainUz": "Kimga? → -у: даю́ бра́ту."
+    },
+    {
+      "id": "ep06-022",
+      "type": "fill",
+      "promptRu": "Он звонит ___ (мама).",
+      "uz": "U oyisiga qo'ng'iroq qilyapti.",
+      "options": [
+        "маме",
+        "мама",
+        "маму"
+      ],
+      "answer": "маме",
+      "explainUz": "-а → -е: звони́т ма́ме."
+    },
+    {
+      "id": "ep06-023",
+      "type": "fill",
+      "promptRu": "___ 20 лет. (я)",
+      "uz": "Men 20 yoshdaman.",
+      "options": [
+        "Мне",
+        "Меня",
+        "Я"
+      ],
+      "answer": "Мне",
+      "explainUz": "Yosh дательный bilan aytiladi: мне 20 лет («men» emas, «menga»).",
+      "hintUz": "Ruslar yoshni «menga 20 yil» deb aytadi.",
+      "isException": true
+    },
+    {
+      "id": "ep06-024",
+      "type": "fill",
+      "promptRu": "Сколько ___ лет? (ты)",
+      "uz": "Sen necha yoshdasan?",
+      "options": [
+        "тебе",
+        "тебя",
+        "ты"
+      ],
+      "answer": "тебе",
+      "explainUz": "Yosh so'ralganda ham дательный: ско́лько тебе лет?",
+      "isException": true
+    },
+    {
+      "id": "ep06-025",
+      "type": "fill",
+      "promptRu": "___ 25 лет. (он)",
+      "uz": "U 25 yoshda.",
+      "options": [
+        "Ему",
+        "Его",
+        "Он"
+      ],
+      "answer": "Ему",
+      "explainUz": "он → ему: Ему 25 лет.",
+      "isException": true
+    },
+    {
+      "id": "ep06-026",
+      "type": "fill",
+      "promptRu": "Мы дарим подарок ___ (сестра).",
+      "uz": "Biz sovg'ani singlimga beryapmiz.",
+      "options": [
+        "сестре",
+        "сестра",
+        "сестру"
+      ],
+      "answer": "сестре",
+      "explainUz": "-а → -е: да́рим сестре́."
+    },
+    {
+      "id": "ep06-027",
+      "type": "fill",
+      "promptRu": "Я иду ___ врачу.",
+      "uz": "Men shifokorga (oldiga) ketyapman.",
+      "options": [
+        "к",
+        "у",
+        "в"
+      ],
+      "answer": "к",
+      "explainUz": "Kimningdir OLDIGA borish — к + дательный: иду к врачу.",
+      "hintUz": "Harakat kim tomonga? — к. Kimnikida bo'lish — у.",
+      "isException": true
+    },
+    {
+      "id": "ep06-028",
+      "type": "fill",
+      "promptRu": "Я был ___ врача.",
+      "uz": "Men shifokornikida bo'ldim.",
+      "options": [
+        "у",
+        "к",
+        "в"
+      ],
+      "answer": "у",
+      "explainUz": "Kimnikida BO'LISH — у + родительный: был у врача. Harakat bo'lsa — к врачу.",
+      "isException": true
+    },
+    {
+      "id": "ep06-029",
+      "type": "fill",
+      "promptRu": "Мне 21 ___ .",
+      "uz": "Men 21 yoshdaman.",
+      "options": [
+        "год",
+        "года",
+        "лет"
+      ],
+      "answer": "год",
+      "explainUz": "Oxiri 1 — год: два́дцать оди́н год.",
+      "isException": true
+    },
+    {
+      "id": "ep06-030",
+      "type": "fill",
+      "promptRu": "Ей 22 ___ .",
+      "uz": "U (qiz) 22 yoshda.",
+      "options": [
+        "года",
+        "год",
+        "лет"
+      ],
+      "answer": "года",
+      "explainUz": "Oxiri 2, 3, 4 — го́да: два́дцать два го́да.",
+      "isException": true
+    },
+    {
+      "id": "ep06-031",
+      "type": "fill",
+      "promptRu": "Ему 25 ___ .",
+      "uz": "U 25 yoshda.",
+      "options": [
+        "лет",
+        "год",
+        "года"
+      ],
+      "answer": "лет",
+      "explainUz": "5–20 va 0 oxiri — лет: два́дцать пять лет.",
+      "isException": true
+    },
+    {
+      "id": "ep06-032",
+      "type": "fill",
+      "promptRu": "Бабушке 70 ___ .",
+      "uz": "Buvim 70 yoshda.",
+      "options": [
+        "лет",
+        "год",
+        "года"
+      ],
+      "answer": "лет",
+      "explainUz": "0 bilan tugagan son — лет: се́мьдесят лет."
+    },
+    {
+      "id": "ep06-033",
+      "type": "fill",
+      "promptRu": "Брату 14 ___ .",
+      "uz": "Ukam 14 yoshda.",
+      "options": [
+        "лет",
+        "год",
+        "года"
+      ],
+      "answer": "лет",
+      "explainUz": "Istisno! 11–14 — har doim лет: четы́рнадцать лет.",
+      "isException": true
+    },
+    {
+      "id": "ep06-034",
+      "type": "fill",
+      "promptRu": "Я звоню ___ (Мария).",
+      "uz": "Men Mariyaga qo'ng'iroq qilyapman.",
+      "options": [
+        "Марии",
+        "Марие",
+        "Марию"
+      ],
+      "answer": "Марии",
+      "explainUz": "Istisno! -ия → -ии: звоню Марии.",
+      "isException": true
+    },
+    {
+      "id": "ep06-035",
+      "type": "fill",
+      "promptRu": "Он помогает ___ (мать).",
+      "uz": "U onasiga yordam beryapti.",
+      "options": [
+        "матери",
+        "мать",
+        "маме"
+      ],
+      "answer": "матери",
+      "explainUz": "Istisno! Мать → матери: помогает матери.",
+      "isException": true
+    },
+    {
+      "id": "ep06-036",
+      "type": "fill",
+      "promptRu": "Мы идём в гости ___ бабушке.",
+      "uz": "Biz buvimnikiga mehmonga boryapmiz.",
+      "options": [
+        "к",
+        "у",
+        "от"
+      ],
+      "answer": "к",
+      "explainUz": "Kimnikiga borish — к + дательный: к ба́бушке."
+    },
+    {
+      "id": "ep06-037",
+      "type": "choice",
+      "promptRu": "я",
+      "uz": "men",
+      "askUz": "«Kimga?» — to'g'ri olmoshni tanlang",
+      "options": [
+        "мне",
+        "меня",
+        "я"
+      ],
+      "answer": "мне",
+      "explainUz": "я → мне: дай мне, мне 20 лет.",
+      "isException": true
+    },
+    {
+      "id": "ep06-038",
+      "type": "choice",
+      "promptRu": "она",
+      "uz": "u (qiz)",
+      "askUz": "«Kimga?» — to'g'ri olmoshni tanlang",
+      "options": [
+        "ей",
+        "её",
+        "она"
+      ],
+      "answer": "ей",
+      "explainUz": "она → ей: звоню́ ей.",
+      "isException": true
+    },
+    {
+      "id": "ep06-039",
+      "type": "choice",
+      "promptRu": "они",
+      "uz": "ular",
+      "askUz": "«Kimga?» — to'g'ri olmoshni tanlang",
+      "options": [
+        "им",
+        "их",
+        "они"
+      ],
+      "answer": "им",
+      "explainUz": "они → им: помога́ю им.",
+      "isException": true
+    },
+    {
+      "id": "ep06-040",
+      "type": "choice",
+      "promptRu": "вы",
+      "uz": "siz(lar)",
+      "askUz": "«Kimga?» — to'g'ri olmoshni tanlang",
+      "options": [
+        "вам",
+        "вас",
+        "вы"
+      ],
+      "answer": "вам",
+      "explainUz": "вы → вам: жела́ю вам сча́стья."
+    },
+    {
+      "id": "ep06-041",
+      "type": "order",
+      "promptRu": "Menga 20 yosh",
+      "uz": "Menga 20 yosh",
+      "tokens": [
+        "Мне",
+        "20",
+        "лет"
+      ],
+      "answer": "Мне 20 лет",
+      "explainUz": "Yosh — дательный: Мне 20 лет.",
+      "isException": true
+    },
+    {
+      "id": "ep06-042",
+      "type": "order",
+      "promptRu": "Men do'stimga qo'ng'iroq qilyapman",
+      "uz": "Men do'stimga qo'ng'iroq qilyapman",
+      "tokens": [
+        "Я",
+        "звоню",
+        "другу"
+      ],
+      "answer": "Я звоню другу",
+      "explainUz": "Kimga? → -у: Я звоню другу."
+    },
+    {
+      "id": "ep06-043",
+      "type": "order",
+      "promptRu": "Biz shifokor oldiga ketyapmiz",
+      "uz": "Biz shifokor oldiga ketyapmiz",
+      "tokens": [
+        "Мы",
+        "идём",
+        "к",
+        "врачу"
+      ],
+      "answer": "Мы идём к врачу",
+      "explainUz": "Harakat kim tomonga — к + дательный: Мы идём к врачу.",
+      "isException": true
+    },
+    {
+      "id": "ep06-044",
+      "type": "order",
+      "promptRu": "U oyisiga yordam beradi",
+      "uz": "U oyisiga yordam beradi",
+      "tokens": [
+        "Он",
+        "помогает",
+        "маме"
+      ],
+      "answer": "Он помогает маме",
+      "explainUz": "Помогать + дательный: Он помогает маме."
+    },
+    {
+      "id": "ep06-045",
+      "type": "fill",
+      "promptRu": "___ 30 лет. (я)",
+      "uz": "Men 30 yoshdaman.",
+      "options": [
+        "Мне",
+        "Меня",
+        "Я"
+      ],
+      "answer": "Мне",
+      "explainUz": "Yosh — дательный: мне 30 лет.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-046",
+      "type": "fill",
+      "promptRu": "Сколько ___ лет? (он)",
+      "uz": "U necha yoshda?",
+      "options": [
+        "ему",
+        "его",
+        "он"
+      ],
+      "answer": "ему",
+      "explainUz": "он → ему: сколько ему лет?",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-047",
+      "type": "fill",
+      "promptRu": "Я иду ___ врачу.",
+      "uz": "Men shifokor oldiga ketyapman.",
+      "options": [
+        "к",
+        "у",
+        "в"
+      ],
+      "answer": "к",
+      "explainUz": "Harakat — к + дательный: иду к врачу.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-048",
+      "type": "fill",
+      "promptRu": "Мы были ___ врача.",
+      "uz": "Biz shifokornikida bo'ldik.",
+      "options": [
+        "у",
+        "к",
+        "в"
+      ],
+      "answer": "у",
+      "explainUz": "Bo'lish — у + родительный: были у врача.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-049",
+      "type": "fill",
+      "promptRu": "Ему 21 ___ .",
+      "uz": "U 21 yoshda.",
+      "options": [
+        "год",
+        "года",
+        "лет"
+      ],
+      "answer": "год",
+      "explainUz": "Oxiri 1 — год.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-050",
+      "type": "fill",
+      "promptRu": "Ей 24 ___ .",
+      "uz": "U (qiz) 24 yoshda.",
+      "options": [
+        "года",
+        "год",
+        "лет"
+      ],
+      "answer": "года",
+      "explainUz": "Oxiri 2–4 — го́да.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-051",
+      "type": "fill",
+      "promptRu": "Мне 13 ___ .",
+      "uz": "Men 13 yoshdaman.",
+      "options": [
+        "лет",
+        "год",
+        "года"
+      ],
+      "answer": "лет",
+      "explainUz": "Istisno! 11–14 — har doim лет.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-052",
+      "type": "sort",
+      "promptRu": "мать",
+      "uz": "ona",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-и",
+      "explainUz": "Istisno: мать → матери.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-053",
+      "type": "sort",
+      "promptRu": "Мария",
+      "uz": "Mariya",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-и",
+      "explainUz": "Istisno: -ия → -ии, звоню Марии.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-054",
+      "type": "sort",
+      "promptRu": "дедушка",
+      "uz": "bobo",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "Istisno: -а qolipi, дарю дедушке.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-055",
+      "type": "sort",
+      "promptRu": "папа",
+      "uz": "ota",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "Istisno: -а qolipi, помогаю папе.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-056",
+      "type": "choice",
+      "promptRu": "ты",
+      "uz": "sen",
+      "askUz": "«Kimga?» — to'g'ri olmoshni tanlang",
+      "options": [
+        "тебе",
+        "тебя",
+        "ты"
+      ],
+      "answer": "тебе",
+      "explainUz": "ты → тебе: тебе 18 лет.",
+      "isException": true,
+      "isBoss": true
+    },
+    {
+      "id": "ep06-057",
+      "type": "sort",
+      "promptRu": "брат",
+      "uz": "aka, uka",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Erkak rod → -у: бра́ту.",
+      "isBoss": true
+    },
+    {
+      "id": "ep06-058",
+      "type": "sort",
+      "promptRu": "мама",
+      "uz": "oyi",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-е",
+      "explainUz": "-а → -е: ма́ме.",
+      "isBoss": true
+    },
+    {
+      "id": "ep06-059",
+      "type": "sort",
+      "promptRu": "врач",
+      "uz": "shifokor",
+      "askUz": "«Kimga?» — дательный kelishikda qaysi oxirni oladi?",
+      "options": [
+        "-у/-ю",
+        "-е",
+        "-и"
+      ],
+      "answer": "-у/-ю",
+      "explainUz": "Erkak rod → -у: врачу.",
+      "isBoss": true
+    },
+    {
+      "id": "ep06-060",
+      "type": "fill",
+      "promptRu": "Я дарю цветы ___ (бабушка).",
+      "uz": "Men buvimga gul sovg'a qilyapman.",
+      "options": [
+        "бабушке",
+        "бабушка",
+        "бабушку"
+      ],
+      "answer": "бабушке",
+      "explainUz": "-а → -е: ба́бушке.",
+      "isBoss": true
+    },
+    {
+      "id": "ep06-061",
+      "type": "fill",
+      "promptRu": "Он звонит ___ (друг).",
+      "uz": "U do'stiga qo'ng'iroq qilyapti.",
+      "options": [
+        "другу",
+        "друг",
+        "друга"
+      ],
+      "answer": "другу",
+      "explainUz": "Erkak rod → -у: дру́гу.",
+      "isBoss": true
+    },
+    {
+      "id": "ep06-062",
+      "type": "choice",
+      "promptRu": "мы",
+      "uz": "biz",
+      "askUz": "«Kimga?» — to'g'ri olmoshni tanlang",
+      "options": [
+        "нам",
+        "нас",
+        "мы"
+      ],
+      "answer": "нам",
+      "explainUz": "мы → нам: нам ве́село.",
+      "isBoss": true
+    },
+    {
+      "id": "ep06-063",
+      "type": "fill",
+      "promptRu": "Она пишет письмо ___ (сестра).",
+      "uz": "U singlisiga xat yozyapti.",
+      "options": [
+        "сестре",
+        "сестра",
+        "сестру"
+      ],
+      "answer": "сестре",
+      "explainUz": "-а → -е: сестре́.",
+      "isBoss": true
+    }
+  ]
+}
