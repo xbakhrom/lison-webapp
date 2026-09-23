@@ -10,6 +10,7 @@ import {
   type AdaptiveState,
   type Difficulty,
 } from '../grammarAdaptive'
+import { plural } from '../format'
 import type { GrammarAnswer, GrammarGameResult, GrammarQuestion, GrammarTopicDetail } from '../types'
 import { GrammarKahootGame } from './GrammarKahootGame'
 import { ErrorState, Loading } from './Loading'
@@ -291,7 +292,7 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
       <section className="grammar-topic-hero">
         <div className="grammar-topic-icon" aria-hidden="true">{topic.icon}</div>
         <div>
-          <span>{topic.level} · {topic.lesson.length} шага</span>
+          <span>{topic.level} · {topic.lesson.length} {plural(topic.lesson.length, 'шаг', 'шага', 'шагов')}</span>
           <h1>{topic.title}</h1>
           <p>{topic.summary}</p>
         </div>
@@ -307,7 +308,7 @@ export function GrammarTopicPage({ slug, review, onDone }: Props) {
         {([1, 2, 3] as Difficulty[]).map((difficulty, index) => (
           <div className={`level-${difficulty}`} key={difficulty}>
             <b>{difficulty}</b>
-            <span><strong>{grammarDifficulty[difficulty].label}</strong><small>{gameCounts[index]} заданий в банке</small></span>
+            <span><strong>{grammarDifficulty[difficulty].label}</strong><small>{gameCounts[index]} {plural(gameCounts[index], 'задание', 'задания', 'заданий')} в банке</small></span>
           </div>
         ))}
       </section>
